@@ -43,6 +43,12 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
+
+    <div class="mb-6 grid grid-cols-2 text-center gap-4">
+        <div class="border rounded p-2">Login com Google</div>
+        <div class="border rounded p-2">Login com Facebook</div>
+    </div>
+
     <form wire:submit="register">
         <!-- Name -->
         <div>

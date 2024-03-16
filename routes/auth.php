@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use Livewire\Volt\Volt;
 
 Route::middleware('guest')->group(function () {
@@ -16,6 +18,27 @@ Route::middleware('guest')->group(function () {
 
     Volt::route('reset-password/{token}', 'pages.auth.reset-password')
         ->name('password.reset');
+
+    Route::get('/auth/{provider}/redirect', function (string $provider) {
+        return Socialite::driver($provider)->redirect();
+    });
+
+    Route::get('/auth/{provider}/callback', function (string $provider) {
+        $providerUser = Socialite::driver($provider)->stateless()->user();
+
+        $user = User::updateOrCreate([
+            'email' => $providerUser->email,
+        ], [
+            'name' => $providerUser->name,
+            'provider' => $provider,
+            'provider_id' => $providerUser->id,
+            'role' => 'manager',
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->route('welcome');
+    });
 });
 
 Route::middleware('auth')->group(function () {
