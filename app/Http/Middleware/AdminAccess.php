@@ -11,11 +11,8 @@ class AdminAccess
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if(! in_array(Auth::user()->role->value, ['manager', 'superadmin']))
-            return abort(403, 'Acesso negado');
-
-        if(! Auth::user()->active)
-            return abort(403, 'Usuário desativado');
+        if(Auth::user()->role->value !== 'admin')
+            return redirect('/gestao');
 
         return $next($request);
     }
