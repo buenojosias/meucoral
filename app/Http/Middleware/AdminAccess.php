@@ -12,7 +12,7 @@ class AdminAccess
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::user()->role->value !== 'admin')
-            return redirect('/gestao');
+            return redirect('/');
 
         return $next($request);
     }

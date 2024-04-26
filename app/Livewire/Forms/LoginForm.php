@@ -22,7 +22,7 @@ class LoginForm extends Form
     public bool $remember = false;
 
     #[Validate('string')]
-    public string $role = 'manager';
+    public string $role = 'admin';
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -33,7 +33,7 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password', 'role']), $this->remember)) {
+        if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

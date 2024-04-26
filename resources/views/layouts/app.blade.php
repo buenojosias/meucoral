@@ -17,9 +17,9 @@
 <body class="font-sans antialiased bg-background-default" x-data="{ sidebar: false }">
     <div class="page">
         <div class="backdrop" x-show="sidebar" x-on:click="sidebar = false" x-transition></div>
-        <div class="sidebar" :class="sidebar ? '' : '-translate-x-full md:translate-x-0'">
+        <div class="sidebar" :class="sidebar ? '' : '-translate-x-full sm:translate-x-0'">
             <div class="px-2">
-                <x-application-logo-full class="h-7 w-auto fill-white" />
+                <x-application-logo-full class="h-7 w-auto fill-current text-white" />
             </div>
             @include('layouts.sidebar')
         </div>
@@ -33,8 +33,10 @@
                         {{ $title ?? 'Coralize' }}
                     </div>
                 </div>
-                <div class="">
-                    <x-ts-avatar sm :model="auth()->user()" color="fff" />
+                <div class="relative">
+                    @livewire('layout.header-dropdown')
+                    {{-- @include('livewire.header-dropdown') --}}
+                    {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
                 </div>
             </header>
             <div class="content">
