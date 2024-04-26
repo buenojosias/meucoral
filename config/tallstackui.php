@@ -60,7 +60,7 @@ return [
         |----------------------------------
         | Allowed: heroicons, phosphoricons, google.
         */
-        'type' => 'heroicons',
+        'type' => 'phosphoricons',
 
         /*
         |----------------------------------
@@ -72,7 +72,7 @@ return [
         | Phosphoricons: thin, light, regular, bold, duotone
         | Google: default
         */
-        'style' => 'outline',
+        'style' => 'regular',
 
         /*
         |----------------------------------

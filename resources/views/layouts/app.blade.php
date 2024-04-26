@@ -27,7 +27,7 @@
             <header>
                 <div class="flex items-center gap-3">
                     <button class="sm:hidden">
-                        <x-ts-icon name="bars-3" class="h-6 w-6" x-on:click="sidebar = !sidebar" />
+                        <x-ts-icon name="list" class="h-6 w-6" x-on:click="sidebar = !sidebar" />
                     </button>
                     <div class="page-title">
                         {{ $title ?? 'Coralize' }}
