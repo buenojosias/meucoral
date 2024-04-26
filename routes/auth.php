@@ -7,16 +7,16 @@ use Laravel\Socialite\Facades\Socialite;
 use Livewire\Volt\Volt;
 
 Route::middleware('guest')->group(function () {
-    Volt::route('register', 'pages.auth.register')
+    Volt::route('/auth/register', 'pages.auth.register')
         ->name('register');
 
-    Volt::route('login', 'pages.auth.login')
+    Volt::route('/auth/login', 'pages.auth.login')
         ->name('login');
 
-    Volt::route('forgot-password', 'pages.auth.forgot-password')
+    Volt::route('/auth/forgot-password', 'pages.auth.forgot-password')
         ->name('password.request');
 
-    Volt::route('reset-password/{token}', 'pages.auth.reset-password')
+    Volt::route('/auth/reset-password/{token}', 'pages.auth.reset-password')
         ->name('password.reset');
 
     Route::get('/auth/{provider}/redirect', function (string $provider) {
