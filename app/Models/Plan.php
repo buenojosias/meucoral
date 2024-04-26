@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Package extends Model
+class Plan extends Model
 {
     use HasFactory;
 
@@ -20,12 +20,11 @@ class Package extends Model
     {
         return [
             'resources' => 'array',
-            // 'price' => 'decimal'
         ];
     }
 
-    public function users(): BelongsToMany
+    public function users(): HasMany
     {
-        return $this->belongsToMany(User::class)->withPivot(['cost_change','final_cost','comment']);
+        return $this->hasMany(User::class);
     }
 }

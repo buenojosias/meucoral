@@ -35,7 +35,7 @@ Route::middleware('guest')->group(function () {
             'role' => 'manager',
         ]);
 
-        Auth::login($user);
+        Auth::login($user, $remember = true);
 
         return redirect()->route('welcome');
     });

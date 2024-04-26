@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Package;
+use App\Models\Plan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -11,22 +12,37 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
+        User::factory()->create([
+            'plan_id' => null,
+            'name' => 'Administrador',
+            'email' => 'admin@coralize.com.br',
+            'role' => 'admin',
+        ]);
+
         $users = User::factory(6)->create([
             'role' => 'manager'
         ]);
 
-        $users->each(function ($user) {
-            $package = Package::find(rand(1, 3));
-            if($package->id > 1) {
-                $discount = $package->price * rand(0, 10) / 100;
-            } else {
-                $discount = 0;
+        $users->each(
+            function ($user) {
+                if ($user->plan_id > 1) {
+                    $payment_cycle = \Arr::random(['Mensal', 'Anual']);
+                    $last_payment = Carbon::now()->subDays(rand(0, 20));
+                    $next_payment = $payment_cycle === 'Mensal' ? $last_payment . '+ 1 month' : $last_payment . '+ 1 year';
+                } else {
+                    $payment_cycle = null;
+                }
+                $data = [
+                    'plan_cost' => $user->plan->price,
+                    'payment_cycle' => $payment_cycle,
+                    'discount' => $payment_cycle === 'Anual' ? ($user->plan->price * 2) : 0,
+                    'final_cost' => $payment_cycle === 'Anual' ? ($user->plan->price * 10) : $user->plan->price,
+                    'last_payment' => $last_payment ?? null,
+                    'next_payment' => $next_payment ?? null,
+                    'status' => 'Ativo'
+                ];
+                $user->config()->create($data);
             }
-
-            $user->packages()->attach($package->id, [
-                'cost_change' => $discount,
-                'final_cost' => $package->price - $discount,
-            ]);
-        });
+        );
     }
 }
