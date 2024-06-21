@@ -4,13 +4,9 @@ use App\Livewire\Actions\Logout;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    /**
-     * Log the current user out of the application.
-     */
     public function logout(Logout $logout): void
     {
         $logout();
-
         $this->redirect('/', navigate: true);
     }
 }; ?>
@@ -31,13 +27,9 @@ new class extends Component {
             </x-slot>
 
             <x-slot name="content">
-                <x-dropdown-link :href="route('profile')" wire:navigate>
-                    {{ __('Profile') }}
-                </x-dropdown-link>
+                <x-dropdown-link :href="route('profile')" wire:navigate>Perfil</x-dropdown-link>
                 <button wire:click="logout" class="w-full text-start">
-                    <x-dropdown-link>
-                        {{ __('Log Out') }}
-                    </x-dropdown-link>
+                    <x-dropdown-link>Sair</x-dropdown-link>
                 </button>
             </x-slot>
         </x-dropdown>

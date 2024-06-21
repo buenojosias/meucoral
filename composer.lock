@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62ff82048658f7a57aaec150c1e696b3",
+    "content-hash": "43a83aad5d57054732aee0e08d2bc464",
     "packages": [
         {
             "name": "brick/math",
@@ -6063,16 +6063,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.24.5",
+            "version": "v1.30.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "3f125a41d0d9cc8d1bad53e4f192ac4353ff9d68"
+                "reference": "d60dba6799c6400866960a5c921a97033513708c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/3f125a41d0d9cc8d1bad53e4f192ac4353ff9d68",
-                "reference": "3f125a41d0d9cc8d1bad53e4f192ac4353ff9d68",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/d60dba6799c6400866960a5c921a97033513708c",
+                "reference": "d60dba6799c6400866960a5c921a97033513708c",
                 "shasum": ""
             },
             "require": {
@@ -6116,7 +6116,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.24.5"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.30.2"
             },
             "funding": [
                 {
@@ -6124,7 +6124,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-22T20:47:22+00:00"
+            "time": "2024-06-16T02:13:38+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -7055,6 +7055,65 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2024-03-20T20:09:31+00:00"
+        },
+        {
+            "name": "lucascudo/laravel-pt-br-localization",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucascudo/laravel-pt-BR-localization.git",
+                "reference": "60c28db1d959f3d8b2c842393dc6eabb5d6e2fe5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucascudo/laravel-pt-BR-localization/zipball/60c28db1d959f3d8b2c842393dc6eabb5d6e2fe5",
+                "reference": "60c28db1d959f3d8b2c842393dc6eabb5d6e2fe5",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lucascudo\\LaravelPtBRLocalization\\LaravelPtBRLocalizationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lucascudo\\LaravelPtBRLocalization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cascudo",
+                    "email": "lucas.sisau@gmail.com"
+                }
+            ],
+            "description": "Arquivos de linguagem em Português do Brasil (pt-BR) para Laravel",
+            "homepage": "https://github.com/lucascudo/laravel-pt-br-localization",
+            "support": {
+                "issues": "https://github.com/lucascudo/laravel-pt-BR-localization/issues",
+                "source": "https://github.com/lucascudo/laravel-pt-BR-localization/tree/v2.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://buymeacoffee.com/lucasrocha",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/lucascudo",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/lucascudo/laravel-pt-br-localization",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-05-09T13:57:11+00:00"
         },
         {
             "name": "maximebf/debugbar",

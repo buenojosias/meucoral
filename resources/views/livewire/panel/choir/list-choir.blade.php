@@ -1,3 +1,3 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <x-ts-button text="Adicionar coral" lg />
 </div>
