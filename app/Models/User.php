@@ -43,6 +43,12 @@ class User extends Authenticatable
         ];
     }
 
+
+    public function choirs(): HasMany
+    {
+        return $this->hasMany(Choir::class);
+    }
+
     public function plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);

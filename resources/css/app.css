@@ -9,7 +9,7 @@
     @apply fixed z-50 sm:relative h-full w-[80%] sm:w-60 overflow-y-auto transition-transform px-2 py-6 bg-primary-700;
 }
 .nav-item > a, .nav-item > button {
-    @apply text-base font-normal rounded py-1.5 px-2 items-center flex w-full transition duration-75;
+    @apply text-base font-normal rounded py-2 px-2 items-center flex w-full transition duration-75;
 }
 .nav-subitem > a, .nav-subitem > button {
     @apply text-sm font-normal rounded ml-6 py-1 px-2 flex transition hover:bg-primary-800/40;
