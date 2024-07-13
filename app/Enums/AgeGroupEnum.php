@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum AgeGroupEnum
+enum AgeGroupEnum: string
 {
     case INFANTIL = 'Infantil';
     case INFANTOJUVENIL = 'Infanto-juvenil';

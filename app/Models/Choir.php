@@ -4,14 +4,20 @@ namespace App\Models;
 
 use App\Enums\AgeGroupEnum;
 use App\Enums\ChoirCategoryEnum;
+use App\Models\Scopes\UserScope;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[ScopedBy(UserScope::class)]
 class Choir extends Model
 {
     use HasFactory;
+
+    use SoftDeletes;
 
     protected $fillable = [
         'user_id',

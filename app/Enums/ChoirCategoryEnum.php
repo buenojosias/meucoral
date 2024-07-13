@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum ChoirCategoryEnum
+enum ChoirCategoryEnum: string
 {
     case ESCOLAR = 'Escolar';
     case CATOLICO = 'Católico';
