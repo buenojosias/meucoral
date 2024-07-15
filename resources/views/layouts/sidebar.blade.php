@@ -1,7 +1,9 @@
 @if (request()->routeIs('panel*') || request()->routeIs('home'))
-    <ul class="mt-8 space-y-1">
+    <ul class="my-2 space-y-1">
         <x-side-link label="Página inicial" icon="house-simple" :href="route('home')" :active="request()->routeIs('home')" wire:navigate />
-        <x-side-link label="Coralistas" icon="users" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
+        @for ($i = 0; $i <= 10; $i++)
+            <x-side-link label="Coralistas" icon="users" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
+        @endfor
         <x-side-link label="Músicas" icon="music-notes" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Meus corais" icon="users-four" :href="route('panel.choirs.index')" :active="request()->routeIs('panel.choirs*')" wire:navigate />
     </ul>
@@ -11,7 +13,7 @@
         </ul>
     @endif
 @elseif (request()->routeIs('admin*'))
-    <ul class="mt-8 space-y-1">
+    <ul class="mt-4 space-y-1">
         <x-side-link label="Dashboard master" icon="house-simple" :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" wire:navigate />
         <x-side-link label="Usuários" icon="users" :href="route('admin.dashboard')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Corais" icon="users-four" :href="route('panel.choirs.index')" :active="request()->routeIs('panel.choirs*')" wire:navigate />
