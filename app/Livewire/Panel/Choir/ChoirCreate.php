@@ -6,10 +6,14 @@ use App\Livewire\Forms\ChoirForm;
 use App\Livewire\Forms\ChoirProfileForm;
 use App\Models\City;
 use App\Models\State;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ChoirCreate extends Component
 {
+    use WithFileUploads;
+
     public ChoirForm $form;
     public ChoirProfileForm $profile;
 
@@ -18,6 +22,8 @@ class ChoirCreate extends Component
 
     public $state_id;
 
+    #[Validate('image|max:1024')]
+    public $logo;
 
     public function mount()
     {
@@ -33,9 +39,19 @@ class ChoirCreate extends Component
     {
         $this->validate();
 
+        if($this->logo) {
+            $this->profile->logo = str_replace('logos/', '', $this->logo->store(path: 'logos'));
+        }
+
         try {
-            $choir = auth()->user()->choirs()->create($this->form->all());
+            $user = auth()->user();
+            $choir = $user->choirs()->create($this->form->all());
             $choir->profile()->create($this->profile->all());
+            $user->selected_choir_id = $choir->id;
+            $user->selected_choir_name = $choir->name;
+            $user->save();
+            session()->flash('success', 'Coral adicionado com sucesso.');
+            $this->redirectRoute('panel.choirs.show', $choir, navigate: true);
         } catch (\Throwable $th) {
             dd($th);
         }

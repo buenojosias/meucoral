@@ -1,43 +1,54 @@
 <div>
+    <x-ts-toast />
     <div class="header">
         <div>
             <h1>Meus corais</h1>
-            <h2>Exibindo corais</h2>
         </div>
         @if ($choirs)
             <div>
-                <x-ts-button text="Adicionar coral" :href="route('panel.choirs.create')" wire:navigate lg />
+                <x-ts-button text="Adicionar coral" :href="route('panel.choirs.create')" wire:navigate />
             </div>
         @endif
     </div>
 
-    @if ($choirs)
+    @if ($choirs && $choirs->count())
         <div class="space-y-4">
             @foreach ($choirs as $choir)
                 <x-ts-card>
-                    {{ $choir->name }} <br>
-                    999 coralistas
+                    <div class="flex items-center gap-3">
+                        @if (@$choir->profile->logo)
+                            <img src="{{ route('files.logo', $choir->profile->logo) }}"
+                                class="object-cover w-16 h-16 rounded" alt="{{ $choir->name }}">
+                        @endif
+                        <div class="flex-1">
+                            <x-ts-link :href="route('panel.choirs.show', $choir)" :text="$choir->name" wire:navigate />
+                            <br>
+                            999 coralistas
+                        </div>
+                        @if ($choir->id === auth()->user()->selected_choir_id)
+                            <x-ts-badge text="Selecionado" color="secondary" light />
+                        @else
+                            <x-ts-button text="Selecionar" wire:click="selectChoir({{ $choir->id }})" loading="selectChoir" sm outline />
+                        @endif
+                    </div>
                 </x-ts-card>
             @endforeach
         </div>
     @else
-        <div class="max-w-4xl mx-auto px-10 py-4 ">
+        <div class="max-w-4xl mx-auto px-10 py-4">
             <div class="flex flex-col justify-center py-12 items-center">
                 <div class="flex justify-center items-center">
                     <img class="w-64 h-64"
-                        src="https://res.cloudinary.com/daqsjyrgg/image/upload/v1690257804/jjqw2hfv0t6karxdeq1s.svg"
-                        alt="image empty states">
+                        src="{{ asset('illustrations/empty.svg') }}"
+                        alt="Sem registros">
                 </div>
                 <h1 class="text-gray-700 font-medium text-2xl text-center mb-3">Adicione seu primeiro coral.</h1>
-                <p class="text-gray-500 text-center mb-6">Project are the backbones of time entry categorization in your
-                    workspace.</p>
+                <p class="text-gray-500 text-center mb-6">O coralistas, músicas, eventos e demais registros são vinculados aos corais que você adicionar.</p>
                 <div class="flex flex-col justify-center">
-                    <x-ts-button text="Adicionar coral" outline />
+                    <x-ts-button text="Adicionar coral" :href="route('panel.choirs.create')" wire:navigate outline />
                     <a href="#" class="underline mt-4 text-sm font-light mx-auto">Learn more</a>
                 </div>
             </div>
         </div>
     @endif
-
-
 </div>

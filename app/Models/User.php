@@ -26,6 +26,8 @@ class User extends Authenticatable
         'role',
         'active',
         'indicated_by',
+        'selected_choir_id',
+        'selected_choir_name'
     ];
 
     protected $hidden = [
@@ -47,6 +49,11 @@ class User extends Authenticatable
     public function choirs(): HasMany
     {
         return $this->hasMany(Choir::class);
+    }
+
+    public function selectedChoir()
+    {
+        return $this->belongsTo(Choir::class, 'selected_choir_id');
     }
 
     public function plan(): BelongsTo

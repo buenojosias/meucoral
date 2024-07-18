@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\AgeGroupEnum;
 use App\Enums\ChoirCategoryEnum;
 use App\Models\Scopes\UserScope;
+use App\Traits\DeleteChoir;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Choir extends Model
 {
     use HasFactory;
+
+    use DeleteChoir;
 
     use SoftDeletes;
 

@@ -1,9 +1,12 @@
 @if (request()->routeIs('panel*') || request()->routeIs('home'))
+    @if (auth()->user()->selected_choir_id)
+        <div class="mt-2 mb-4 text-white/70 text-sm">
+            {{ auth()->user()->selected_choir_name }}
+        </div>
+    @endif
     <ul class="my-2 space-y-1">
         <x-side-link label="Página inicial" icon="house-simple" :href="route('home')" :active="request()->routeIs('home')" wire:navigate />
-        @for ($i = 0; $i <= 10; $i++)
-            <x-side-link label="Coralistas" icon="users" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
-        @endfor
+        <x-side-link label="Coralistas" icon="users" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Músicas" icon="music-notes" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Meus corais" icon="users-four" :href="route('panel.choirs.index')" :active="request()->routeIs('panel.choirs*')" wire:navigate />
     </ul>

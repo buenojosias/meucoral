@@ -1,6 +1,6 @@
 @auth
     <x-app-layout>
-        @livewire('admin.dashboard')
+        @livewire('panel.dashboard')
     </x-app-layout>
 @else
     @include('public.landing')

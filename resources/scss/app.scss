@@ -43,9 +43,9 @@ body {
 }
 
 header {
-    @apply w-full flex justify-between items-center h-16 sticky top-0 px-4 bg-gray-50 shadow;
+    @apply w-full flex justify-between items-center z-50 h-14 sticky top-0 px-4 bg-gray-50 shadow;
     .page-title {
-        @apply sm:ml-2 text-gray-800 text-lg font-medium;
+        @apply sm:ml-2 text-gray-800 font-medium;
     }
 }
 
@@ -56,7 +56,7 @@ main {
     @apply px-4 sm:px-6 py-6;
 }
 .header {
-    @apply mb-6 flex flex-col sm:flex-row justify-between gap-4;
+    @apply mb-6 flex flex-col sm:flex-row justify-between items-center gap-4;
     h1 {
         @apply text-2xl font-semibold tracking-tight text-gray-800;
     }
@@ -70,7 +70,7 @@ main {
 }
 
 .two-columns {
-    @apply mb-4 lg:grid grid-cols-3 gap-6 space-y-4 lg:space-y-0;
+    @apply lg:grid grid-cols-3 gap-6 space-y-4 lg:space-y-0;
     > div {
         @apply first:space-y-2 last:col-span-2;
     }
@@ -81,6 +81,21 @@ main {
         @apply text-sm text-gray-700;
     }
 }
+
+.detail {
+    @apply space-y-4;
+    div {
+        @apply flex justify-between items-center;
+    }
+    dt {
+        @apply text-sm font-semibold text-copy-light;
+    }
+    dd {
+        @apply font-semibold text-copy-default;
+    }
+}
+
+
 
 /* Estilos básicos para a barra de rolagem */
 .custom-scrollbar {

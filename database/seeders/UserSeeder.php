@@ -19,7 +19,14 @@ class UserSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        $users = User::factory(6)->create([
+        User::factory()->create([
+            'plan_id' => 3,
+            'name' => 'Josias Bueno',
+            'email' => 'josias@email.com',
+            'role' => 'manager',
+        ]);
+
+        $users = User::factory(2)->create([
             'role' => 'manager'
         ]);
 

@@ -31,21 +31,23 @@
             </div>
         </div>
         <main>
-            {{-- <header>
+            <header>
                 <div class="flex items-center gap-3">
                     <button class="sm:hidden">
                         <x-ts-icon name="list" class="h-6 w-6" x-on:click="sidebar = !sidebar" />
                     </button>
-                    <div class="page-title">
-                        {{ $title ?? 'Coralize' }}
-                    </div>
+                    @if (auth()->user()->selected_choir_id && !request()->routeIs(['*home*', '*choirs*']))
+                        <div class="page-title">
+                            {{ auth()->user()->selected_choir_name }}
+                        </div>
+                    @endif
                 </div>
                 <div class="relative">
-                    @livewire('layout.header-dropdown')
-                    @include('livewire.header-dropdown')
+                    {{-- @livewire('layout.header-dropdown') --}}
+                    {{-- @include('livewire.header-dropdown') --}}
                     <x-ts-avatar sm :model="auth()->user()" color="fff" />
                 </div>
-            </header> --}}
+            </header>
             <div class="content">
                 {{ $slot }}
             </div>
