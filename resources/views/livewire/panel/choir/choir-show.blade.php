@@ -1,11 +1,16 @@
 <div class="space-y-6">
+    <x-ts-toast />
     @if ($choir->id === auth()->user()->selected_choir_id && !$choir->trashed())
-        <x-ts-banner text="Este coral está selecionado para interação." color="secondary" />
+        @slot('banner')
+            <x-ts-banner text="Este coral está selecionado para interação." color="secondary" close />
+        @endslot
     @endif
     @if ($choir->trashed())
-        <x-ts-banner text="Este coral foi excluído. Clique em Editar para restaurá-lo." color="red" />
+        @slot('banner')
+            <x-ts-banner text="Este coral foi excluído. Clique em Editar para restaurá-lo." color="secondary" close />
+        @endslot
     @endif
-    <div class="md:px-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+    <div class="md:px-2 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
         @if ($choir->profile->logo)
             <div class="choir-logo">
                 <img src="{{ route('files.logo', $choir->profile->logo) }}" class="object-cover w-20 h-20 rounded"

@@ -6,15 +6,21 @@ use App\Models\Choir;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class ListChoir extends Component
+class ChoirIndex extends Component
 {
     use Interactions;
 
+    public $withTrashed = false;
+
     public function render()
     {
-        $choirs = Choir::with('profile')->get();
+        $choirs = Choir::with('profile')
+            ->when($this->withTrashed, function($query) {
+                $query->withTrashed()->orderBy('deleted_at');
+            })
+            ->get();
 
-        return view('livewire.panel.choir.list-choir', compact('choirs'))
+        return view('livewire.panel.choir.choir-index', compact('choirs'))
             ->title('Meus corais');
     }
 

@@ -25,7 +25,13 @@ class ChoirEdit extends Component
     public function delete()
     {
         $this->choir->delete();
-        $this->toast()->success('Solicitação de exclusão do coral realizadas com sucesso.')->send();
+        $user = auth()->user();
+        if($user->selected_choir_id === $this->choir->id) {
+            $user->selected_choir_id = null;
+            $user->save();
+        }
+        $this->toast()->success('Solicitação de exclusão do coral realizadas com sucesso.')->flash()->send();
+        return $this->redirectRoute('panel.choirs.index', navigate: true);
     }
 
     public function restore()
@@ -42,7 +48,7 @@ class ChoirEdit extends Component
             ->flash()
             ->send();
 
-        return $this->redirect(route('panel.choirs.index'));
+        return $this->redirectRoute('panel.choirs.index', navigate: true);
     }
 
     // public function resetSelected()

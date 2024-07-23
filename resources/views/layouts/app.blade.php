@@ -14,6 +14,9 @@
 </head>
 
 <body class="" x-data="{ sidebar: false }">
+    @if (isset($banner))
+        {{ $banner }}
+    @endif
     <div class="page">
         <div class="backdrop" x-show="sidebar" x-on:click="sidebar = false" x-transition></div>
         <div class="sidebar" :class="sidebar ? '' : '-translate-x-full sm:translate-x-0'">

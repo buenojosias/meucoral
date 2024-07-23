@@ -17,6 +17,8 @@ class ChoirCreate extends Component
     public ChoirForm $form;
     public ChoirProfileForm $profile;
 
+    public $canCreate;
+
     public $states = [];
     public $cities = [];
 
@@ -27,7 +29,33 @@ class ChoirCreate extends Component
 
     public function mount()
     {
+        $this->canCreate = $this->canCreateChoir();
         $this->states = State::all();
+    }
+
+    public function render()
+    {
+        return view('livewire.panel.choir.choir-create')
+            ->title('Cadastrar coral');
+    }
+
+    public function canCreateChoir()
+    {
+        $user = auth()->user();
+
+        if ($user->plan_id >= 3)
+            return true;
+
+        $choirs_count = $user->choirs()->withTrashed()->count();
+        $this->form->multigroup = false;
+
+        if ($user->plan_id === 2 && $choirs_count < 3)
+            return true;
+
+        if ($user->plan_id === 1 && $choirs_count < 1)
+            return true;
+
+        return false;
     }
 
     public function updatedStateId()
@@ -39,7 +67,7 @@ class ChoirCreate extends Component
     {
         $this->validate();
 
-        if($this->logo) {
+        if ($this->logo) {
             $this->profile->logo = str_replace('logos/', '', $this->logo->store(path: 'logos'));
         }
 
@@ -55,11 +83,5 @@ class ChoirCreate extends Component
         } catch (\Throwable $th) {
             dd($th);
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.panel.choir.choir-create')
-            ->title('Cadastrar coral');
     }
 }
