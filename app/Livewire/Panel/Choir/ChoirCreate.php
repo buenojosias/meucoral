@@ -24,7 +24,7 @@ class ChoirCreate extends Component
 
     public $state_id;
 
-    #[Validate('image|max:1024')]
+    #[Validate('nullable|image|max:1024')]
     public $logo;
 
     public function mount()
@@ -78,7 +78,7 @@ class ChoirCreate extends Component
             $user->selected_choir_id = $choir->id;
             $user->selected_choir_name = $choir->name;
             $user->save();
-            session()->flash('success', 'Coral adicionado com sucesso.');
+            session()->flash('status', 'Coral adicionado com sucesso.');
             $this->redirectRoute('panel.choirs.show', $choir, navigate: true);
         } catch (\Throwable $th) {
             dd($th);

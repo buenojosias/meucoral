@@ -19,7 +19,8 @@ class ChoirEdit extends Component
 
     public function render()
     {
-        return view('livewire.panel.choir.choir-edit');
+        return view('livewire.panel.choir.choir-edit')
+            ->title('Editar coral');
     }
 
     public function delete()
@@ -30,7 +31,7 @@ class ChoirEdit extends Component
             $user->selected_choir_id = null;
             $user->save();
         }
-        $this->toast()->success('Solicitação de exclusão do coral realizadas com sucesso.')->flash()->send();
+        session()->flash('status', 'Solicitação de exclusão do coral realizadas com sucesso.');
         return $this->redirectRoute('panel.choirs.index', navigate: true);
     }
 
@@ -43,10 +44,7 @@ class ChoirEdit extends Component
     public function deletePermanently()
     {
         $this->choir->forceDelete();
-        $this->toast()
-            ->success('O coral foi deletado permanentemente.')
-            ->flash()
-            ->send();
+        session()->flash('status', 'O coral foi deletado permanentemente.');
 
         return $this->redirectRoute('panel.choirs.index', navigate: true);
     }

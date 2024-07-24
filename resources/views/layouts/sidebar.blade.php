@@ -6,6 +6,7 @@
     @endif
     <ul class="my-2 space-y-1">
         <x-side-link label="Página inicial" icon="house-simple" :href="route('home')" :active="request()->routeIs('home')" wire:navigate />
+        <x-side-link label="Grupos" icon="users-three" :href="route('panel.groups.index')" :active="request()->routeIs('panel.groups*')" wire:navigate />
         <x-side-link label="Coralistas" icon="users" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Músicas" icon="music-notes" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Meus corais" icon="users-four" :href="route('panel.choirs.index')" :active="request()->routeIs('panel.choirs*')" wire:navigate />

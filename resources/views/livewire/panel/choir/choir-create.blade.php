@@ -3,6 +3,7 @@
         <h1>Cadastrar coral</h1>
     </div>
     @if ($canCreate)
+        <x-ts-errors />
         <x-ts-card>
             <form id="form-create" wire:submit="save">
                 <div class="two-columns">

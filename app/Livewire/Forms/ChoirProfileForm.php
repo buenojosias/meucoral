@@ -14,10 +14,10 @@ class ChoirProfileForm extends Form
     public $city_id = '';
 
     #[Validate('nullable|string', as: 'instituição')]
-    public $institution = '';
+    public $institution;
 
     #[Validate('nullable|string', as: 'descrição')]
-    public $description = '';
+    public $description;
 
     // #[Validate('image|max:1024')]
     public $logo;
