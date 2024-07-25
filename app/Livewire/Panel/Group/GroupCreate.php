@@ -57,7 +57,7 @@ class GroupCreate extends Component
 
     public function isMultigroup($user)
     {
-        $choir = $user->choirs()->find($this->selectedChoirId)->firstOrFail();
+        $choir = $user->choirs()->findOrFail($this->selectedChoirId);
         return $choir->multigroup;
     }
 

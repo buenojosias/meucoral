@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
             PlanSeeder::class,
             UserSeeder::class,
             ChoirSeeder::class,
+            GroupSeeder::class,
+            ChoristerSeeder::class,
         ]);
     }
 }

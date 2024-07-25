@@ -61,4 +61,9 @@ class Choir extends Model
     {
         return $this->hasMany(Group::class);
     }
+
+    public function choristers(): HasMany
+    {
+        return $this->hasMany(Chorister::class);
+    }
 }
