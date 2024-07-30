@@ -35,6 +35,15 @@ class Group extends Model
         ];
     }
 
+    protected $appends = ['description'];
+
+    public function getDescriptionAttribute()
+    {
+        $weekdayLabel = WeekdayEnum::from($this->attributes['encounter_weekday'])->label();
+        $timeFormatted = date('H:i', strtotime($this->attributes['encounter_time']));
+        return "{$weekdayLabel}, {$timeFormatted}";
+    }
+
     public function choir(): BelongsTo
     {
         return $this->belongsTo(Choir::class);

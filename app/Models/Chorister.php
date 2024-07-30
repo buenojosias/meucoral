@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ChoristerEnum;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,6 +30,13 @@ class Chorister extends Model
             'registration_date' => 'date',
             'status' => ChoristerEnum::class,
         ];
+    }
+
+    protected $appends = ['age'];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birth_date'])->age;
     }
 
     public function choir(): BelongsTo

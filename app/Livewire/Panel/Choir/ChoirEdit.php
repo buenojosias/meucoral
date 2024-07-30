@@ -32,7 +32,7 @@ class ChoirEdit extends Component
             $user->save();
         }
         session()->flash('status', 'Solicitação de exclusão do coral realizadas com sucesso.');
-        return $this->redirectRoute('panel.choirs.index', navigate: true);
+        return $this->redirectRoute('panel.choirs.index', navigate: false);
     }
 
     public function restore()
@@ -46,7 +46,7 @@ class ChoirEdit extends Component
         $this->choir->forceDelete();
         session()->flash('status', 'O coral foi deletado permanentemente.');
 
-        return $this->redirectRoute('panel.choirs.index', navigate: true);
+        return $this->redirectRoute('panel.choirs.index', navigate: false);
     }
 
     // public function resetSelected()

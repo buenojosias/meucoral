@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class="" x-data="{ sidebar: false }">
+<body x-data="{ sidebar: false }">
     @if (isset($banner))
         {{ $banner }}
     @endif
@@ -39,11 +39,7 @@
                     <button class="sm:hidden">
                         <x-ts-icon name="list" class="h-6 w-6" x-on:click="sidebar = !sidebar" />
                     </button>
-                    @if (auth()->user()->selected_choir_id && !request()->routeIs(['*home*', '*choirs*']))
-                        <div class="page-title">
-                            {{ auth()->user()->selected_choir_name }}
-                        </div>
-                    @endif
+                    @livewire('partials.header_choir')
                 </div>
                 <div class="relative">
                     {{-- @livewire('layout.header-dropdown') --}}

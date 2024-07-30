@@ -102,10 +102,10 @@ main {
     @apply bg-white rounded-lg overflow-x-auto;
 
     .table-header {
-        @apply px-4 py-2 flex items-center text-gray-800 font-semibold;
+        @apply px-3 py-2 flex items-center text-gray-800 font-semibold;
     }
     .table-footer {
-        @apply px-4 py-2;
+        @apply px-3 py-2;
     }
 }
 
@@ -134,7 +134,7 @@ table {
     }
 
     th, td {
-        @apply px-3 py-2 text-sm text-nowrap;
+        @apply px-3 py-2.5 text-sm text-nowrap;
     }
 }
 

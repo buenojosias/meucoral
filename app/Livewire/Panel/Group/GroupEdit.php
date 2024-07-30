@@ -51,7 +51,7 @@ class GroupEdit extends Component
     {
         $this->group->delete();
         session()->flash('status', 'Solicitação de exclusão do grupo realizadas com sucesso.');
-        return $this->redirectRoute('panel.groups.index', navigate: true);
+        return $this->redirectRoute('panel.groups.index', navigate: false);
     }
 
     public function restore()
@@ -65,6 +65,6 @@ class GroupEdit extends Component
         $this->group->forceDelete();
         session()->flash('status', 'O grupo foi deletado permanentemente.');
 
-        return $this->redirectRoute('panel.groups.index', navigate: true);
+        return $this->redirectRoute('panel.groups.index', navigate: false);
     }
 }

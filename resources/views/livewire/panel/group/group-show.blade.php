@@ -12,8 +12,8 @@
     <div class="header">
         <h1>{{ $group->name }}</h1>
     </div>
-    <div class="flex flex-col md:flex-row gap-4">
-        <x-ts-card class="detail w-full md:w-72 grid grid-cols-2 md:grid-cols-1">
+    <div class="grid md:grid-cols-3 gap-4">
+        <x-ts-card class="grid grid-cols-2 md:grid-cols-1 detail">
             <x-detail label="Dia dos ensaios" :value="$group->encounter_weekday->label()" />
             <x-detail label="Horário dos ensaios" :value="$group->encounter_time->format('H:i')" />
             <x-detail label="Idade mínima" :value="$group->min_age ?? 'Não informada'" />
@@ -23,7 +23,7 @@
                 <x-ts-button text="Editar" :href="route('panel.groups.edit', $group)" wire:navigate flat />
             </x-slot>
         </x-ts-card>
-        <div class="flex-1 space-y-4">
+        <div class="md:col-span-2 space-y-4">
             <x-ts-card>
                 Coralistas
             </x-ts-card>

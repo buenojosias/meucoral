@@ -9,7 +9,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chorister_group', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('chorister_id')->constrained()->cascadeOnDelete();
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
             $table->enum('status', ['Ativo', 'Removido'])->default('Ativo');

@@ -31,7 +31,7 @@
                 <h3>{{ $choir->profile->institution ?? '' }}</h3>
             </div>
             <div>
-                @if ($choir->id !== auth()->user()->selected_choir_id)
+                @if ($choir->id !== auth()->user()->selected_choir_id && !$choir->trashed())
                     <x-ts-button text="Selecionar" wire:click="selectChoir" loading="selectChoir" outline />
                 @endif
                 <x-ts-button text="Editar" :href="route('panel.choirs.edit', $choir)" wire:navigate flat />

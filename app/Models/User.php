@@ -7,6 +7,7 @@ use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -49,6 +50,11 @@ class User extends Authenticatable
     public function choirs(): HasMany
     {
         return $this->hasMany(Choir::class);
+    }
+
+    public function choristers(): HasManyThrough
+    {
+        return $this->hasManyThrough(Chorister::class, Choir::class);
     }
 
     public function selectedChoir()

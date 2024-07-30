@@ -33,7 +33,9 @@
             <tbody>
                 @foreach ($choristers as $chorister)
                     <tr>
-                        <td>{{ $chorister->name }}</td>
+                        <td>
+                            <x-ts-link :href="route('panel.choristers.show', $chorister)" :text="$chorister->name" navigate colorless />
+                        </td>
                         <td>{{ \Carbon\Carbon::parse($chorister->birth_date)->age }}</td>
                         <td>{{ $chorister->birth_date->format('d/m') }}</td>
                         @if (!$choirId)
@@ -42,7 +44,8 @@
                         @if ($this->multigroupPlan && $this->isMultigroup)
                             <td>
                                 @forelse ($chorister->groups as $group)
-                                    <x-ts-badge :text="$group->name" color="slate" outline />
+                                    <p class="my-0.5">{{ $group->name }}</p>
+                                    {{-- <x-ts-badge :text="$group->name" color="slate" outline /> --}}
                                 @empty
                                     Nehum grupo
                                 @endforelse
