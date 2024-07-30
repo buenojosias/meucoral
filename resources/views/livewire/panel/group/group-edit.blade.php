@@ -1,5 +1,4 @@
 <div class="space-y-6">
-    <x-ts-toast />
     <div class="header">
         <div>
             <h1>Editar grupo</h1>

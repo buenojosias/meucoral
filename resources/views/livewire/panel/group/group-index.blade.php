@@ -37,7 +37,7 @@
                 <x-ts-card>
                     <x-ts-link :text="$group->name" :href="route('panel.groups.show', $group)" wire:navigate :color="$group->trashed() ? 'neutral' : 'primary'" />
                     <br>
-                    Número de coralistas
+                    {{ $group->choristers_count }} coralistas
                 </x-ts-card>
             @empty
                 <x-empty

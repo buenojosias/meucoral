@@ -1,5 +1,4 @@
 <div>
-    <x-ts-toast />
     @if (session('status'))
         <div class="mb-4">
             <x-ts-alert :text="session('status')" color="green" light close />

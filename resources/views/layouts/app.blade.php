@@ -51,6 +51,8 @@
                     <x-ts-avatar sm :model="auth()->user()" color="fff" />
                 </div>
             </header>
+            <x-ts-toast />
+            <x-ts-dialog />
             <div class="content">
                 {{ $slot }}
             </div>

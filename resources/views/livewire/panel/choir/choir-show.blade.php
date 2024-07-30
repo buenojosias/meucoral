@@ -1,5 +1,4 @@
 <div>
-    <x-ts-toast />
     @if ($choir->id === auth()->user()->selected_choir_id && !$choir->trashed())
         @slot('banner')
             <x-ts-banner text="Este coral está selecionado para interação." color="secondary" close />

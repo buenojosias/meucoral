@@ -37,6 +37,7 @@ class GroupIndex extends Component
                 ->when($this->withTrashed, function ($query) {
                     $query->withTrashed()->orderBy('deleted_at');
                 })
+                ->withCount('choristers')
                 ->get();
 
         return view('livewire.panel.group.group-index', compact('groups'))

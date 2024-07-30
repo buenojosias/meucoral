@@ -1,5 +1,4 @@
 <div>
-    <x-ts-toast />
     <div class="header">
         <div>
             <h1>Editar coral</h1>

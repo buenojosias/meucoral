@@ -5,6 +5,7 @@ use App\Livewire\Panel\Choir\ChoirCreate;
 use App\Livewire\Panel\Choir\ChoirEdit;
 use App\Livewire\Panel\Choir\ChoirIndex;
 use App\Livewire\Panel\Choir\ChoirShow;
+use App\Livewire\Panel\Chorister\ChoristerIndex;
 use App\Livewire\Panel\Group\GroupCreate;
 use App\Livewire\Panel\Group\GroupEdit;
 use App\Livewire\Panel\Group\GroupIndex;
@@ -21,6 +22,7 @@ Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(functio
     Route::get('grupos/cadastrar', GroupCreate::class)->name('groups.create');
     Route::get('grupos/{group}/editar', GroupEdit::class)->name('groups.edit');
     Route::get('grupos/{group}', GroupShow::class)->name('groups.show');
+    Route::get('coralistas', ChoristerIndex::class)->name('choristers.index');
     // Route::get('/', function() {
     //     dump('Estou no grupo gestão');
     //     dump(\Auth::user());

@@ -1,5 +1,4 @@
 <div>
-    <x-ts-toast />
     @if ($group->trashed())
         @slot('banner')
             <x-ts-banner text="Este grupo foi excluído. Clique em Editar para restaurá-lo." color="secondary" close />
@@ -14,7 +13,7 @@
         <h1>{{ $group->name }}</h1>
     </div>
     <div class="flex flex-col md:flex-row gap-4">
-        <x-ts-card class="detail w-full md:w-64 grid grid-cols-2 md:grid-cols-1">
+        <x-ts-card class="detail w-full md:w-72 grid grid-cols-2 md:grid-cols-1">
             <x-detail label="Dia dos ensaios" :value="$group->encounter_weekday->label()" />
             <x-detail label="Horário dos ensaios" :value="$group->encounter_time->format('H:i')" />
             <x-detail label="Idade mínima" :value="$group->min_age ?? 'Não informada'" />
