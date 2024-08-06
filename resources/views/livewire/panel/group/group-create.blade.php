@@ -55,7 +55,8 @@
                 <hr class="my-4">
                 <div class="two-columns">
                     <div></div>
-                    <div class="grid sm:grid-cols-2">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <x-ts-date label="Data de início" wire:model="form.start_date" format="DD/MM/YYYY" />
                         <x-ts-select.styled label="Status" wire:model="form.status" :options="App\Enums\GroupStatusEnum::cases()" />
                     </div>
                 </div>

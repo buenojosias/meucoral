@@ -18,6 +18,10 @@
             <x-detail label="Horário dos ensaios" :value="$group->encounter_time->format('H:i')" />
             <x-detail label="Idade mínima" :value="$group->min_age ?? 'Não informada'" />
             <x-detail label="Idade máxima" :value="$group->max_age ?? 'Não informada'" />
+            <x-detail label="Data de início" :value="$group->start_date->format('d/m/Y')" />
+            @if ($group->end_date)
+                <x-detail label="Data de encerramento" :value="$group->end_date->format('d/m/Y')" />
+            @endif
             <x-detail label="Status" :value="$group->status" />
             <x-slot:footer>
                 <x-ts-button text="Editar" :href="route('panel.groups.edit', $group)" wire:navigate flat />

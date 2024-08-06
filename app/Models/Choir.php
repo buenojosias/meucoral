@@ -29,7 +29,6 @@ class Choir extends Model
         'domain',
         'age_group',
         'category',
-        'total_chorists',
         'multigroup',
         'active',
         'visible',
@@ -40,7 +39,6 @@ class Choir extends Model
         return [
             'age_group' => AgeGroupEnum::class,
             'category' => ChoirCategoryEnum::class,
-            'total_choristers' => 'integer',
             'multigroup' => 'boolean',
             'active' => 'boolean',
             'visible' => 'boolean',

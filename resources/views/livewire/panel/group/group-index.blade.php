@@ -32,12 +32,14 @@
             <x-ts-link :href="route('panel.choirs.edit', $selectedChoirId)" text="Editar coral" />
         </x-ts-card>
     @else
-        <div class="space-y-3">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             @forelse ($groups as $group)
                 <x-ts-card>
                     <x-ts-link :text="$group->name" :href="route('panel.groups.show', $group)" wire:navigate :color="$group->trashed() ? 'neutral' : 'primary'" />
-                    <br>
-                    {{ $group->choristers_count }} coralistas
+                    <p @class(['text-sm', 'text-gray-500' => $group->trashed(), 'text-gray-800' => !$group->trashed() ])>
+                        {{ $group->description }} |
+                        {{ $group->choristers_count }} coralistas
+                    </p>
                 </x-ts-card>
             @empty
                 <x-empty

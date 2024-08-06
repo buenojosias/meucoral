@@ -10,14 +10,16 @@ class ChoirIndex extends Component
 {
     use Interactions;
 
+    public ?string $status = null;
+
     public $withTrashed = false;
 
     public function render()
     {
         $choirs = Choir::with('profile')
-            ->when($this->withTrashed, function($query) {
-                $query->withTrashed()->orderBy('deleted_at');
-            })
+            ->when($this->withTrashed, fn($q) => $q->withTrashed()->orderBy('deleted_at'))
+            ->when($this->status, fn($q) => $q->where('status', $this->status))
+            ->withCount('choristers')
             ->get();
 
         return view('livewire.panel.choir.choir-index', compact('choirs'))

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->enum('encounter_weekday', WeekDayEnum::values());
             $table->time('encounter_time');
             $table->enum('status', GroupStatusEnum::values())->default('Ativo');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

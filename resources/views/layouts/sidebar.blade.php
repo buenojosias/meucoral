@@ -1,9 +1,4 @@
 @if (request()->routeIs('panel*') || request()->routeIs('home'))
-    @if (auth()->user()->selected_choir_id)
-        <div class="mt-2 mb-4 text-white/70 text-sm">
-            {{ auth()->user()->selected_choir_name }}
-        </div>
-    @endif
     <ul class="my-2 space-y-1">
         <x-side-link label="Página inicial" icon="house-simple" :href="route('home')" :active="request()->routeIs('home')" wire:navigate />
         <x-side-link label="Grupos" icon="users-three" :href="route('panel.groups.index')" :active="request()->routeIs('panel.groups*')" wire:navigate />

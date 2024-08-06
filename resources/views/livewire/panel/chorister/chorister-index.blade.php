@@ -9,35 +9,53 @@
             <h1>Coralistas</h1>
             <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" />
         </div>
-        {{-- @if ($choirs)
-            <div>
-                <x-ts-button text="Cadastrar coralista" :href="route('panel.choirs.create')" wire:navigate />
-            </div>
-        @endif --}}
+        {{-- @if ($choirs) --}}
+        <div>
+            <x-ts-button text="Cadastrar coralista" :href="route('panel.choristers.create')" wire:navigate />
+        </div>
+        {{-- @endif --}}
     </div>
 
     <div class="table-wrapper">
+        <div class="table-header justify-between">
+            <div>
+                <x-ts-input wire:model.live.debounce="search" placeholder="Pesquisar coralista"
+                    icon="magnifying-glass" />
+            </div>
+            <div>
+                {{-- <x-ts-select wire:model="choirId" :options="$choirs" placeholder="Filtrar por coral" /> --}}
+                <x-ts-select.styled wire:model.live="status" :options="\App\Enums\ChoristerStatusEnum::cases()" placeholder="Filtrar por status" />
+            </div>
+        </div>
         <table>
             <thead>
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Aniversário</th>
+                <th>Status</th>
                 @if (!$choirId)
                     <th>Coral</th>
                 @endif
                 @if ($this->multigroupPlan && $this->isMultigroup)
                     <th>Grupo(s)</th>
                 @endif
-                <th></th>
+                <th width="1"></th>
             </thead>
             <tbody>
                 @foreach ($choristers as $chorister)
-                    <tr>
+                    <tr @class(['text-gray-600' => $chorister->trashed()])>
                         <td>
                             <x-ts-link :href="route('panel.choristers.show', $chorister)" :text="$chorister->name" navigate colorless />
                         </td>
-                        <td>{{ \Carbon\Carbon::parse($chorister->birth_date)->age }}</td>
-                        <td>{{ $chorister->birth_date->format('d/m') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($chorister->birthdate)->age }}</td>
+                        <td>{{ $chorister->birthdate->format('d/m') }}</td>
+                        <td>
+                            @if ($chorister->trashed())
+                                <x-ts-badge text="Excluído(a)" color="red" outline />
+                            @else
+                                <x-ts-badge :text="$chorister->status->value" :color="$chorister->status->color()" outline />
+                            @endif
+                        </td>
                         @if (!$choirId)
                             <td>{{ $chorister->choir->name ?? '' }}</td>
                         @endif
@@ -51,7 +69,9 @@
                                 @endforelse
                             </td>
                         @endif
-                        <td></td>
+                        <td>
+                            <x-ts-link icon="pencil-simple" :href="route('panel.choristers.edit', $chorister)" navigate colorless />
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

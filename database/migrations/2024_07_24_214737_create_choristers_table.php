@@ -12,8 +12,7 @@ return new class extends Migration
             $table->id()->from(101);
             $table->foreignId('choir_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->date('birth_date');
-            $table->string('age_group')->nullable();
+            $table->date('birthdate');
             $table->date('registration_date')->nullable();
             $table->string('status')->default('Ativo(a)');
             $table->timestamps();

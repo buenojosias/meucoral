@@ -1,4 +1,4 @@
-<div>
+<div class="col-span-2">
     <div class="table-wrapper">
         <div class="table-header">
             Grupos
@@ -13,8 +13,8 @@
             <tbody>
                 @forelse ($groups as $group)
                     <tr>
-                        <td>{{ $group->name }}</td>
-                        <td>{{ $group->encounter_weekday->label() }}, {{ $group->encounter_time->format('H:i') }}</td>
+                        <td class="!text-wrap">{{ $group->name }}</td>
+                        <td class="!text-wrap">{{ $group->encounter_weekday->label() }}, {{ $group->encounter_time->format('H:i') }}</td>
                         <td>{{ $group->status !== 'Ativo' ? $group->status : $group->pivot->status }}</td>
                         <td></td>
                     </tr>

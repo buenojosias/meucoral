@@ -21,7 +21,9 @@ class Group extends Model
         'max_age',
         'encounter_weekday',
         'encounter_time',
-        'status'
+        'status',
+        'start_date',
+        'end_date'
     ];
 
     protected function casts(): array
@@ -31,7 +33,9 @@ class Group extends Model
             'max_age' => 'integer',
             'encounter_weekday' => WeekDayEnum::class,
             'encounter_time' => 'datetime',
-            'status' => GroupStatusEnum::class
+            'status' => GroupStatusEnum::class,
+            'start_date' => 'date',
+            'end_date' => 'date'
         ];
     }
 

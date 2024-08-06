@@ -19,6 +19,8 @@ class GroupFactory extends Factory
             'max_age' => rand($min_age, 70),
             'encounter_weekday' => fake()->randomElement(WeekDayEnum::cases())->value,
             'encounter_time' => fake()->time(),
+            'start_date' => fake()->date('Y-m-d', '-2 months'),
+            'end_date' => fake()->date('Y-m-d', '+2 months')
         ];
     }
 }

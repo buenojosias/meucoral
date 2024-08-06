@@ -14,7 +14,6 @@ class ChoirFactory extends Factory
             'name' => 'Coral ' . fake()->company(),
             'age_group' => fake()->randomElement(AgeGroupEnum::cases())->value,
             'category' => fake()->randomElement(ChoirCategoryEnum::cases())->value,
-            'total_choristers' => rand(1, 30),
             'active' => fake()->boolean(),
             'visible' => fake()->boolean(),
         ];

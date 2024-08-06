@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('domain', 70)->nullable()->unique();
             $table->string('age_group', 70);
             $table->string('category', 70);
-            $table->integer('total_choristers')->default(0);
             $table->boolean('multigroup')->default(false);
             $table->boolean('active')->default(true);
             $table->boolean('visible')->default(false);

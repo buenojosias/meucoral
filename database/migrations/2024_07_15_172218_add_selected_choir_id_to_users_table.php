@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('selected_choir_id')->nullable()->after('active')->constrained('choirs')->nullOnDelete();
-            $table->string('selected_choir_name')->nullable()->after('selected_choir_id');
+            $table->string('selected_choir_name')->nullable()->after('selected_choir_id')->nullOnDelete();
         });
     }
 

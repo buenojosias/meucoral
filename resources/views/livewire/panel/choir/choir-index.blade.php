@@ -17,19 +17,23 @@
     </div>
 
     @if ($choirs && $choirs->count())
-        <div class="space-y-3">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($choirs as $choir)
-                <x-ts-card>
+                <x-ts-card class="flex flex-col lg:flex-row lg:items-center">
                     <div class="flex items-center gap-3">
                         @if (@$choir->profile->logo)
                             <img src="{{ route('files.logo', $choir->profile->logo) }}"
-                                class="object-cover w-16 h-16 rounded" alt="{{ $choir->name }}">
+                                class="object-cover w-14 h-14 rounded" alt="{{ $choir->name }}">
                         @endif
                         <div class="flex-1">
                             <x-ts-link :text="$choir->name" :href="route('panel.choirs.show', $choir)" wire:navigate :color="$choir->trashed() ? 'neutral' : 'primary'" />
-                            <br>
-                            999 coralistas
+                            <p @class(['pt-1 text-sm', 'text-gray-500' => $choir->trashed(), 'text-gray-800' => !$choir->trashed() ])>
+                                {{ $choir->multigroup ? 'Multigrupo |' : '' }}
+                                {{ $choir->choristers_count }} coralistas
+                            </p>
                         </div>
+                    </div>
+                    <div class="flex justify-end pt-2">
                         @if ($choir->id === auth()->user()->selected_choir_id)
                             <x-ts-badge text="Selecionado" color="secondary" light />
                         @elseif ($choir->trashed())

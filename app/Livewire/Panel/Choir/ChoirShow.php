@@ -15,7 +15,7 @@ class ChoirShow extends Component
 
     public function mount($choir)
     {
-        $this->choir = Choir::withTrashed()->with('profile')->findOrFail($choir);
+        $this->choir = Choir::withTrashed()->with('profile')->withCount('choristers')->findOrFail($choir);
     }
 
     public function render()

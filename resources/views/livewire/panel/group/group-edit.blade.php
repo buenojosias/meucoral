@@ -44,8 +44,13 @@
             </div>
             <hr class="my-4">
             <div class="two-columns">
-                <div></div>
-                <div class="grid sm:grid-cols-2">
+                <div>
+                    <h2>Período e status</h2>
+                    <p class="description">Informe a data de início e, se houver, a data de encerramento do grupo</p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <x-ts-date label="Data de início" wire:model="form.start_date" format="DD/MM/YYYY" />
+                    <x-ts-date label="Data de encerramento" wire:model="form.end_date" format="DD/MM/YYYY" />
                     <x-ts-select.styled label="Status" wire:model="form.status" :options="App\Enums\GroupStatusEnum::cases()" />
                 </div>
             </div>

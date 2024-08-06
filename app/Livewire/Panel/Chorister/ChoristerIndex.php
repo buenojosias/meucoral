@@ -4,6 +4,7 @@ namespace App\Livewire\Panel\Chorister;
 
 use App\Models\Choir;
 use App\Models\Chorister;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,6 +16,10 @@ class ChoristerIndex extends Component
     public $multigroupPlan = false;
     public $isMultigroup = false;
     public $withTrashed = false;
+
+    #[Url]
+    public ?string $status = null;
+    public ?string $search = null;
 
     public function mount()
     {
@@ -32,9 +37,12 @@ class ChoristerIndex extends Component
     public function render()
     {
         $choristers = Chorister::query()
+            ->where('name', 'like', "%$this->search%")
+            ->when($this->status, fn($q) => $q->whereStatus($this->status))
             ->when($this->choirId, fn($q) => $q->whereChoirId($this->choirId))
             ->when(!$this->choirId, fn($q) => $q->whereHas('choir')->with('choir'))
             ->when($this->multigroupPlan && $this->isMultigroup, fn($q) => $q->with('groups'))
+            ->when($this->withTrashed, fn($q) => $q->withTrashed())
             ->orderBy('name')
             ->paginate();
 

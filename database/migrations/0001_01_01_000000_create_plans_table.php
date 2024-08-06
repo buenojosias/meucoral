@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 24);
             $table->decimal('price', 6, 2);
+            $table->json('resources');
             // $table->integer('choirs_limit')->nullable();
             // $table->integer('choiristers_limit')->nullable();
             // $table->boolean('multigroup')->default(false);

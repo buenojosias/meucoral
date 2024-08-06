@@ -13,7 +13,7 @@ class ChoristerFactory extends Factory
     {
         return [
             'name' => fake()->firstName() .' '. fake()->lastName,
-            'birth_date' => fake()->dateTimeBetween('-30 years', '-8 years'),
+            'birthdate' => fake()->dateTimeBetween('-30 years', '-8 years'),
             'registration_date' => fake()->dateTimeBetween('-2 months', 'now')
         ];
     }

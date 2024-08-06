@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\ChoristerEnum;
+use App\Enums\ChoristerStatusEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,11 +14,10 @@ class Chorister extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillabel = [
+    protected $fillable = [
         'choir_id',
         'name',
-        'birth_date',
-        'age_group',
+        'birthdate',
         'registration_date',
         'status',
     ];
@@ -26,9 +25,9 @@ class Chorister extends Model
     protected function casts(): array
     {
         return [
-            'birth_date' => 'date',
+            'birthdate' => 'date',
             'registration_date' => 'date',
-            'status' => ChoristerEnum::class,
+            'status' => ChoristerStatusEnum::class,
         ];
     }
 
@@ -36,7 +35,7 @@ class Chorister extends Model
 
     public function getAgeAttribute()
     {
-        return Carbon::parse($this->attributes['birth_date'])->age;
+        return Carbon::parse($this->attributes['birthdate'])->age;
     }
 
     public function choir(): BelongsTo

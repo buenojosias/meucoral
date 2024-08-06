@@ -41,7 +41,7 @@
             <x-detail label="Nome" :value="$choir->name" />
             <x-detail label="Faixa etária" :value="$choir->age_group" />
             <x-detail label="Categoria" :value="$choir->category" />
-            <x-detail label="Coralistas" :value="$choir->total_choristers" />
+            <x-detail label="Coralistas" :value="$choir->choristers_count" />
             <x-detail label="Multigrupo" :value="$choir->multigroup ? 'Sim' : 'Não'" />
         </x-ts-card>
 

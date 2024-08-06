@@ -30,6 +30,12 @@ class GroupForm extends Form
     #[Validate('required|string', as: 'status')]
     public $status;
 
+    #[Validate('required|date', as: 'data de início')]
+    public $start_date;
+
+    #[Validate('nullable|date|after:start_date', as: 'data de término')]
+    public $end_date;
+
     public function setGroup(Group $group)
     {
         $this->choir_id = $group->choir_id;
@@ -39,5 +45,7 @@ class GroupForm extends Form
         $this->encounter_weekday = $group->encounter_weekday->value;
         $this->encounter_time = $group->encounter_time->format('H:i');
         $this->status = $group->status->value;
+        $this->start_date = $group->start_date->format('Y-m-d');
+        $this->end_date = $group->end_date ? $group->end_date->format('Y-m-d') : null;
     }
 }
