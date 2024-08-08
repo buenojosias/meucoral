@@ -47,7 +47,7 @@
         </div>
         <div class="col-span-3 lg:col-span-2 grid md:grid-cols-2 gap-4">
             @if ($chorister->choir->multigroup)
-                @livewire('panel.chorister.partials.groups', ['chorister' => $chorister])
+                @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
             @endif
             <div>
                 <x-ts-card header="Responsáveis">

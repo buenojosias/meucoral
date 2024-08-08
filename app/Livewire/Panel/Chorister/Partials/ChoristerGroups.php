@@ -4,11 +4,12 @@ namespace App\Livewire\Panel\Chorister\Partials;
 
 use App\Models\Chorister;
 use App\Models\Group;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Groups extends Component
+class ChoristerGroups extends Component
 {
     use Interactions;
 
@@ -30,7 +31,7 @@ class Groups extends Component
     {
         $groups = $this->chorister->groups;
 
-        return view('livewire.panel.chorister.partials.groups', compact('groups'));
+        return view('livewire.panel.chorister.partials.chorister-groups', compact('groups'));
     }
 
     public function updatedModal()
@@ -58,5 +59,27 @@ class Groups extends Component
             $this->dialog()->error('Ocorreu um erro ao tentar adicionar grupo.')->send();
             \Log::error($th);
         }
+    }
+
+    // public function removeGroup($groupId)
+    // {
+    //     $this->chorister->groups()->updateExistingPivot($groupId, [
+    //         'status' => 'Removido',
+    //         'removed_at' => date('Y-m-d H:i:s')
+    //     ]);
+    //     $this->toast()->success('Grupo removido com sucesso')->send();
+    // }
+
+    // public function deleteGroup($groupId)
+    // {
+    //     $this->chorister->groups()->detach($groupId);
+    //     $this->toast()->success('Grupo removido com sucesso')->send();
+    // }
+
+    #[On('group-removed')]
+    public function groupRemoved()
+    {
+        $this->toast()->success('Grupo removido com sucesso')->send();
+        $this->render();
     }
 }

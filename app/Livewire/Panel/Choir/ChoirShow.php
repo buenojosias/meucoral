@@ -21,7 +21,7 @@ class ChoirShow extends Component
     public function render()
     {
         return view('livewire.panel.choir.choir-show')
-            ->title($this->choir->name);
+            ->title('Coral');
     }
 
     public function selectChoir()

@@ -23,6 +23,6 @@ class GroupShow extends Component
         $group = Group::where('choir_id', $choirId)->withTrashed()->findOrFail($this->groupId);
 
         return view('livewire.panel.group.group-show', compact('group'))
-            ->title($group->name);
+            ->title('Grupo');
     }
 }

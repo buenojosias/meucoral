@@ -28,7 +28,7 @@ class ChoristerShow extends Component
     public function render()
     {
         return view('livewire.panel.chorister.chorister-show')
-            ->title($this->chorister->name);
+            ->title('Coralista');
     }
 
     public function selectChoir()

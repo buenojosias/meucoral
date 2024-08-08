@@ -1,4 +1,4 @@
-<div>
+<div class="md:w-3/4 mx-auto">
     <div class="header">
         <div>
             <h1>Editar coralista</h1>

@@ -28,9 +28,9 @@
             </x-slot>
         </x-ts-card>
         <div class="md:col-span-2 space-y-4">
-            <x-ts-card>
-                Coralistas
-            </x-ts-card>
+            @if ($group->choir->multigroup)
+                @livewire('panel.group.partials.group-choristers', ['group' => $group])
+            @endif
             <x-ts-card>
                 Ensaios
             </x-ts-card>
