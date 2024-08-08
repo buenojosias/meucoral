@@ -50,7 +50,11 @@
             <x-ts-toast />
             <x-ts-dialog />
             <div class="content">
-                {{ $slot }}
+                @if (isset($slot))
+                    {{ $slot }}
+                @else
+                    @yield('slot')
+                @endif
             </div>
         </main>
     </div>
