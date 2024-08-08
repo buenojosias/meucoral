@@ -16,7 +16,7 @@ class ChoristerStatusForm extends Component
     public bool $modal = false;
 
 
-    #[Validate('required|string|in:Ativo(a),Inativo(a),Afastado(a),Desistente')]
+    #[Validate('required|string|in:Ativo,Inativo,Afastado(a),Desistente')]
     public $status;
 
     public function mount($chorister)

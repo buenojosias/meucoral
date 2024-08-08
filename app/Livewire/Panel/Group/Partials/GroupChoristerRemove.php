@@ -45,7 +45,7 @@ class GroupChoristerRemove extends Component
         if ($this->action === 'delete') {
             $removed = $this->group->choristers()->detach($this->chorister->id);
         } else if ($this->action === 'preserve') {
-            $removed = $this->group->choristers()->updateExistingPivot($this->chorister->id, ['status' => 'Removido', 'removed_at' => now()]);
+            $removed = $this->group->choristers()->updateExistingPivot($this->chorister->id, ['situation' => 'Removido', 'removed_at' => now()]);
         }
 
         if ($removed) {

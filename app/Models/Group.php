@@ -55,6 +55,11 @@ class Group extends Model
 
     public function choristers(): BelongsToMany
     {
-        return $this->belongsToMany(Chorister::class)->withPivot(['status','added_at','removed_at']);
+        return $this->belongsToMany(Chorister::class)->withPivot(['situation','added_at','removed_at']);
+    }
+
+    public function activeChoristers(): BelongsToMany
+    {
+        return $this->belongsToMany(Chorister::class)->wherePivot('situation','Ativo')->where('status','Ativo');
     }
 }

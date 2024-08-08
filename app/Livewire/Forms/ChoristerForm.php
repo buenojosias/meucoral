@@ -21,7 +21,7 @@ class ChoristerForm extends Form
     public $registration_date;
 
     #[Validate('required|string', as: 'status')]
-    public $status = 'Ativo(a)';
+    public $status = 'Ativo';
 
     public function setChorister(Chorister $chorister)
     {

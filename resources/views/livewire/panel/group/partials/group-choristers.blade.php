@@ -7,7 +7,7 @@
             <thead>
                 <th>Nome</th>
                 <th>Idade</th>
-                <th>Status</th>
+                <th>Situação</th>
                 <th width="1"></th>
             </thead>
             <tbody>
@@ -15,14 +15,14 @@
                     <tr>
                         <td class="!text-wrap">{{ $chorister->name }}</td>
                         <td>{{ $chorister->age }}</td>
-                        <td>{{ $chorister->status->value != 'Ativo(a)' ? $chorister->status : $chorister->pivot->status }}</td>
+                        <td>{{ $chorister->status->value != 'Ativo' ? $chorister->status : $chorister->pivot->situation }}</td>
                         <td>
                             <x-ts-dropdown icon="dots-three-vertical" static>
                                 <x-ts-dropdown.items text="Detalhes" />
                                 <a href="{{ route('panel.choristers.show', $chorister) }}" wire:navigate>
                                     <x-ts-dropdown.items text="Ver coralista" />
                                 </a>
-                                @if ($chorister->pivot->status === 'Ativo')
+                                @if ($chorister->pivot->situation === 'Ativo')
                                     <x-ts-dropdown.items text="Remover"
                                         x-on:click="$dispatch('load-chorister', { id: {{ $chorister->id }} })" separator />
                                 @endif

@@ -61,7 +61,7 @@
                         @endif
                         @if ($this->multigroupPlan && $this->isMultigroup)
                             <td>
-                                @forelse ($chorister->groups as $group)
+                                @forelse ($chorister->activeGroups as $group)
                                     <p class="my-0.5">{{ $group->name }}</p>
                                     {{-- <x-ts-badge :text="$group->name" color="slate" outline /> --}}
                                 @empty

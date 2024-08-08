@@ -21,10 +21,6 @@
                         alt="">
                 </div> --}}
             <x-ts-avatar :image="route('files.logo', $choir->profile->logo)" square color="transparent" lg />
-        {{-- @else
-            <div class="choir-logo">
-                <x-ts-avatar :model="$choir" color="#FFF" />
-            </div> --}}
         @endif
         <div class="flex-1">
             <h1>{{ $choir->name }}</h1>
@@ -38,8 +34,8 @@
         </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-4">
-        <div class="space-y-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
             <x-ts-card class="detail">
                 <x-detail label="Nome" :value="$choir->name" />
                 <x-detail label="Faixa etária" :value="$choir->age_group" />
@@ -50,12 +46,18 @@
             <x-ts-card header="Perfil" class="detail">
                 <x-detail label="Cidade" :value="$choir->profile->city->name . '/' . $choir->profile->city->state->abbr ?? 'Não informada'" />
                 <x-detail label="Instituição" :value="$choir->profile->institution ?? 'Não informada'" />
-                <x-detail label="Descrição" :value="$choir->profile->description ?? 'Não informada'" />
             </x-ts-card>
         </div>
 
-        <div>
-            Seção 2
+        <div class="lg:col-span-2 space-y-4">
+            <x-ts-card header="Descrição">
+                <p>{{ $choir->profile->description ?? 'Nenhuma descrição adicionada' }}</p>
+            </x-ts-card>
+
+            @if ($choir->multigroup)
+                @livewire('panel.choir.partials.choir-groups', ['choir' => $choir])
+            @endif
+
         </div>
     </div>
 </div>

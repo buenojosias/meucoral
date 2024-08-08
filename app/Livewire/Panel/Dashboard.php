@@ -16,7 +16,7 @@ class Dashboard extends Component
     public function mount()
     {
         $this->planId = auth()->user()->plan_id;
-        $this->choristersCount = auth()->user()->choristers()->whereStatus('Ativo(a)')->count();
+        $this->choristersCount = auth()->user()->choristers()->whereStatus('Ativo')->count();
         $this->choirsCount = Choir::count();
         if ($this->planId) {
             $this->groupsCount = auth()->user()->groups()->whereStatus('Ativo')->count();

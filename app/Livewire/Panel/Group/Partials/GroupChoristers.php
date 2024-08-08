@@ -38,7 +38,7 @@ class GroupChoristers extends Component
     {
         if ($this->modal = true) {
             $this->choirChoristers = Chorister::where('choir_id', $this->group->choir_id)
-                ->whereStatus('ativo(a)')->whereDoesntHave('groups', function ($q) {
+                ->whereStatus('Ativo')->whereDoesntHave('groups', function ($q) {
                     $q->whereId($this->group->id);
                 })
                 ->orderBy('name')

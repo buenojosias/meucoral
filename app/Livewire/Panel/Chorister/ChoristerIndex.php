@@ -41,7 +41,7 @@ class ChoristerIndex extends Component
             ->when($this->status, fn($q) => $q->whereStatus($this->status))
             ->when($this->choirId, fn($q) => $q->whereChoirId($this->choirId))
             ->when(!$this->choirId, fn($q) => $q->whereHas('choir')->with('choir'))
-            ->when($this->multigroupPlan && $this->isMultigroup, fn($q) => $q->with('groups'))
+            ->when($this->multigroupPlan && $this->isMultigroup, fn($q) => $q->with('activeGroups'))
             ->when($this->withTrashed, fn($q) => $q->withTrashed())
             ->orderBy('name')
             ->paginate();

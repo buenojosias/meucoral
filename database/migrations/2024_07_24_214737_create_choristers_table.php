@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('birthdate');
             $table->date('registration_date')->nullable();
-            $table->string('status')->default('Ativo(a)');
+            $table->string('status')->default('Ativo');
             $table->timestamps();
             $table->softDeletes();
         });

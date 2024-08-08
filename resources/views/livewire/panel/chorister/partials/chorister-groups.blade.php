@@ -16,7 +16,7 @@
                         <td class="!text-wrap">{{ $group->name }}</td>
                         <td class="!text-wrap">{{ $group->encounter_weekday->label() }},
                             {{ $group->encounter_time->format('H:i') }}</td>
-                        <td>{{ $group->status->value != 'Ativo' ? $group->status : $group->pivot->status }}</td>
+                        <td>{{ $group->status->value != 'Ativo' ? $group->status : $group->pivot->situation }}</td>
                         <td>
                             @if ($chorister->choir_id === auth()->user()->selected_choir_id)
                                 <x-ts-dropdown icon="dots-three-vertical" static>
@@ -24,7 +24,7 @@
                                     <a href="{{ route('panel.groups.show', $group) }}" wire:navigate>
                                         <x-ts-dropdown.items text="Ver grupo" />
                                     </a>
-                                    @if ($group->pivot->status === 'Ativo')
+                                    @if ($group->pivot->situation === 'Ativo')
                                         <x-ts-dropdown.items text="Remover"
                                             x-on:click="$dispatch('load-group', { id: {{ $group->id }} })"
                                             separator />

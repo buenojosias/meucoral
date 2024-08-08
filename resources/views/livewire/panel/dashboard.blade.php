@@ -1,9 +1,9 @@
 <div>
     <div class="mb-6 grid grid-cols-2 md:grid-cols-3 gap-4">
         <x-ts-stats title="Coralistas ativos" icon="users" :number="$choristersCount" :href="route('panel.choristers.index')" animated />
-        <x-ts-stats title="Corais" icon="users-four" color="purple" :number="$choirsCount" :href="route('panel.choirs.index')" animated />
+        <x-ts-stats title="Corais" icon="users-four" color="purple" :number="$choirsCount" :href="route('panel.choirs.index')" />
         @if ($planId >= 3)
-            <x-ts-stats title="Grupos" icon="users-three" color="amber" :number="$groupsCount" :href="route('panel.groups.index')" animated />
+            <x-ts-stats title="Grupos" icon="users-three" color="amber" :number="$groupsCount" :href="route('panel.groups.index')" />
         @endif
     </div>
     @if (auth()->user()->selected_choir_id)

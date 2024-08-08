@@ -21,7 +21,7 @@ class ChoristerEdit extends Component
     public function render()
     {
         return view('livewire.panel.chorister.chorister-edit')
-            ->title('Edita coralista');
+            ->title('Editar coralista');
     }
 
     public function delete()

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('chorister_group', function (Blueprint $table) {
             $table->foreignId('chorister_id')->constrained()->cascadeOnDelete();
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
-            $table->enum('status', ['Ativo', 'Removido'])->default('Ativo');
+            $table->enum('situation', ['Ativo', 'Removido'])->default('Ativo');
             $table->dateTime('added_at');
             $table->dateTime('removed_at')->nullable();
         });

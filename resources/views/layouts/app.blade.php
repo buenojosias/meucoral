@@ -44,7 +44,8 @@
                 <div class="relative">
                     {{-- @livewire('layout.header-dropdown') --}}
                     {{-- @include('livewire.header-dropdown') --}}
-                    <x-ts-avatar sm :model="auth()->user()" color="fff" />
+                    {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
+                    <small class="text-gray-800">v. beta 1.0</small>
                 </div>
             </header>
             <x-ts-toast />
