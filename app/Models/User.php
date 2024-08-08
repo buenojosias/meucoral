@@ -57,6 +57,11 @@ class User extends Authenticatable
         return $this->hasManyThrough(Chorister::class, Choir::class);
     }
 
+    public function groups(): HasManyThrough
+    {
+        return $this->hasManyThrough(Group::class, Choir::class);
+    }
+
     public function selectedChoir()
     {
         return $this->belongsTo(Choir::class, 'selected_choir_id');

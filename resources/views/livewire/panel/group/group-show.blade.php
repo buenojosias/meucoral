@@ -13,20 +13,22 @@
         <h1>{{ $group->name }}</h1>
     </div>
     <div class="grid md:grid-cols-3 gap-4">
-        <x-ts-card class="grid grid-cols-2 md:grid-cols-1 detail">
-            <x-detail label="Dia dos ensaios" :value="$group->encounter_weekday->label()" />
-            <x-detail label="Horário dos ensaios" :value="$group->encounter_time->format('H:i')" />
-            <x-detail label="Idade mínima" :value="$group->min_age ?? 'Não informada'" />
-            <x-detail label="Idade máxima" :value="$group->max_age ?? 'Não informada'" />
-            <x-detail label="Data de início" :value="$group->start_date->format('d/m/Y')" />
-            @if ($group->end_date)
-                <x-detail label="Data de encerramento" :value="$group->end_date->format('d/m/Y')" />
-            @endif
-            <x-detail label="Status" :value="$group->status" />
-            <x-slot:footer>
-                <x-ts-button text="Editar" :href="route('panel.groups.edit', $group)" wire:navigate flat />
-            </x-slot>
-        </x-ts-card>
+        <div>
+            <x-ts-card class="grid grid-cols-2 md:grid-cols-1 detail">
+                <x-detail label="Dia dos ensaios" :value="$group->encounter_weekday->label()" />
+                <x-detail label="Horário dos ensaios" :value="$group->encounter_time->format('H:i')" />
+                <x-detail label="Idade mínima" :value="$group->min_age ?? 'Não informada'" />
+                <x-detail label="Idade máxima" :value="$group->max_age ?? 'Não informada'" />
+                <x-detail label="Data de início" :value="$group->start_date->format('d/m/Y')" />
+                @if ($group->end_date)
+                    <x-detail label="Data de encerramento" :value="$group->end_date->format('d/m/Y')" />
+                @endif
+                <x-detail label="Status" :value="$group->status" />
+                <x-slot:footer>
+                    <x-ts-button text="Editar" :href="route('panel.groups.edit', $group)" wire:navigate flat />
+                </x-slot>
+            </x-ts-card>
+        </div>
         <div class="md:col-span-2 space-y-4">
             @if ($group->choir->multigroup)
                 @livewire('panel.group.partials.group-choristers', ['group' => $group])

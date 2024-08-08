@@ -17,9 +17,9 @@
     </div>
 
     @if ($choirs && $choirs->count())
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid lg:grid-cols-2 gap-4">
             @foreach ($choirs as $choir)
-                <x-ts-card class="flex flex-col lg:flex-row lg:items-center">
+                <x-ts-card class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-center gap-3">
                         @if (@$choir->profile->logo)
                             <img src="{{ route('files.logo', $choir->profile->logo) }}"
