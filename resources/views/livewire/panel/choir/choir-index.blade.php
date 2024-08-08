@@ -22,12 +22,17 @@
                 <x-ts-card class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-center gap-3">
                         @if (@$choir->profile->logo)
-                            <img src="{{ route('files.logo', $choir->profile->logo) }}"
-                                class="object-cover w-14 h-14 rounded" alt="{{ $choir->name }}">
+                            {{-- <img src="{{ route('files.logo', $choir->profile->logo) }}"
+                                class="object-cover w-14 h-14 rounded" alt="{{ $choir->name }}"> --}}
+                            <x-ts-avatar :image="route('files.logo', $choir->profile->logo)" color="transparent" lg />
                         @endif
                         <div class="flex-1">
                             <x-ts-link :text="$choir->name" :href="route('panel.choirs.show', $choir)" wire:navigate :color="$choir->trashed() ? 'neutral' : 'primary'" />
-                            <p @class(['pt-1 text-sm', 'text-gray-500' => $choir->trashed(), 'text-gray-800' => !$choir->trashed() ])>
+                            <p @class([
+                                'pt-1 text-sm',
+                                'text-gray-500' => $choir->trashed(),
+                                'text-gray-800' => !$choir->trashed(),
+                            ])>
                                 {{ $choir->multigroup ? 'Multigrupo |' : '' }}
                                 {{ $choir->choristers_count }} coralistas
                             </p>

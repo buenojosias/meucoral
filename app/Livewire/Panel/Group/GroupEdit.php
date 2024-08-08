@@ -12,6 +12,7 @@ class GroupEdit extends Component
 {
     use Interactions;
 
+    public $canGroup = false;
     public $group;
 
     public $weekDays = [];
@@ -20,6 +21,10 @@ class GroupEdit extends Component
 
     public function mount($group)
     {
+        $this->canGroup = auth()->user()->plan_id >= 3;
+        if(!$this->canGroup)
+            return;
+
         $choirId = auth()->user()->selected_choir_id;
         $this->group = Group::where('choir_id', $choirId)->withTrashed()->findOrFail($this->group);
         $this->form->setGroup($this->group);

@@ -10,10 +10,12 @@ class GroupShow extends Component
 {
     use Interactions;
 
+    public $canGroup = false;
     public $groupId;
 
     public function mount($group)
     {
+        $this->canGroup = auth()->user()->plan_id >= 3;
         $this->groupId = $group;
     }
 
