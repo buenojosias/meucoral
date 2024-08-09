@@ -13,8 +13,9 @@ return new class extends Migration
             $table->foreignId('chorister_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('kinship');
+            $table->string('whatsapp', 15)->nullable();
             $table->date('birthdate')->nullable();
-            $table->string('profession')->nullable();
+            $table->string('profession', 50)->nullable();
             $table->boolean('is_singer')->default(false);
             $table->boolean('is_instrumentalist')->default(false);
             $table->timestamps();

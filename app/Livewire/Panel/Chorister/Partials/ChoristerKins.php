@@ -58,7 +58,6 @@ class ChoristerKins extends Component
             ->confirm('Confirmar', 'confirmRemove')
             ->cancel('Cancelar')
             ->send();
-        // $this->dialog('Deseja realmente remover o responsável?', 'confirmRemove')->send();
     }
 
     public function confirmRemove()

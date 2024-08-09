@@ -15,4 +15,9 @@ enum KinshipEnum: string
     case PADRINHO = 'Padrinho';
     case MADRINHA = 'Matrinha';
     case OUTRO = 'Outro';
+
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }

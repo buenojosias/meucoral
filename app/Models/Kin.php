@@ -16,6 +16,7 @@ class Kin extends Model
         'name',
         'kinship',
         'birthdate',
+        'whatsapp',
         'profession',
         'is_singer',
         'is_instrumentalist',

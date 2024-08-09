@@ -18,6 +18,9 @@ class KinForm extends Form
     #[Validate('required|string', as: 'grau de parentesco')]
     public $kinship;
 
+    #[Validate('required|string', as: 'WhatsApp')]
+    public $whatsapp = "";
+
     #[Validate('nullable|date|before:today', as: 'data de nascimento')]
     public $birthdate;
 
@@ -35,6 +38,7 @@ class KinForm extends Form
         $this->chorister_id = $kin->chorister_id;
         $this->name = $kin->name;
         $this->kinship = $kin->kinship;
+        $this->whatsapp = $kin->whatsapp;
         $this->birthdate = $kin->birthdate ? $kin->birthdate->format('Y-m-d') : null;
         $this->profession = $kin->profession;
         $this->is_singer = $kin->is_singer;
