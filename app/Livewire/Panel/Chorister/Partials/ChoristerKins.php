@@ -20,6 +20,7 @@ class ChoristerKins extends Component
     public function mount($chorister)
     {
         $this->chorister = $chorister;
+
         $this->kin = $this->chorister->kins()->first();
         if($this->kin)
             $this->form->setKin($this->kin);
@@ -27,6 +28,12 @@ class ChoristerKins extends Component
     public function render()
     {
         return view('livewire.panel.chorister.partials.chorister-kins');
+    }
+
+    public function updatedModal()
+    {
+        if($this->kin)
+            $this->form->setKin($this->kin);
     }
 
     public function submit()
@@ -63,7 +70,8 @@ class ChoristerKins extends Component
     public function confirmRemove()
     {
         if($this->kin->delete()) {
-            $this->kin = null;
+            // $this->kin = null;
+            $this->reset('kin');
             $this->form->reset();
             $this->toast()->success('Responsável removido com sucesso.')->send();
         } else {

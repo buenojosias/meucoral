@@ -45,7 +45,7 @@
                 <x-detail label="Data da inscrição" :value="$chorister->registration_date->format('d/m/Y')" />
             </x-ts-card>
         </div>
-        <div class="col-span-3 lg:col-span-2 grid md:grid-cols-2 gap-4">
+        <div class="col-span-3 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
             @if ($chorister->choir->multigroup)
                 @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
             @endif
@@ -55,9 +55,7 @@
                 </div>
             @endif
             <div>
-                <x-ts-card header="Contatos">
-                    Contatos...
-                </x-ts-card>
+                @livewire('panel.chorister.partials.chorister-address', ['chorister' => $chorister])
             </div>
         </div>
     </div>
