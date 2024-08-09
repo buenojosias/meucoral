@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Livewire\Volt\Volt;
 
+Route::redirect('/login', '/auth/login')->name('login');
+
 Route::middleware('guest')->name('auth.')->group(function () {
     Volt::route('/auth/cadastro', 'pages.auth.register')
         ->name('register');

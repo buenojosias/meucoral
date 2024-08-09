@@ -32,13 +32,12 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Sobre</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Recursos</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Planos</a>
                 </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="{{ route('auth.login') }}" class="text-sm font-semibold leading-6 text-gray-900">Login <span
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
+                    <a href="{{ route('auth.login') }}" class="text-sm font-semibold leading-6 text-gray-900">Entrar <span
                             aria-hidden="true">&rarr;</span></a>
                 </div>
             </nav>
@@ -66,18 +65,15 @@
                         <div class="-my-6 divide-y divide-gray-500/10">
                             <div class="space-y-2 py-6">
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sobre</a>
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Recursos</a>
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Planos</a>
                             </div>
                             <div class="py-6">
                                 <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                                    in</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Entrar</a>
                             </div>
                         </div>
                     </div>
@@ -96,9 +92,9 @@
                 <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                     <div
                         class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                        Announcing our next round of funding. <a href="#"
+                        Faça parte do grupo de beta testers gratuitamente. <a href="#"
                             class="font-semibold text-primary-600"><span class="absolute inset-0"
-                                aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                                aria-hidden="true"></span>Saiba mais <span aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
                 <div class="text-center">
@@ -108,10 +104,9 @@
                         informações e atividades de seu coral.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
                         <a href="{{ route('auth.register') }}"
-                            class="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Get
-                            started</a>
-                        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span
-                                aria-hidden="true">→</span></a>
+                            class="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Criar conta</a>
+                        {{-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Saiba mais<span
+                                aria-hidden="true">→</span></a> --}}
                     </div>
                 </div>
             </div>

@@ -20,12 +20,12 @@ class PlanSeeder extends Seeder
                 'price' => 0,
             ],
             [
-                'name' => 'Básico',
+                'name' => 'Essencial',
                 'resources' => ['Até 3 corais', 'Até 100 coralistas', 'Ensaios', 'Chamada', 'Repertório dos eventos', 'Participação nos eventos', 'Fila de espera'],
                 'price' => 25,
             ],
             [
-                'name' => 'Intermediário',
+                'name' => 'Premium',
                 'resources' => ['Corais ilimitados', 'Coralistas ilimitados', 'Grupos', 'Planejamento de ensaio', 'Classificação vocal', 'Avaliações', 'Músicas com letras', 'Categorias das músicas', 'Músicas por data comemorativa'],
                 'price' => 35,
             ],

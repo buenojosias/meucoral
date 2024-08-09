@@ -27,6 +27,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    {{-- <!-- Login com redes sociais -->
     <div class="mb-6 grid grid-cols-2 text-center gap-4">
         <div class="border rounded p-2">
             <a href="/auth/google/redirect">Login com Google</a>
@@ -34,7 +35,7 @@ new #[Layout('layouts.guest')] class extends Component {
         <div class="border rounded p-2">
             <a href="/auth/facebook/redirect">Login com Facebook</a>
         </div>
-    </div>
+    </div> --}}
 
     <form wire:submit="login">
         <!-- Email Address -->

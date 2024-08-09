@@ -45,7 +45,7 @@
                     {{-- @livewire('layout.header-dropdown') --}}
                     {{-- @include('livewire.header-dropdown') --}}
                     {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
-                    <small class="text-gray-800">v. beta 1.0</small>
+                    <small class="text-gray-800">v. 0.1 (beta)</small>
                 </div>
             </header>
             <x-ts-toast />

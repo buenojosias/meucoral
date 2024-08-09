@@ -49,11 +49,11 @@
             @if ($chorister->choir->multigroup)
                 @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
             @endif
-            <div>
-                <x-ts-card header="Responsáveis">
-                    Responsáveis
-                </x-ts-card>
-            </div>
+            @if ($chorister->age < 18)
+                <div>
+                    @livewire('panel.chorister.partials.chorister-kins', ['chorister' => $chorister])
+                </div>
+            @endif
             <div>
                 <x-ts-card header="Contatos">
                     Contatos...
