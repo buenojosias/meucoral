@@ -33,7 +33,7 @@
         @endif
     </div>
     <div class="grid lg:grid-cols-3 gap-4">
-        <div class="col-span-3 lg:col-span-1">
+        <div class="col-span-3 lg:col-span-1 space-y-4">
             <x-ts-card class="grid grid-cols-2 lg:grid-cols-1 detail">
                 <x-detail label="Nome completo" :value="$chorister->name" />
                 <x-detail label="Data de nascimento" :value="$chorister->birthdate->format('d/m/Y')" />
@@ -44,17 +44,16 @@
                 <x-detail label="Status" :value="$chorister->status" />
                 <x-detail label="Data da inscrição" :value="$chorister->registration_date->format('d/m/Y')" />
             </x-ts-card>
+            @livewire('panel.partials.contact-list', ['model' => $chorister])
         </div>
-        <div class="col-span-3 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-            @if ($chorister->choir->multigroup)
-                @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
-            @endif
-            @if ($chorister->age < 18)
-                <div>
+        <div class="col-span-3 lg:col-span-2">
+            <div class="grid grid-cols-2 gap-4">
+                @if ($chorister->choir->multigroup)
+                    @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
+                @endif
+                @if ($chorister->age < 18)
                     @livewire('panel.chorister.partials.chorister-kins', ['chorister' => $chorister])
-                </div>
-            @endif
-            <div>
+                @endif
                 @livewire('panel.chorister.partials.chorister-address', ['chorister' => $chorister])
             </div>
         </div>

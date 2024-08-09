@@ -1,4 +1,4 @@
-<div>
+<div class="col-span-2 sm:col-span-1">
     <x-ts-card header="Responsável">
         @if ($kin)
             <div x-data="{ all: false }" class="space-y-4">
@@ -20,14 +20,18 @@
                     </x-ts-button>
                 </div>
             </div>
-            <x-slot:footer>
-                <x-ts-button text="Remover" wire:click="remove" color="red" flat />
-                <x-ts-button text="Editar" wire:click="$toggle('modal')" flat />
-            </x-slot>
+            @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+                <x-slot:footer>
+                    <x-ts-button text="Remover" wire:click="remove" color="red" flat />
+                    <x-ts-button text="Editar" wire:click="$toggle('modal')" flat />
+                </x-slot>
+            @endif
         @else
             <div class="py-6 text-center text-sm">
                 <p>Nenhum responsável adicionado.</p>
-                <x-ts-button text="Adicionar responsável" wire:click="$toggle('modal')" flat />
+                @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+                    <x-ts-button text="Adicionar responsável" wire:click="$toggle('modal')" flat />
+                @endif
             </div>
         @endif
     </x-ts-card>

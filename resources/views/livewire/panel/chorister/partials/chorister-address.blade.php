@@ -1,4 +1,4 @@
-<div>
+<div class="col-span-2 sm:col-span-1">
     <x-ts-card header="Endereço">
         @if ($address)
             <div class="detail">
@@ -7,14 +7,18 @@
                 <x-detail label="Bairro" :value="$address->district" />
                 <x-detail label="Cidade" :value="$address->city->name" />
             </div>
-            <x-slot:footer>
-                <x-ts-button text="Remover" wire:click="remove" color="red" flat />
-                <x-ts-button text="Editar" wire:click="$toggle('modal')" flat />
-            </x-slot>
+            @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+                <x-slot:footer>
+                    <x-ts-button text="Remover" wire:click="remove" color="red" flat />
+                    <x-ts-button text="Editar" wire:click="$toggle('modal')" flat />
+                </x-slot>
+            @endif
         @else
             <div class="py-6 text-center text-sm">
                 <p>Endereço não informado.</p>
-                <x-ts-button text="Adicionar endereço" wire:click="$toggle('modal')" flat />
+                @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+                    <x-ts-button text="Adicionar endereço" wire:click="$toggle('modal')" flat />
+                @endif
             </div>
         @endif
     </x-ts-card>
@@ -27,7 +31,8 @@
                 </div>
                 <x-ts-input label="Complemento" wire:model="form.complement" />
                 <x-ts-input label="Bairro *" wire:model="form.district" />
-                <x-ts-select.native label="Cidade *" wire:model="form.city_id" :options="$cities" select="label:name|value:id" />
+                <x-ts-select.native label="Cidade *" wire:model="form.city_id" :options="$cities"
+                    select="label:name|value:id" />
             </div>
             <x-slot:footer>
                 <x-ts-button text="Cancelar" wire:click="$toggle('modal')" flat />
