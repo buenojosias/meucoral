@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('build/assets/app-BR8N8xFH.css') }}">
     <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
     {{-- @vite(['resources/css/landing.css', 'resources/js/app.js']) --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body class="antialiased font-sans">

@@ -53,7 +53,7 @@
         </div>
     @else
         <x-empty title="Adicione seu primeiro coral."
-            description="O coralistas, músicas, eventos e demais registros são
+            description="Coralistas, músicas, eventos e demais registros são
                     vinculados aos corais que você adicionar."
             btnLabel="Adicionar coral" :btnLink="route('panel.choirs.create')" />
     @endif

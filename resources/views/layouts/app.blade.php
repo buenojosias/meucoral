@@ -8,6 +8,7 @@
     <title>{{ @$title ? @$title . ' - ' : '' }} {{ config('app.name', 'Coralize') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <tallstackui:script />
     @livewireStyles
     <link rel="stylesheet" href="{{ asset('build/assets/app-C2Y70_6M.css') }}">

@@ -8,7 +8,7 @@
         <p class="text-gray-500 text-center mb-6">{{ $description }}</p>
         <div class="flex flex-col justify-center">
             <x-ts-button :text="$btnLabel" :href="$btnLink" wire:navigate outline />
-            <a href="#" class="underline mt-4 text-sm font-light mx-auto">Learn more</a>
+            {{-- <a href="#" class="underline mt-4 text-sm font-light mx-auto">Learn more</a> --}}
         </div>
     </div>
 </div>
