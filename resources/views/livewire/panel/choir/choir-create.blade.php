@@ -39,8 +39,8 @@
                         <hr class="my-2">
                         <x-ts-select.styled label="Estado *" wire:model.live="state_id" :options="$states"
                             select="label:abbr|value:id" />
-                        <x-ts-select.styled label="Cidade *" wire:model="profile.city_id" :disabled="!$state_id"
-                            :options="$cities" select="label:name|value:id" searchable />
+                        <x-ts-select.native label="Cidade *" wire:model="profile.city_id" :disabled="!$state_id"
+                            :options="$cities" select="label:name|value:id" />
                     </div>
                 </div>
                 <hr class="my-6">

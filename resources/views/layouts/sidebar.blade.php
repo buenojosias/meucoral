@@ -3,7 +3,6 @@
         <x-side-link label="Página inicial" icon="house-simple" :href="route('home')" :active="request()->routeIs('home')" wire:navigate />
         <x-side-link label="Grupos" icon="users-three" :href="route('panel.groups.index')" :active="request()->routeIs('panel.groups*')" wire:navigate />
         <x-side-link label="Coralistas" icon="users" :href="route('panel.choristers.index')" :active="request()->routeIs('panel.choristers*')" wire:navigate />
-        <x-side-link label="Músicas" icon="music-notes" :href="route('home')" :active="request()->routeIs('')" wire:navigate />
         <x-side-link label="Meus corais" icon="users-four" :href="route('panel.choirs.index')" :active="request()->routeIs('panel.choirs*')" wire:navigate />
     </ul>
     @if (auth()->user()->role->value === 'admin')

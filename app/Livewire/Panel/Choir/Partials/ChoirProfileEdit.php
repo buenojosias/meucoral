@@ -38,7 +38,7 @@ class ChoirProfileEdit extends Component
 
     public function updatedStateId()
     {
-        $this->cities = City::where('state_id', $this->state_id)->get()->toArray();
+        $this->cities = City::where('state_id', $this->state_id)->orderBy('name', 'asc')->get()->toArray();
     }
 
     public function save()

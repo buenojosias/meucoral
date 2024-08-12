@@ -7,7 +7,7 @@
             <div class="space-y-4">
                 <x-ts-select.styled label="Estado *" wire:model.live="state_id" :options="$states"
                     select="label:abbr|value:id" />
-                <x-ts-select.styled label="Cidade *" wire:model="form.city_id" :disabled="!$state_id" :options="$cities"
+                <x-ts-select.native label="Cidade *" wire:model="form.city_id" :disabled="!$state_id" :options="$cities"
                     select="label:name|value:id" searchable />
                 <x-ts-input label="Instituição" wire:model="form.institution"
                     hint="O nome da empresa, igreja ou organização à qual o coral é vinculado" />
