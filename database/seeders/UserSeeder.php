@@ -12,20 +12,22 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory()->create([
+        User::reate([
             'plan_id' => null,
             'name' => 'Administrador',
             'email' => 'admin@coralize.com.br',
             'password' => bcrypt('aJPB@2019'),
             'role' => 'admin',
+            'active' => true,
         ]);
 
-        User::factory()->create([
+        User::reate([
             'plan_id' => 3,
             'name' => 'Josias Bueno',
             'email' => 'josias.jpb@gmail.com',
             'password' => bcrypt('JPB@2019'),
             'role' => 'manager',
+            'active' => true,
         ]);
 
         // $users = User::factory(2)->create([
