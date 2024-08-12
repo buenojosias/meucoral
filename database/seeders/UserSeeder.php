@@ -16,19 +16,21 @@ class UserSeeder extends Seeder
             'plan_id' => null,
             'name' => 'Administrador',
             'email' => 'admin@coralize.com.br',
+            'password' => bcrypt('aJPB@2019'),
             'role' => 'admin',
         ]);
 
-        User::factory()->create([
+        $users = User::factory()->create([
             'plan_id' => 3,
             'name' => 'Josias Bueno',
-            'email' => 'josias@email.com',
+            'email' => 'josias.jpb@gmail.com',
+            'password' => bcrypt('JPB@2019'),
             'role' => 'manager',
         ]);
 
-        $users = User::factory(2)->create([
-            'role' => 'manager'
-        ]);
+        // $users = User::factory(2)->create([
+        //     'role' => 'manager'
+        // ]);
 
         $users->each(
             function ($user) {

@@ -15,7 +15,10 @@
             </div>
         @endif
         <div class="header">
-            <h1>{{ $group->name }}</h1>
+            <div>
+                <h1>{{ $group->name }}</h1>
+                <h2>Grupo</h2>
+            </div>
         </div>
         <div class="grid md:grid-cols-3 gap-4">
             <div>

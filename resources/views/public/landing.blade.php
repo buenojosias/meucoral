@@ -4,25 +4,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coralize</title>
+    <title>{{ @$title ? @$title . ' - ' : '' }} {{ config('app.name', 'Coralize') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    @vite(['resources/css/landing.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('build/assets/app-BR8N8xFH.css') }}">
+    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
+    {{-- @vite(['resources/css/landing.css', 'resources/js/app.js']) --}}
 </head>
 
 <body class="antialiased font-sans">
     <div class="bg-white">
-        <header class="absolute inset-x-0 top-0 z-50">
+        <header class="absolute inset-x-0 top-0 z-50" x-data="{ menu_mobile: false }">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Coralize</span>
+                        <span class="sr-only">{{ config('app.name', 'Coralize') }}</span>
                         <x-application-logo class="h-8 w-auto fill-primary-600"></x-application-logo>
                     </a>
                 </div>
                 <div class="flex lg:hidden">
                     <button type="button"
-                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        x-on:click="menu_mobile = !menu_mobile">
                         <span class="sr-only">Open main menu</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                             aria-hidden="true">
@@ -42,7 +45,7 @@
                 </div>
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
-            <div class="hidden lg:hidden" role="dialog" aria-modal="true">
+            <div role="dialog" aria-modal="true" x-show="menu_mobile" x-collapse>
                 <!-- Background backdrop, show/hide based on slide-over state. -->
                 <div class="fixed inset-0 z-50"></div>
                 <div
@@ -50,13 +53,13 @@
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
                             <span class="sr-only">Your Company</span>
-                            <img class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=primary&shade=600" alt="">
+                            <x-application-logo class="h-8 w-auto fill-primary-600"></x-application-logo>
                         </a>
                         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
                             <span class="sr-only">Close menu</span>
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true">
+                                stroke="currentColor" aria-hidden="true"
+                                x-on:click="menu_mobile = !menu_mobile">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>

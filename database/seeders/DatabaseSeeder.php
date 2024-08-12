@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PlanSeeder::class,
             UserSeeder::class,
-            ChoirSeeder::class,
-            GroupSeeder::class,
-            ChoristerSeeder::class,
+            // ChoirSeeder::class,
+            // GroupSeeder::class,
+            // ChoristerSeeder::class,
         ]);
     }
 }

@@ -25,6 +25,7 @@
     <div class="header">
         <div>
             <h1>{{ $chorister->name }}</h1>
+            <h2>Coralista</h2>
         </div>
         @if ($chorister->choir_id === $choirId)
             <div>

@@ -10,7 +10,9 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <tallstackui:script />
     @livewireStyles
-    @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('build/assets/app-C2Y70_6M.css') }}">
+    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
+    {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
 </head>
 
 <body x-data="{ sidebar: false }">
@@ -19,14 +21,19 @@
     @endif
     <div class="page">
         <div class="backdrop" x-show="sidebar" x-on:click="sidebar = false" x-transition></div>
-        <div class="sidebar" :class="sidebar ? '' : '-translate-x-full sm:translate-x-0'">
+        <div class="sidebar" :class="sidebar ? '' : '-translate-x-full sm:translate-x-0'" x-data="{ showsbf: false }">
             <div class="sidebar-header">
-                <x-application-logo-full class="logo" />
+                <x-application-logo class="logo" />
             </div>
             <div class="custom-scrollbar">
                 @include('layouts.sidebar')
             </div>
-            <div class="sidebar-footer">
+            <div x-show="showsbf" x-collapse>
+                <ul class="space-y-1">
+                    @livewire('partials.logout')
+                </ul>
+            </div>
+            <div class="sidebar-footer" x-on:click="showsbf = !showsbf">
                 <x-ts-avatar xs color="primary" />
                 <div class="text-sm font-semibold text-white">
                     {{ auth()->user()->name }}
