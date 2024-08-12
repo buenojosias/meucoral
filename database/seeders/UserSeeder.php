@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::reate([
+        User::create([
             'plan_id' => null,
             'name' => 'Administrador',
             'email' => 'admin@coralize.com.br',
@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'active' => true,
         ]);
 
-        User::reate([
+        User::create([
             'plan_id' => 3,
             'name' => 'Josias Bueno',
             'email' => 'josias.jpb@gmail.com',
