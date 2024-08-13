@@ -9,7 +9,7 @@
                 <div class="two-columns">
                     <div>
                         <h2>Dados do coral</h2>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p class="description">Os campos com * são de preenchimento obrigatório.</p>
                     </div>
                     <div class="space-y-4">
                         <x-ts-input label="Nome *" wire:model="form.name" />

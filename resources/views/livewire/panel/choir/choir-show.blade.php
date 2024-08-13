@@ -53,11 +53,9 @@
             <x-ts-card header="Descrição">
                 <p>{{ $choir->profile->description ?? 'Nenhuma descrição adicionada' }}</p>
             </x-ts-card>
-
             @if ($choir->multigroup)
                 @livewire('panel.choir.partials.choir-groups', ['choir' => $choir])
             @endif
-
         </div>
     </div>
 </div>

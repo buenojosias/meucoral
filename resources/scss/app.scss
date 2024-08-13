@@ -105,7 +105,7 @@ main {
         @apply px-3 py-2 flex items-center text-gray-800 font-semibold;
     }
     .table-footer {
-        @apply px-3 py-2;
+        @apply px-3 py-2 flex justify-end;
     }
 }
 

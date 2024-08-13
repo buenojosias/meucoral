@@ -46,6 +46,11 @@ class Chorister extends Model
         return $this->belongsTo(Choir::class);
     }
 
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     public function groups(): BelongsToMany
     {
         return $this->belongsToMany(Group::class)->withPivot(['situation','added_at','removed_at']);

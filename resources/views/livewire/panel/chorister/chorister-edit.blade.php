@@ -30,7 +30,7 @@
             </div>
             <x-slot:footer>
                 @if (!$chorister->trashed())
-                    <x-ts-button text="Exluir" wire:click="delete" loading="delete" color="red" />
+                    <x-ts-button text="Excluir" wire:click="delete" loading="delete" color="red" />
                 @else
                     <x-ts-button text="Exluir permanentemente" wire:click="deletePermanently"
                         loading="deletePermanently" color="red" />

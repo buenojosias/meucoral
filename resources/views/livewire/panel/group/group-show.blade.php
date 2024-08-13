@@ -44,6 +44,9 @@
                 <x-ts-card>
                     Ensaios
                 </x-ts-card>
+                <div class="col-span-2">
+                    @livewire('panel.partials.comment-list', ['model' => $group])
+                </div>
             </div>
         </div>
     @endif

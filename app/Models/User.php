@@ -46,10 +46,14 @@ class User extends Authenticatable
         ];
     }
 
-
     public function choirs(): HasMany
     {
         return $this->hasMany(Choir::class);
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'author_id');
     }
 
     public function choristers(): HasManyThrough

@@ -15,9 +15,11 @@ class ChoristerStatusForm extends Component
 
     public bool $modal = false;
 
-
-    #[Validate('required|string|in:Ativo,Inativo,Afastado(a),Desistente')]
+    #[Validate('required|string|in:Ativo,Inativo,Afastado,Desistente')]
     public $status;
+
+    #[Validate('nullable|string|min:10|max:255')]
+    public $content;
 
     public function mount($chorister)
     {
@@ -33,12 +35,26 @@ class ChoristerStatusForm extends Component
     public function updateStatus()
     {
         $this->validate();
+
         $this->chorister->status = ChoristerStatusEnum::from($this->status);
         if ($this->chorister->save()) {
+            $this->addComment();
             $this->toast()->success('Status atualizado com sucesso!')->send();
         } else {
             $this->toast()->error('Erro ao atualizar status!')->send();
         }
         $this->modal = false;
+    }
+
+    public function addComment()
+    {
+        if($this->content) {
+            $this->chorister->comments()->create([
+                'content' => $this->content,
+                'author_id' => auth()->user()->id,
+                'choir_id' => $this->chorister->choir_id,
+            ]);
+            $this->content = '';
+        }
     }
 }

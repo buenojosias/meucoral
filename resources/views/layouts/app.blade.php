@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <tallstackui:script />
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('build/assets/app-C2Y70_6M.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app--ISQzTZl.css') }}">
     <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
     {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
 </head>
@@ -53,7 +53,7 @@
                     {{-- @livewire('layout.header-dropdown') --}}
                     {{-- @include('livewire.header-dropdown') --}}
                     {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
-                    <small class="text-gray-800">v. 0.1 (beta)</small>
+                    <small class="text-gray-800">v. 0.1.3 (beta)</small>
                 </div>
             </header>
             <x-ts-toast />

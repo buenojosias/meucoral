@@ -9,6 +9,11 @@
             <x-ts-alert :text="session('status')" color="green" light close />
         </div>
     @endif
+    @if ($chorister->status->value != 'Ativo')
+    <div class="mb-4">
+        <x-ts-alert :text="'O status deste(a) coralista é '.$chorister->status->value" :color="$chorister->status->color()" light />
+    </div>
+    @endif
     @if (!$choirId || $chorister->choir_id != $choirId)
         <div class="mb-6">
             <x-ts-alert light close>
@@ -52,6 +57,9 @@
                 @if ($chorister->choir->multigroup)
                     @livewire('panel.chorister.partials.chorister-groups', ['chorister' => $chorister])
                 @endif
+                <div class="col-span-2">
+                    @livewire('panel.partials.comment-list', ['model' => $chorister])
+                </div>
                 @if ($chorister->age < 18)
                     @livewire('panel.chorister.partials.chorister-kins', ['chorister' => $chorister])
                 @endif

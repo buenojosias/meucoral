@@ -11,7 +11,7 @@
     <x-ts-modal title="Alterar status" wire size="sm">
         <div class="flex flex-col space-y-4">
             <x-ts-select.styled label="Status" wire:model="status" :options="App\Enums\ChoristerStatusEnum::cases()" />
-            <x-ts-textarea label="Adicionar comentário" />
+            <x-ts-textarea label="Adicionar comentário" wire:model="content" />
         </div>
         <x-slot:footer>
             <x-ts-button text="Cancelar" wire:click="$toggle('modal')" flat />
