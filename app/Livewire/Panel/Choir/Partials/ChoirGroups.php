@@ -16,9 +16,6 @@ class ChoirGroups extends Component
     public function render()
     {
         $groups = $this->choir->groups()
-            // ->withCount(['choristers' => function ($query) {
-            //     $query->where('status', 'Ativo')->wherePivot('situation', 'Ativo');
-            // }])
             ->withCount('activeChoristers')
             ->get();
 

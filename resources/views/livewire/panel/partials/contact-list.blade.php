@@ -3,7 +3,7 @@
         @forelse ($contacts as $contact)
             <div class="py-2 flex justify-between gap-4 detail">
                 <x-detail :label="$contact->label" :value="$contact->value" />
-                @if ($model->choir_id === auth()->user()->selected_choir_id)
+                @if ($model->choir_id === auth()->user()->selected_choir_id && !$model->trashed())
                     <div>
                         <x-ts-button icon="pencil-simple" wire:click="edit({{ $contact->id }})" sm flat />
                         <x-ts-button icon="trash" wire:click="remove({{ $contact->id }})" color="red" sm flat />
@@ -13,12 +13,12 @@
         @empty
             <div class="py-4 text-center text-sm">
                 <p>Nenhum contato adicionado.</p>
-                @if ($model->choir_id === auth()->user()->selected_choir_id)
+                @if ($model->choir_id === auth()->user()->selected_choir_id && !$model->trashed())
                     <x-ts-button text="Adicionar" wire:click="$toggle('modal')" flat />
                 @endif
             </div>
         @endforelse
-        @if ($contacts->count() && $model->choir_id === auth()->user()->selected_choir_id)
+        @if ($contacts->count() && $model->choir_id === auth()->user()->selected_choir_id && !$model->trashed())
             <x-slot:footer>
                 <x-ts-button text="Adicionar" wire:click="$toggle('modal')" flat />
             </x-slot>

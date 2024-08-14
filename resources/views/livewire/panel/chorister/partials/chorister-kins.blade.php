@@ -20,7 +20,7 @@
                     </x-ts-button>
                 </div>
             </div>
-            @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+            @if ($chorister->choir_id === auth()->user()->selected_choir_id && !$chorister->trashed())
                 <x-slot:footer>
                     <x-ts-button text="Remover" wire:click="remove" color="red" flat />
                     <x-ts-button text="Editar" wire:click="$toggle('modal')" flat />
@@ -29,7 +29,7 @@
         @else
             <div class="py-6 text-center text-sm">
                 <p>Nenhum responsável adicionado.</p>
-                @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+                @if ($chorister->choir_id === auth()->user()->selected_choir_id && !$chorister->trashed())
                     <x-ts-button text="Adicionar responsável" wire:click="$toggle('modal')" flat />
                 @endif
             </div>

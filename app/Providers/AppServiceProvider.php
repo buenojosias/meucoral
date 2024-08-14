@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Chorister;
+use App\Models\Group;
+use App\Observers\ChoristerObserver;
+use App\Observers\GroupObserver;
 use Illuminate\Support\ServiceProvider;
 use TallStackUi\Facades\TallStackUi;
 
@@ -14,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Chorister::observe(ChoristerObserver::class);
+        Group::observe(GroupObserver::class);
+
         TallStackUi::personalize('card')
             // ->block('header.text', 'text-gray-800 font-semibold')
             // ->block('body', 'text-gray-900 dark:text-dark-300 grow rounded-b-xl px-4 py-5');

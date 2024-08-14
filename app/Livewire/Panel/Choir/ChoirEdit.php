@@ -48,14 +48,4 @@ class ChoirEdit extends Component
 
         return $this->redirectRoute('panel.choirs.index', navigate: false);
     }
-
-    // public function resetSelected()
-    // {
-    //     $user = auth()->user();
-    //     if ($user->selected_choir_id === $this->choir->id) {
-    //         $user->selected_choir_id = null;
-    //         $user->selected_choir_name = null;
-    //         $user->save();
-    //     }
-    // }
 }

@@ -38,7 +38,7 @@
                 @endforelse
             </tbody>
         </table>
-        @if ($chorister->choir_id === auth()->user()->selected_choir_id)
+        @if ($chorister->choir_id === auth()->user()->selected_choir_id && !$chorister->trashed())
             <div class="table-footer">
                 <x-ts-button text="Adicionar" wire:click="$toggle('modal')" flat />
             </div>
