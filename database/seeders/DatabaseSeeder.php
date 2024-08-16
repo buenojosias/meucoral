@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             // ChoirSeeder::class,
             // GroupSeeder::class,
             // ChoristerSeeder::class,
+            // EncounterSeeder::class,
         ]);
     }
 }

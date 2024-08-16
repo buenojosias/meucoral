@@ -17,11 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 #[ScopedBy(UserScope::class)]
 class Choir extends Model
 {
-    use HasFactory;
-
-    use DeleteChoir;
-
-    use SoftDeletes;
+    use HasFactory, SoftDeletes, DeleteChoir;
 
     protected $fillable = [
         'user_id',
@@ -68,5 +64,10 @@ class Choir extends Model
     public function choristers(): HasMany
     {
         return $this->hasMany(Chorister::class);
+    }
+
+    public function encounters(): HasMany
+    {
+        return $this->hasMany(Encounter::class);
     }
 }

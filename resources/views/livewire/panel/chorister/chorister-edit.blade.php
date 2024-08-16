@@ -17,7 +17,7 @@
             <div>
                 @if (!$chorister->trashed())
                     <p class="text-sm">
-                        Exclui o(a) coralistas e todas as informações vinculadas.
+                        Excluir o(a) coralistas e todas as informações vinculadas.
                         Você terá 30 dias para reverter esta ação.
                     </p>
                 @else

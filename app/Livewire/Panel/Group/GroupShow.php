@@ -22,7 +22,9 @@ class GroupShow extends Component
     public function render()
     {
         $choirId = auth()->user()->selected_choir_id;
-        $group = Group::where('choir_id', $choirId)->withTrashed()->findOrFail($this->groupId);
+        $group = Group::where('choir_id', $choirId)->withTrashed()->find($this->groupId);
+        if (!$group)
+            abort(404, 'O grupo não foi encontrado ou não pertence ao coral selecionado.');
 
         return view('livewire.panel.group.group-show', compact('group'))
             ->title('Grupo');

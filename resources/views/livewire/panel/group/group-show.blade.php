@@ -41,9 +41,7 @@
                 @if ($group->choir->multigroup)
                     @livewire('panel.group.partials.group-choristers', ['group' => $group])
                 @endif
-                <x-ts-card>
-                    Ensaios
-                </x-ts-card>
+                @livewire('panel.group.partials.group-encounters', ['group' => $group])
                 <div class="col-span-2">
                     @livewire('panel.partials.comment-list', ['model' => $group])
                 </div>

@@ -26,7 +26,7 @@ class GroupEdit extends Component
             return;
 
         $choirId = auth()->user()->selected_choir_id;
-        $this->group = Group::where('choir_id', $choirId)->withTrashed()->findOrFail($this->group);
+        $this->group = Group::where('choir_id', $choirId)->withTrashed()->findOrFail($group);
         $this->form->setGroup($this->group);
 
         foreach (WeekDayEnum::cases() as $day) {
