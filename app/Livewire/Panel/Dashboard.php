@@ -9,7 +9,6 @@ use Livewire\Component;
 class Dashboard extends Component
 {
     public ?int $planId;
-
     public ?int $choristersCount = 0;
     public ?int $choirsCount = 0;
     public ?int $groupsCount = 0;
@@ -21,15 +20,17 @@ class Dashboard extends Component
         $this->planId = auth()->user()->plan_id;
         $this->choristersCount = auth()->user()->choristers()->whereStatus('Ativo')->count();
         $this->choirsCount = Choir::count();
-        if ($this->planId) {
+        if ($this->planId >= 3) {
             $this->groupsCount = auth()->user()->groups()->whereStatus('Ativo')->count();
         }
-        $this->nextEncounter = Encounter::query()
-            ->whereHas('choir', fn ($q) => $q->where('user_id', auth()->user()->id))
-            ->when($this->planId >= 3, fn ($q) => $q->with('group'))
-            ->where('date', '>=', now())
-            ->orderBy('date')
-            ->first();
+
+        if ($this->planId >= 2) {
+            $this->nextEncounter = Encounter::query()
+                ->whereHas('choir', fn($q) => $q->where('user_id', auth()->user()->id))
+                ->where('date', '>=', now()->format('Y-m-d'))
+                ->orderBy('date')
+                ->first();
+        }
     }
 
     public function render()

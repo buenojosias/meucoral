@@ -65,12 +65,12 @@
                 ['label' => 'Não lançada', 'value' => 'false'],
             ]"
                 select="label:label|value:value" />
-            @if ($groups->count())
+            @if ($groups && $groups->count())
                 <x-ts-select.styled label="Filtrar por grupo" wire:model="groupId" :options="$groups"
                     select="label:name|value:id" />
             @endif
-            <x-ts-date label="Data inicial" wire:model="startDate" format="DD/MM/YYYY" helpers />
-            <x-ts-date label="Data final" wire:model="endDate" format="DD/MM/YYYY" helpers />
+            <x-ts-date label="Data mínima" wire:model="minDate" format="DD/MM/YYYY" helpers />
+            <x-ts-date label="Data máxima" wire:model="maxDate" format="DD/MM/YYYY" helpers />
         </div>
         <x-slot:footer>
             <x-ts-button text="Limpar filtros" wire:click="clear" loading="clear" color="gray" flat />

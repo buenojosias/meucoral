@@ -12,7 +12,7 @@
     {{-- @vite(['resources/css/landing.css', 'resources/js/app.js']) --}}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 </head>
-
+{{-- SUGESTÃO DE LAYOUT: https://suggest.gg/ --}}
 <body class="antialiased font-sans">
     <div class="bg-white">
         <header class="absolute inset-x-0 top-0 z-50" x-data="{ menu_mobile: false }">

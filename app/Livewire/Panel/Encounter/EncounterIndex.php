@@ -22,10 +22,10 @@ class EncounterIndex extends Component
     public $groups = [];
 
     #[Url(as: 'inicio')]
-    public $startDate = '';
+    public $minDate = '';
 
     #[Url(as: 'fim')]
-    public $endDate = '';
+    public $maxDate = '';
 
     #[Url(as: 'periodo')]
     public $period = '';
@@ -73,8 +73,8 @@ class EncounterIndex extends Component
             })
             ->when($this->groupable, fn($query) => $query->with('group'))
             ->when($this->groupId, fn($query) => $query->where('group_id', $this->groupId))
-            ->when($this->startDate, fn($query) => $query->whereDate('date', '>=', $this->startDate))
-            ->when($this->endDate, fn($query) => $query->whereDate('date', '<=', $this->endDate))
+            ->when($this->minDate, fn($query) => $query->whereDate('date', '>=', $this->minDate))
+            ->when($this->maxDate, fn($query) => $query->whereDate('date', '<=', $this->maxDate))
             ->when($this->period === 'proximos', fn($query) => $query->where('date', '>=', now()))
             ->when($this->period === 'realizados', fn($query) => $query->where('date', '<', now()))
             ->when($this->attendance !== null, fn($query) => $query->where('has_attendance', $this->attendance))
@@ -87,7 +87,7 @@ class EncounterIndex extends Component
 
     // public function updated($attribute)
     // {
-    //     if (in_array($attribute, ['groupId', 'startDate', 'endDate', 'period', 'attendance']))
+    //     if (in_array($attribute, ['groupId', 'minDate', 'maxDate', 'period', 'attendance']))
     //         $this->resetPage();
     // }
 
@@ -99,7 +99,7 @@ class EncounterIndex extends Component
     }
 
     public function clear() {
-        $this->reset(['groupId', 'startDate', 'endDate', 'period', 'attendance']);
+        $this->reset(['groupId', 'minDate', 'maxDate', 'period', 'attendance']);
         $this->render();
         $this->resetPage();
         $this->filterModal = false;

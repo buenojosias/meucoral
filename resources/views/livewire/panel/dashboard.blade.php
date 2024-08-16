@@ -24,23 +24,25 @@
         </x-ts-card>
     @endif
     <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <x-ts-card header="Próximo ensaio">
-            @if ($nextEncounter)
-                <div class="flex items-center space-x-4">
-                    <div class="flex-1">
-                        <h3 class="text-lg font-semibold">{{ $nextEncounter->theme }}</h3>
-                        <p class="text-gray-500">
-                            {{ $nextEncounter->date->format('d/m/Y') }}
-                            @if ($nextEncounter->group)
-                                {{ $nextEncounter->group->name }}
-                            @endif
-                        </p>
+        @if ($planId >= 2)
+            <x-ts-card>
+                <h3 class="text-xl text-secondary-700 font-bold mb-3">Próximo ensaio</h3>
+                @if ($nextEncounter)
+                    <p class="text-gray-500">
+                        {{ $nextEncounter->date->format('d-m-d') == now()->format('d-m-d') ? 'Hoje' : $nextEncounter->date->format('d/m/Y') }}
+                    </p>
+                    <p class="font-semibold">{{ $nextEncounter->theme }}</p>
+                    <div class="mt-3 flex gap-4">
+                        <x-ts-link text="Detalhes" :href="route('panel.encounters.show', $nextEncounter)" />
+                        <x-ts-link text="Ver todos" :href="route('panel.encounters.index')" color="zinc" />
                     </div>
-                    <x-ts-link text="Detalhes" :href="route('panel.encounters.show', $nextEncounter)" />
-                </div>
-            @else
-                <p class="text-gray-500">Nenhum ensaio agendado.</p>
-            @endif
-        </x-ts-card>
+                @else
+                    <div class="flex flex-col gap-1 items-center">
+                        <p class="text-gray-500">Nenhum ensaio agendado.</p>
+                        <x-ts-button text="Adicionar ensaio" :link="route('panel.encounters.create')" flat />
+                    </div>
+                @endif
+            </x-ts-card>
+        @endif
     </div>
 </div>
