@@ -7,7 +7,7 @@
     <title>{{ @$title ? @$title . ' - ' : '' }} {{ config('app.name', 'Coralize') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('build/assets/landing-BR8N8xFH.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/landing-Ccgk2Q_s.css') }}">
     <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
     {{-- @vite(['resources/css/landing.css', 'resources/js/app.js']) --}}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">

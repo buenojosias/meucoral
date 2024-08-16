@@ -3,6 +3,7 @@
 namespace App\Livewire\Panel\Encounter;
 
 use App\Models\Encounter;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -13,6 +14,7 @@ class EncounterShow extends Component
     public $groupable = false;
     public $choirId;
     public $encounter;
+    public $attendance;
 
     public function mount($encounter)
     {
@@ -29,6 +31,24 @@ class EncounterShow extends Component
 
         if(!$this->choirId || $this->encounter->choir_id != $this->choirId) {
             $this->encounter->load('choir');
+        }
+
+        $this->loadStats();
+    }
+
+    #[On('refresh-stats')]
+    public function loadStats()
+    {
+        if ($this->encounter->has_attendance)
+        {
+            $choristers = $this->encounter->choristers()->get();
+
+            if (!$choristers)
+                return;
+
+            $this->attendance['presences'] = $choristers->where('pivot.attendance', 'P')->count();
+            $this->attendance['absences'] = $choristers->where('pivot.attendance', 'F')->count();
+            $this->attendance['justified'] = $choristers->where('pivot.attendance', 'J')->count();
         }
     }
 

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,4 +42,15 @@ class Encounter extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function choristers(): BelongsToMany
+    {
+        return $this->belongsToMany(Chorister::class)->withPivot(['attendance'])->withTimestamps();
+    }
+
+    public function presences(): BelongsToMany
+    {
+        return $this->belongsToMany(Chorister::class)->wherePivot('attendance','P');
+    }
+
 }

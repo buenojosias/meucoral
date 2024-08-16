@@ -75,4 +75,9 @@ class Chorister extends Model
     {
         return $this->morphMany(Contact::class, 'contactable');
     }
+
+    public function encounters(): BelongsToMany
+    {
+        return $this->belongsToMany(Encounter::class)->withPivot('attendance')->withTimestamps();
+    }
 }

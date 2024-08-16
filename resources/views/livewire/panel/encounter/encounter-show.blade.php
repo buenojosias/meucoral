@@ -42,16 +42,38 @@
                     </x-slot>
                 @endif
             </x-ts-card>
-            <x-ts-card>
-                Estatísticas se já passou...
-            </x-ts-card>
+            @if (!$encounter->date->isFuture())
+                <x-ts-card>
+                    @if ($encounter->has_attendance)
+                        <div class="grid grid-cols-3 divide-x">
+                            <div>
+                                <div class="text-sm text-gray-700">Presenças</div>
+                                <div class="text-2xl font-semibold">{{ $attendance['presences'] }}</div>
+                            </div>
+                            <div class="pl-2">
+                                <div class="text-sm text-gray-700">Faltas</div>
+                                <div class="text-2xl font-semibold">{{ $attendance['absences'] }}</div>
+                            </div>
+                            <div class="pl-2">
+                                <div class="text-sm text-gray-700">Justificaticas</div>
+                                <div class="text-2xl font-semibold">{{ $attendance['justified'] }}</div>
+                            </div>
+                        </div>
+                    @else
+                        Lançar chamada
+                    @endif
+                </x-ts-card>
+            @endif
         </div>
         <div class="col-span-3 lg:col-span-2">
             <div class="grid grid-cols-2 gap-4">
-                <div class="col-span-2">
+                <div class="col-span-2 space-y-4">
                     <x-ts-card>
-                        {{ $encounter->description }}
+                        {{ $encounter->description ?? 'Descrição não adicionada.' }}
                     </x-ts-card>
+                    @if (!$encounter->date->isFuture())
+                        @livewire('panel.encounter.encounter-attendance', ['encounter' => $encounter])
+                    @endif
                 </div>
             </div>
         </div>

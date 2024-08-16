@@ -15,7 +15,7 @@ class GroupEncounters extends Component
 
     public function render()
     {
-        $encounters = $this->group->encounters()->latest()->get();
+        $encounters = $this->group->encounters()->withCount('presences')->latest()->get();
 
         return view('livewire.panel.group.partials.group-encounters', compact('encounters'));
     }

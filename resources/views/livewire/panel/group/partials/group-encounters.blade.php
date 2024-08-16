@@ -19,8 +19,8 @@
                         <td>
                             <a href="{{ route('panel.encounters.show', $encounter) }}">{{ $encounter->theme }}</a>
                         </td>
-                        <td>{{ 000 }}</td>
-                        <td>...</td>
+                        <td>{{ $encounter->presences_count }}</td>
+                        <td></td>
                     </tr>
                 @endforeach
             </tbody>
