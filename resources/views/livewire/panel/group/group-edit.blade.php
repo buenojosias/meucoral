@@ -66,33 +66,6 @@
                 </x-slot>
             </form>
         </x-ts-card>
-        <x-ts-card class="two-columns">
-            <div>
-                <h2>Deletar grupo</h2>
-            </div>
-            <div>
-                @if (!$group->trashed())
-                    <p class="text-sm">
-                        Depois que o grupo for excluído, todas as informações vinculadas a ele também serão apagadas.
-                        Você terá 30 dias para reverter esta ação.
-                    </p>
-                @else
-                    <p class="text-sm">
-                        Você solicitou a exclusão deste grupo. Ele será removido permanentemente em
-                        {{ $group->deleted_at->addMonth()->format('d/m/Y') }}.<br>
-                        Você pode desfazer esta ação agora ou excluir permanentemente imediatamente.
-                    </p>
-                @endif
-            </div>
-            <x-slot:footer>
-                @if (!$group->trashed())
-                    <x-ts-button text="Deletar" wire:click="delete" loading="delete" color="red" />
-                @else
-                    <x-ts-button text="Deletar permanentemente" wire:click="deletePermanently"
-                        loading="deletePermanently" color="red" />
-                    <x-ts-button text="Restaurar" wire:click="restore" loading="restore" color="green" />
-                @endif
-            </x-slot>
-        </x-ts-card>
+        @livewire('panel.partials.delete-model', ['model' => $group, 'label' => 'grupo', 'route' => 'panel.groups.index'])
     @endif
 </div>

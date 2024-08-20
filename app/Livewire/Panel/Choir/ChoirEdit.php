@@ -23,29 +23,29 @@ class ChoirEdit extends Component
             ->title('Editar coral');
     }
 
-    public function delete()
-    {
-        $this->choir->delete();
-        $user = auth()->user();
-        if($user->selected_choir_id === $this->choir->id) {
-            $user->selected_choir_id = null;
-            $user->save();
-        }
-        session()->flash('status', 'Solicitação de exclusão do coral realizadas com sucesso.');
-        return $this->redirectRoute('panel.choirs.index', navigate: false);
-    }
+    // public function delete()
+    // {
+    //     $this->choir->delete();
+    //     $user = auth()->user();
+    //     if($user->selected_choir_id === $this->choir->id) {
+    //         $user->selected_choir_id = null;
+    //         $user->save();
+    //     }
+    //     session()->flash('status', 'Solicitação de exclusão do coral realizadas com sucesso.');
+    //     return $this->redirectRoute('panel.choirs.index', navigate: false);
+    // }
 
-    public function restore()
-    {
-        $this->choir->restore();
-        $this->toast()->success('Coral restaurado com sucesso.')->send();
-    }
+    // public function restore()
+    // {
+    //     $this->choir->restore();
+    //     $this->toast()->success('Coral restaurado com sucesso.')->send();
+    // }
 
-    public function deletePermanently()
-    {
-        $this->choir->forceDelete();
-        session()->flash('status', 'O coral foi deletado permanentemente.');
+    // public function deletePermanently()
+    // {
+    //     $this->choir->forceDelete();
+    //     session()->flash('status', 'O coral foi deletado permanentemente.');
 
-        return $this->redirectRoute('panel.choirs.index', navigate: false);
-    }
+    //     return $this->redirectRoute('panel.choirs.index', navigate: false);
+    // }
 }

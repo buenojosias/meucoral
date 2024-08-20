@@ -17,9 +17,9 @@
 </head>
 
 <body x-data="{ sidebar: false }">
-    @if (isset($banner))
+    {{-- @if (isset($banner))
         {{ $banner }}
-    @endif
+    @endif --}}
     <div class="page">
         <div class="backdrop" x-show="sidebar" x-on:click="sidebar = false" x-transition></div>
         <div class="sidebar" :class="sidebar ? '' : '-translate-x-full sm:translate-x-0'" x-data="{ showsbf: false }">
@@ -42,6 +42,9 @@
             </div>
         </div>
         <main>
+            @if (isset($banner))
+                {{ $banner }}
+            @endif
             <header>
                 <div class="flex items-center gap-3">
                     <button class="sm:hidden">
@@ -53,7 +56,7 @@
                     {{-- @livewire('layout.header-dropdown') --}}
                     {{-- @include('livewire.header-dropdown') --}}
                     {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
-                    <small class="text-gray-800">v. 0.3.1-beta</small>
+                    <small class="text-gray-800">v. 0.3.2-beta</small>
                 </div>
             </header>
             <x-ts-toast />

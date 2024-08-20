@@ -50,25 +50,4 @@ class EncounterEdit extends Component
         else
             $this->toast()->error('Erro ao salvar alterações.')->send();
     }
-
-    public function delete()
-    {
-        $this->encounter->delete();
-        session()->flash('status', 'Solicitação de exclusão do ensaio realizadas com sucesso.');
-        return $this->redirectRoute('panel.encounters.index', navigate: false);
-    }
-
-    public function restore()
-    {
-        $this->encounter->restore();
-        $this->toast()->success('Ensaio restaurado com sucesso.')->send();
-    }
-
-    public function deletePermanently()
-    {
-        $this->encounter->forceDelete();
-        session()->flash('status', 'O ensaio foi deletado permanentemente.');
-
-        return $this->redirectRoute('panel.encounters.index', navigate: false);
-    }
 }

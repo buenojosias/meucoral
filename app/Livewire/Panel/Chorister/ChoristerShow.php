@@ -10,7 +10,6 @@ class ChoristerShow extends Component
     use Interactions;
 
     public $choirId;
-
     public $chorister;
 
     public function mount($chorister)

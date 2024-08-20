@@ -43,26 +43,7 @@
                 @endif
             </x-ts-card>
             @if (!$encounter->date->isFuture())
-                <x-ts-card>
-                    @if ($encounter->has_attendance)
-                        <div class="grid grid-cols-3 divide-x">
-                            <div>
-                                <div class="text-sm text-gray-700">Presenças</div>
-                                <div class="text-2xl font-semibold">{{ $attendance['presences'] }}</div>
-                            </div>
-                            <div class="pl-2">
-                                <div class="text-sm text-gray-700">Faltas</div>
-                                <div class="text-2xl font-semibold">{{ $attendance['absences'] }}</div>
-                            </div>
-                            <div class="pl-2">
-                                <div class="text-sm text-gray-700">Justificaticas</div>
-                                <div class="text-2xl font-semibold">{{ $attendance['justified'] }}</div>
-                            </div>
-                        </div>
-                    @else
-                        Lançar chamada
-                    @endif
-                </x-ts-card>
+                @livewire('panel.encounter.partials.encounter-stats', ['encounter' => $encounter])
             @endif
         </div>
         <div class="col-span-3 lg:col-span-2">
@@ -71,16 +52,14 @@
                     <x-ts-card>
                         {{ $encounter->description ?? 'Descrição não adicionada.' }}
                     </x-ts-card>
-                    @if (!$encounter->date->isFuture())
+                    @if (!$encounter->date->isFuture() && $showAttendance)
                         @livewire('panel.encounter.encounter-attendance', ['encounter' => $encounter])
                     @endif
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="p-2 bg-primary-400 my-2">Informações do ensaio</div>
-    <div class="p-2 bg-primary-400 my-2">Participantes/chamada</div>
-    <div class="p-2 bg-primary-400 my-2">Músicas</div>
+    {{-- <div class="p-2 bg-primary-400 my-2">Músicas</div>
     <div class="p-2 bg-primary-400 my-2">Comentários</div>
     <div class="p-2 bg-primary-400 my-2">Planejamento</div>
     <div class="p-2 bg-primary-400 my-2"></div> --}}

@@ -51,25 +51,4 @@ class GroupEdit extends Component
         );
         $this->toast()->success('Alterações salvas com sucesso.')->send();
     }
-
-    public function delete()
-    {
-        $this->group->delete();
-        session()->flash('status', 'Solicitação de exclusão do grupo realizadas com sucesso.');
-        return $this->redirectRoute('panel.groups.index', navigate: false);
-    }
-
-    public function restore()
-    {
-        $this->group->restore();
-        $this->toast()->success('Grupo restaurado com sucesso.')->send();
-    }
-
-    public function deletePermanently()
-    {
-        $this->group->forceDelete();
-        session()->flash('status', 'O grupo foi deletado permanentemente.');
-
-        return $this->redirectRoute('panel.groups.index', navigate: false);
-    }
 }

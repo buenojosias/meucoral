@@ -59,6 +59,6 @@ class EncounterAttendance extends Component
         $this->attendance = [];
 
         $this->dispatch('refresh-stats');
-        $this->toast()->success('Presença atualizada com sucesso')->send();
+        $this->toast()->success('Chamada salva com sucesso.')->send();
     }
 }
