@@ -25,8 +25,7 @@ class EncounterStats extends Component
     #[On('refresh-stats')]
     public function loadStats()
     {
-        if ($this->encounter->has_attendance)
-        {
+        if ($this->encounter->has_attendance) {
             $choristers = $this->encounter->choristers()->get();
 
             if (!$choristers)

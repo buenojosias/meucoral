@@ -80,4 +80,9 @@ class Chorister extends Model
     {
         return $this->belongsToMany(Encounter::class)->withPivot('attendance')->withTimestamps();
     }
+
+    public function events(): BelongsToMany
+    {
+        return $this->belongsToMany(Event::class)->withPivot('answer', 'answered_by', 'was_present')->withTimestamps();
+    }
 }

@@ -13,6 +13,10 @@ use App\Livewire\Panel\Encounter\EncounterCreate;
 use App\Livewire\Panel\Encounter\EncounterEdit;
 use App\Livewire\Panel\Encounter\EncounterIndex;
 use App\Livewire\Panel\Encounter\EncounterShow;
+use App\Livewire\Panel\Event\EventCreate;
+use App\Livewire\Panel\Event\EventEdit;
+use App\Livewire\Panel\Event\EventIndex;
+use App\Livewire\Panel\Event\EventShow;
 use App\Livewire\Panel\Group\GroupCreate;
 use App\Livewire\Panel\Group\GroupEdit;
 use App\Livewire\Panel\Group\GroupIndex;
@@ -40,6 +44,11 @@ Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(functio
     Route::get('ensaios/adicionar', EncounterCreate::class)->name('encounters.create');
     Route::get('ensaios/{encounter}', EncounterShow::class)->name('encounters.show');
     Route::get('ensaios/{encounter}/editar', EncounterEdit::class)->name('encounters.edit');
+
+    Route::get('eventos', EventIndex::class)->name('events.index');
+    Route::get('eventos/agendar', EventCreate::class)->name('events.create');
+    Route::get('eventos/{event}', EventShow::class)->name('events.show');
+    Route::get('eventos/{event}/editar', EventEdit::class)->name('events.edit');
 
     Route::view('perfil', 'profile')->middleware(['auth'])->name('profile');
 });

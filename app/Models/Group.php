@@ -74,4 +74,9 @@ class Group extends Model
     {
         return $this->belongsToMany(Chorister::class)->wherePivot('situation','Ativo')->where('status','Ativo');
     }
+
+    public function events(): BelongsToMany
+    {
+        return $this->belongsToMany(Event::class);
+    }
 }

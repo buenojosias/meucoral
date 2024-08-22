@@ -70,4 +70,9 @@ class Choir extends Model
     {
         return $this->hasMany(Encounter::class);
     }
+
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class);
+    }
 }

@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('address', 120);
             $table->string('complement', 30)->nullable();
             $table->string('district', 40);
+            $table->string('reference')->nullable(); // Exceto para coralistas
             $table->foreignId('city_id')->constrained();
             $table->decimal('latitude', 10, 8)->nullable(); // Exceto para coralistas
             $table->decimal('longitude', 11, 8)->nullable();  // Exceto para coralistas

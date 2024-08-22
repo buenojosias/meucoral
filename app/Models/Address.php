@@ -13,6 +13,7 @@ class Address extends Model
         'address',
         'complement',
         'district',
+        'reference',
         'city_id',
         'latitude',
         'longitude',

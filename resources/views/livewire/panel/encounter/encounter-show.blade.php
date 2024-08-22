@@ -1,7 +1,7 @@
 <div>
     @if ($encounter->trashed())
         @slot('banner')
-            <x-ts-banner text="Este ensaio foi excluído(a). Clique em Editar para restaurá-lo." color="secondary" close />
+            <x-ts-banner text="Este ensaio foi excluído. Clique em Editar para restaurá-lo." color="secondary" close />
         @endslot
     @endif
     @if (session('status'))
@@ -61,6 +61,5 @@
     </div>
     {{-- <div class="p-2 bg-primary-400 my-2">Músicas</div>
     <div class="p-2 bg-primary-400 my-2">Comentários</div>
-    <div class="p-2 bg-primary-400 my-2">Planejamento</div>
-    <div class="p-2 bg-primary-400 my-2"></div> --}}
+    <div class="p-2 bg-primary-400 my-2">Planejamento</div> --}}
 </div>
