@@ -21,7 +21,6 @@ class Event extends Model
         'chorister_description',
         'public_description',
         'is_presentation',
-        'is_public',
         'last_answer',
     ];
 
@@ -31,7 +30,6 @@ class Event extends Model
             'date' => 'date',
             'time' => 'datetime',
             'is_presentation' => 'boolean',
-            'is_public' => 'boolean',
             'last_answer' => 'datetime',
         ];
     }

@@ -9,7 +9,6 @@ class EventStats extends Component
 {
     public $event;
     public $stats;
-    public $showButton = true;
 
     public function mount($event)
     {
@@ -25,7 +24,7 @@ class EventStats extends Component
     #[On('refresh-stats')]
     public function loadStats()
     {
-        $choristers = $this->event->choristers()->get();
+        $choristers = $this->event->choristers()->select('id','name')->whereStatus('Ativo')->get();
 
         if (!$choristers)
             return;

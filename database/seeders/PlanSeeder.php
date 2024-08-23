@@ -26,7 +26,7 @@ class PlanSeeder extends Seeder
             ],
             [
                 'name' => 'Premium',
-                'resources' => ['Corais ilimitados', 'Coralistas ilimitados', 'Grupos', 'Planejamento de ensaio', 'Classificação vocal', 'Avaliações', 'Músicas com letras', 'Categorias das músicas', 'Músicas por data comemorativa'],
+                'resources' => ['Corais ilimitados', 'Coralistas ilimitados', 'Grupos', 'Planejamento de ensaio', 'Audições', 'Classificação vocal', 'Avaliações', 'Músicas com letras', 'Categorias das músicas', 'Músicas por data comemorativa'],
                 'price' => 35,
             ],
             [

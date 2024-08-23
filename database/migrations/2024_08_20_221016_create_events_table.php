@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('chorister_description')->nullable();
             $table->text('public_description')->nullable();
             $table->boolean('is_presentation');
-            $table->boolean('is_public')->default(false);
             $table->dateTime('last_answer')->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -3,19 +3,14 @@
 namespace App\Livewire\Panel\Event;
 
 use App\Models\Event;
-use Livewire\Attributes\On;
 use Livewire\Component;
-use TallStackUi\Traits\Interactions;
 
 class EventShow extends Component
 {
-    use Interactions;
-
     public $groupable = false;
     public $choirId;
     public $event;
     public $confirmable = false;
-    public $showChoristers = false;
 
     public function mount($event)
     {
@@ -29,17 +24,12 @@ class EventShow extends Component
             })
             ->when($this->groupable, fn($q) => $q->with('groups'))
             ->withTrashed()
+            ->with('address')
             ->findOrFail($event);
 
         if(!$this->choirId || $this->event->choir_id != $this->choirId) {
             $this->event->load('choir');
         }
-    }
-
-    #[On('load-choristers')]
-    public function loadChoristers()
-    {
-        $this->showChoristers = true;
     }
 
     public function render()

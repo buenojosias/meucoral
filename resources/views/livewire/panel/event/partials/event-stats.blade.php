@@ -13,10 +13,4 @@
             <div class="text-2xl font-semibold">{{ $stats['maybe'] }}</div>
         </div>
     </div>
-    @if ($showButton)
-        <div class="text-center mt-4">
-            <x-ts-button x-on:click="$dispatch('load-choristers'), $wire.set('showButton', false)"
-                text="Carregar lista" flat />
-        </div>
-    @endif
 </x-ts-card>

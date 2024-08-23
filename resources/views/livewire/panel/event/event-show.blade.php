@@ -23,55 +23,75 @@
         </div>
     @endif
     <div class="header">
-        <h1>Detalhes do evento</h1>
+        <div>
+            <h1>Detalhes do evento</h1>
+        </div>
+        @if ($event->choir_id == $choirId)
+            <div>
+                <x-ts-button text="Editar" :href="route('panel.events.edit', $event)" wire:navigate />
+            </div>
+        @endif
     </div>
     <div class="grid lg:grid-cols-3 gap-4">
-        <div class="col-span-3 lg:col-span-1 space-y-4">
-            <x-ts-card class="grid grid-cols-2 lg:grid-cols-1 detail">
-                <x-detail label="Tema" :value="$event->name" />
-                <x-detail label="Data" :value="$event->date->format('d/m/Y')" />
-                <x-detail label="Horário" :value="$event->time ? $event->time->format('H:i') : 'Não informado'" />
-                <x-detail label="Local" :value="$event->place ?? 'Não informado'" />
-                <x-detail label="É apresentação?" :value="$event->is_presentation ? 'Sim' : 'Não'" />
-                @if (!$choirId || $event->choir_id != $choirId)
-                    <x-detail label="Coral" :value="$event->choir->name" />
-                @endif
-                @if ($event->choir_id == $choirId)
-                    <x-slot:footer>
-                        <x-ts-button text="Editar" :href="route('panel.events.edit', $event)" wire:navigate flat />
-                    </x-slot>
+        <div class="col-span-3 lg:col-span-2 space-y-4">
+            <x-ts-card>
+                <div class="detail sm:grid grid-cols-3">
+                    <div class="col-span-3">
+                        <x-detail label="Nome" :value="$event->name" />
+                    </div>
+                    <x-detail label="Data" :value="$event->date->format('d/m/Y')" />
+                    <x-detail label="Horário" :value="$event->time ? $event->time->format('H:i') : 'Não informado'" />
+                    <x-detail label="É apresentação?" :value="$event->is_presentation ? 'Sim' : 'Não'" />
+                    <div class="col-span-3">
+                        <x-detail label="Local" :value="$event->place ?? 'Não informado'" />
+                    </div>
+                    @if (!$choirId || $event->choir_id != $choirId)
+                        <x-detail label="Coral" :value="$event->choir->name" />
+                    @endif
+                </div>
+                @if ($event->address)
+                    <hr class="my-4" />
+                    <div class="detail sm:grid grid-cols-3">
+                        <div class="col-span-2">
+                            <x-detail label="Endereço" :value="$event->address->address" />
+                        </div>
+                        <x-detail label="Complemento" :value="$event->address->complement" />
+                        <x-detail label="Bairro" :value="$event->address->district" />
+                        <x-detail label="Cidade" :value="$event->address->city->name . '/' . $event->address->city->state->abbr" />
+                        <x-detail label="Ponto de referência" :value="$event->address->reference" />
+                    </div>
                 @endif
             </x-ts-card>
-            @if ($groupable && $event->groups->count())
-                <x-ts-card header="Grupos atribuídos" class="space-y-4">
-                    @foreach ($event->groups as $group)
-                        <x-ts-checkbox checked color="teal" disabled>
-                            <x-slot:label start>
-                                {{ $group->name }}<br>
-                                {{ $group->description }}
-                            </x-slot:label>
-                        </x-ts-checkbox>
-                    @endforeach
+
+            <x-ts-card>
+                {{ $event->manager_description ?? 'Descrição não adicionada.' }}
+            </x-ts-card>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                @if ($groupable && $event->groups->count())
+                    <x-ts-card header="Grupos atribuídos" class="space-y-4">
+                        @foreach ($event->groups as $group)
+                            <x-ts-checkbox checked color="teal" disabled>
+                                <x-slot:label start>
+                                    {{ $group->name }}<br>
+                                    {{ $group->description }}
+                                </x-slot:label>
+                            </x-ts-checkbox>
+                        @endforeach
+                    </x-ts-card>
+                @endif
+            </div>
+
+        </div>
+        <div class="col-span-3 lg:col-span-1 space-y-4">
+            @if ($confirmable)
+                @livewire('panel.event.event-choristers', ['event' => $event])
+            @else
+                <x-ts-card header="Confirmações de participação" class="text-center text-sm font-semibold">
+                    Seu plano atual não permite a confirmação presença nos eventos.
+                    Fazer upgrade.
                 </x-ts-card>
             @endif
-            @if ($confirmable)
-                @livewire('panel.event.partials.event-stats', ['event' => $event])
-            @endif
-        </div>
-        <div class="col-span-3 lg:col-span-2">
-            <div class="grid grid-cols-2 gap-4">
-                <div class="col-span-2 space-y-4">
-                    <x-ts-card>
-                        {{ $event->manager_description ?? 'Descrição não adicionada.' }}
-                    </x-ts-card>
-                    <div class="sm:grid grid-cols-2 gap-4">
-
-                        @if ($confirmable && $showChoristers)
-                            @livewire('panel.event.partials.event-choristers', ['event' => $event, 'groups' => $event->groups])
-                        @endif
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     {{-- <div class="p-2 bg-primary-400 my-2">Músicas</div>
