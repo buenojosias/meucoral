@@ -12,7 +12,7 @@
                             <td width="1" @class(['text-center font-bold', 'text-red-700' => $record->pivot->attendance == 'F'])>
                                 {{ $record->pivot->attendance }}
                             </td>
-                            <td width="1">xxx</td>
+                            <td width="1"></td>
                         </tr>
                     @endforeach
                 </tbody>

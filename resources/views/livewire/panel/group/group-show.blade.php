@@ -42,10 +42,8 @@
                     @livewire('panel.group.partials.group-choristers', ['group' => $group])
                 @endif
                 @livewire('panel.group.partials.group-encounters', ['group' => $group])
-                <div class="col-span-2">
-                    @livewire('panel.partials.comment-list', ['model' => $group])
-                </div>
             </div>
         </div>
     @endif
+    @livewire('panel.comment.comment-slide', ['model' => $group, 'chorister' => null])
 </div>

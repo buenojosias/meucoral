@@ -29,4 +29,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class, 'author_id');
     }
+
+    public function chorister()
+    {
+        return $this->belongsTo(Chorister::class);
+    }
 }

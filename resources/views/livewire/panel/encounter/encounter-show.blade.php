@@ -59,6 +59,7 @@
             </div>
         </div>
     </div>
+    @livewire('panel.comment.comment-slide', ['model' => $encounter, 'chorister' => null])
     {{-- <div class="p-2 bg-primary-400 my-2">Músicas</div>
     <div class="p-2 bg-primary-400 my-2">Comentários</div>
     <div class="p-2 bg-primary-400 my-2">Planejamento</div> --}}

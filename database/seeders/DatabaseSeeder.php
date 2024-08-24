@@ -13,11 +13,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PlanSeeder::class,
             UserSeeder::class,
-            // ChoirSeeder::class,
-            // GroupSeeder::class,
-            // ChoristerSeeder::class,
-            // EncounterSeeder::class,
-            // AttendanceSeeder::class,
+            ChoirSeeder::class,
+            GroupSeeder::class,
+            ChoristerSeeder::class,
+            EncounterSeeder::class,
+            AttendanceSeeder::class,
+            EventSeeder::class,
         ]);
     }
 }

@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <tallstackui:script />
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('build/assets/app-eMbPZkFa.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-BHrX4qhm.css') }}">
     <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
     {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
 </head>

@@ -64,4 +64,9 @@ class Event extends Model
     {
         return $this->belongsToMany(Chorister::class)->withPivot('answer', 'answered_by', 'was_present')->withTimestamps();
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Livewire\Panel;
 
 use App\Models\Choir;
 use App\Models\Encounter;
+use App\Models\Event;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -14,6 +15,7 @@ class Dashboard extends Component
     public ?int $groupsCount = 0;
 
     public $nextEncounter;
+    public $nextEvent;
 
     public function mount()
     {
@@ -31,6 +33,12 @@ class Dashboard extends Component
                 ->orderBy('date')
                 ->first();
         }
+
+        $this->nextEvent = Event::query()
+                ->whereHas('choir', fn($q) => $q->where('user_id', auth()->user()->id))
+                ->where('date', '>=', now()->format('Y-m-d'))
+                ->orderBy('date')
+                ->first();
     }
 
     public function render()

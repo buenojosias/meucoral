@@ -8,6 +8,6 @@ class ChoristerObserver
 {
     public function forceDeleting(Chorister $chorister): void
     {
-        $chorister->comments()->delete();
+        //
     }
 }

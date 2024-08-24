@@ -8,6 +8,7 @@ use TallStackUi\Traits\Interactions;
 
 class EncounterAttendance extends Component
 {
+    // TODO: criar botão para alterar a chamada
     use Interactions;
 
     public $encounter;

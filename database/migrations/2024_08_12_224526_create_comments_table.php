@@ -12,7 +12,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('choir_id')->constrained()->cascadeOnDelete();
             $table->foreignId('author_id')->constrained('users')->cascadeOnDelete();
-            $table->morphs('commentable');
+            $table->foreignId('chorister_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->nullableMorphs('commentable');
             $table->text('content');
             $table->timestamps();
         });

@@ -44,7 +44,7 @@
                         <div class="basis-1/7 h-12 flex items-center justify-center border-t">
                             <div
                                 class="w-8 h-8 flex items-center justify-center rounded text-sm
-                                {{ date($selectedYear . '-' . substr("00{$selectedMonth}", -2) . '-' . substr("00{$i}", -2)) == date('Y-m-d') && $day_events->count() == 0 ? 'text-primary-800 font-semibold' : '' }}
+                                {{ date($selectedYear . '-' . substr("00{$selectedMonth}", -2) . '-' . substr("00{$i}", -2)) == date('Y-m-d') && $day_events->count() == 0 ? 'text-secondary-600 font-semibold' : '' }}
                                 {{ $day_events->count() > 0 ? 'bg-secondary-400 text-white font-semibold' : 'cursor-default' }}
                             ">
                                 {{ $i }}
