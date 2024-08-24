@@ -28,7 +28,7 @@
         </div>
         @if ($event->choir_id == $choirId)
             <div>
-                <x-ts-button text="Editar" :href="route('panel.events.edit', $event)" wire:navigate />
+                <x-ts-button text="Editar" :href="route('panel.events.edit', $event)" wire:navigate flat />
             </div>
         @endif
     </div>
@@ -49,16 +49,16 @@
                         <x-detail label="Coral" :value="$event->choir->name" />
                     @endif
                 </div>
-                @if ($event->address)
+                @if ($address)
                     <hr class="my-4" />
                     <div class="detail sm:grid grid-cols-3">
                         <div class="col-span-2">
-                            <x-detail label="Endereço" :value="$event->address->address" />
+                            <x-detail label="Endereço" :value="$address->address" />
                         </div>
-                        <x-detail label="Complemento" :value="$event->address->complement" />
-                        <x-detail label="Bairro" :value="$event->address->district" />
-                        <x-detail label="Cidade" :value="$event->address->city->name . '/' . $event->address->city->state->abbr" />
-                        <x-detail label="Ponto de referência" :value="$event->address->reference" />
+                        <x-detail label="Complemento" :value="$address->complement" />
+                        <x-detail label="Bairro" :value="$address->district" />
+                        <x-detail label="Cidade" :value="$address->city_name.'/'.$address->state_abbr" />
+                        <x-detail label="Ponto de referência" :value="$address->reference" />
                     </div>
                 @endif
             </x-ts-card>

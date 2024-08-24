@@ -16,7 +16,7 @@
                     <tr>
                         <td>{{ $chorister->name }}</td>
                         <td><x-ts-badge :text="$chorister->answer" :color="$chorister->color" outline /></td>
-                        <td><x-ts-button icon="pencil" sm flat /></td>
+                        <td><x-ts-button icon="pencil" color="gray" sm flat /></td>
                     </tr>
                 @endforeach
             </tbody>

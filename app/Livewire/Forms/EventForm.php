@@ -16,7 +16,8 @@ class EventForm extends Form
     #[Validate('required|string|max:255', as: 'nome')]
     public $name;
 
-    #[Validate('required|date|after_or_equal:today', as: 'data')]
+    // #[Validate('required|date|after_or_equal:today', as: 'data')]
+    #[Validate('required|date', as: 'data')]
     public $date;
 
     #[Validate('nullable|date_format:H:i', as: 'horário')]
@@ -47,8 +48,8 @@ class EventForm extends Form
     {
         $this->choir_id = $event->choir_id;
         $this->name = $event->name;
-        $this->date = $event->date;
-        $this->time = $event->time;
+        $this->date = $event->date->format('Y-m-d');
+        $this->time = $event->time->format('H:i');
         $this->manager_description = $event->manager_description;
         $this->chorister_description = $event->chorister_description;
         $this->public_description = $event->public_description;

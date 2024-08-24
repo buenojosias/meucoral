@@ -24,14 +24,25 @@ class Event extends Model
         'last_answer',
     ];
 
+    protected $appends = ['day','month'];
+
     protected function casts(): array
     {
         return [
             'date' => 'date',
-            'time' => 'datetime',
+            'time' => 'datetime:H:i',
             'is_presentation' => 'boolean',
             'last_answer' => 'datetime',
         ];
+    }
+
+    public function getDayAttribute()
+    {
+        return intval($this->date->format('d'));
+    }
+    public function getMonthAttribute()
+    {
+        return intval($this->date->format('m'));
     }
 
     public function choir()

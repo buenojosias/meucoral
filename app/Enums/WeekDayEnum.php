@@ -29,4 +29,17 @@ enum WeekDayEnum: int
             self::SAB => 'Sábado',
         };
     }
+
+    public function abbr()
+    {
+        return match($this) {
+            self::DOM => 'Dom',
+            self::SEG => 'Seg',
+            self::TER => 'Ter',
+            self::QUA => 'Qua',
+            self::QUI => 'Qui',
+            self::SEX => 'Sex',
+            self::SAB => 'Sáb',
+        };
+    }
 }

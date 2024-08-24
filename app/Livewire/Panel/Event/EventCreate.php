@@ -20,6 +20,7 @@ class EventCreate extends Component
     public $groups = [];
     public $selectedGroups = [];
 
+    public $addressable = false;
     public $addressForm = false;
     public $states = [];
     public $cities = [];
@@ -32,6 +33,7 @@ class EventCreate extends Component
     {
         $this->choirId = auth()->user()->selected_choir_id;
         $this->groupable = auth()->user()->plan_id >= 3;
+        $this->addressable = auth()->user()->plan_id >= 2;
 
         if (!$this->choirId)
             return abort(403, 'Selecione um coral para continuar');
