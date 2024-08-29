@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             EncounterSeeder::class,
             AttendanceSeeder::class,
             EventSeeder::class,
+            CategorySeeder::class,
+            ThemeSeeder::class,
+            SongSeeder::class,
         ]);
     }
 }

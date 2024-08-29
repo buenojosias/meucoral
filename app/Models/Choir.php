@@ -76,4 +76,19 @@ class Choir extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function songs(): HasMany
+    {
+        return $this->hasMany(Song::class);
+    }
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function themes(): HasMany
+    {
+        return $this->hasMany(Theme::class);
+    }
 }
