@@ -11,9 +11,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <tallstackui:script />
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('build/assets/app-BHrX4qhm.css') }}">
-    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
-    {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-HXFEkoYz.css') }}">
+    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script> --}}
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body x-data="{ sidebar: false }">
@@ -37,7 +37,7 @@
             <div class="sidebar-footer" x-on:click="showsbf = !showsbf">
                 <x-ts-avatar xs color="primary" />
                 <div class="text-sm font-semibold text-white">
-                    {{ auth()->user()->name }}
+                    {{ auth()->user()->name ?? '' }}
                 </div>
             </div>
         </div>
@@ -53,10 +53,9 @@
                     @livewire('partials.header_choir')
                 </div>
                 <div class="relative">
-                    {{-- @livewire('layout.header-dropdown') --}}
-                    {{-- @include('livewire.header-dropdown') --}}
+                    @livewire('layout.header-dropdown')
                     {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
-                    <small class="text-gray-800">v. 0.4.2-beta</small>
+                    {{-- <small class="text-gray-800">v. 0.4.2-beta</small> --}}
                 </div>
             </header>
             <x-ts-toast />

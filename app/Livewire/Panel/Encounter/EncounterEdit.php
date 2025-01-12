@@ -44,7 +44,9 @@ class EncounterEdit extends Component
     public function save()
     {
         $this->form->validate();
-
+        if ($this->form->description == '') {
+            $this->form->description = null;
+        }
         if ($this->encounter->update($this->form->all()))
             $this->toast()->success('Alterações salvas com sucesso.')->send();
         else

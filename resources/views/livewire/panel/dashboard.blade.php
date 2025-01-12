@@ -24,12 +24,12 @@
         </x-ts-card>
     @endif
     <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="mt-2 px-3 py-2 bg-white border-r-4 border-secondary-600 rounded-lg shadow relative">
-            <div class="px-1 py-3 w-auto h-full rounded-lg bg-secondary-500 absolute -top-3">
+        <div class="mt-2 px-3 py-2 flex space-x-4 items-center bg-white border-r-0 border-secondary-600 rounded-lg shadow">
+            <div class="px-1.5 py-4 h-full rounded-lg bg-secondary-500">
                 <x-ts-icon name="calendar-dots" class="h-10 w-10 text-white" light />
             </div>
-            <div class="ml-16">
-                <h3 class="text-xl text-secondary-700 font-bold mb-0.5">Próximo evento</h3>
+            <div>
+                <h3 class="text-xl text-secondary-700 font-bold">Próximo evento</h3>
                 @if ($nextEvent)
                     <a href="{{ route('panel.events.show', $nextEvent) }}">
                         <p class="text-sm font-semibold text-gray-500">
@@ -38,17 +38,17 @@
                         <p class="font-semibold text-gray-800">{{ $nextEvent->name }}</p>
                     </a>
                 @else
-                    <p class="font-semibold text-gray-800">Nenhum evento agendado</p>
+                    <p class="text-gray-800">Nenhum evento agendado</p>
                 @endif
             </div>
         </div>
         @if ($planId >= 2)
-            <div class="mt-2 px-3 py-2 bg-white border-r-4 border-primary-600 rounded-lg shadow relative">
-                <div class="px-1 py-3 w-auto h-full rounded-lg bg-primary-500 absolute -top-3">
+            <div class="mt-2 px-3 py-2 flex space-x-4 items-center bg-white border-r-0 border-primary-600 rounded-lg shadow">
+                <div class="px-1 py-4 h-full rounded-lg bg-primary-500">
                     <x-ts-icon name="chalkboard-teacher" class="h-10 w-10 text-white" light />
                 </div>
-                <div class="ml-16">
-                    <h3 class="text-xl text-primary-700 font-bold mb-0.5">Próximo ensaio</h3>
+                <div>
+                    <h3 class="text-xl text-primary-700 font-bold">Próximo ensaio</h3>
                     @if ($nextEncounter)
                         <a href="{{ route('panel.encounters.show', $nextEncounter) }}">
                             <p class="text-sm font-semibold text-gray-500">
@@ -57,7 +57,7 @@
                             <p class="font-semibold text-gray-800">{{ $nextEncounter->theme }}</p>
                         </a>
                     @else
-                        <p class="font-semibold text-gray-800">Nenhum ensaio programado</p>
+                        <p class="text-gray-800">Nenhum ensaio programado</p>
                     @endif
                 </div>
             </div>

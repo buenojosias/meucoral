@@ -58,5 +58,5 @@
             @endif
         </div>
     </div>
-    @livewire('panel.comment.comment-slide', ['model' => $choir, 'chorister' => null])
+    {{-- @livewire('panel.comment.comment-slide', ['model' => $choir, 'chorister' => null]) --}}
 </div>

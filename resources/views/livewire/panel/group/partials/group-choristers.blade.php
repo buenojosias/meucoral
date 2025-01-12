@@ -18,7 +18,7 @@
                         <td>{{ $chorister->status->value != 'Ativo' ? $chorister->status : $chorister->pivot->situation }}</td>
                         <td>
                             <x-ts-dropdown icon="dots-three-vertical" static>
-                                <x-ts-dropdown.items text="Detalhes" />
+                                {{-- <x-ts-dropdown.items text="Detalhes" /> --}}
                                 <a href="{{ route('panel.choristers.show', $chorister) }}" wire:navigate>
                                     <x-ts-dropdown.items text="Ver coralista" />
                                 </a>

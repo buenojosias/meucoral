@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{{ asset('build/assets/app-BHrX4qhm.css') }}">
-    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script>
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-Wy_VGuh_.css') }}">
+    <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script> --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans text-gray-900 antialiased">

@@ -10,10 +10,12 @@ enum KinshipEnum: string
     case TIA = 'Tia';
     case AVÔ = 'Avô';
     case AVÓ = 'Avó';
+    case PADRASTO = 'Padrasto';
+    case MADRASTA = 'Madrasta';
     case PRIMO = 'Primo';
     case PRIMA = 'Prima';
     case PADRINHO = 'Padrinho';
-    case MADRINHA = 'Matrinha';
+    case MADRINHA = 'Madrinha';
     case OUTRO = 'Outro';
 
     public static function values(): array

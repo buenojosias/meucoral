@@ -1,14 +1,14 @@
 <x-ts-modal title="Remover grupo" size="md" wire>
     <div class="space-y-2">
         <x-ts-errors />
-        <p>Você está removendo o(a) coralista do grupo {{ $group->name ?? '' }}.<br>
+        <p>Você está removendo o(a) coralista do grupo {{ $group->name ?? '' }}.
             Deseja manter o histórico de registro?</p>
-        <x-ts-radio wire:model="action" value="preserve" invalidate>
+        <x-ts-radio wire:model="action" id="yes" value="preserve" invalidate>
             <x-slot:label start>
                 Sim. Apenas remova o grupo e preserve o histórico.
             </x-slot:label>
         </x-ts-radio>
-        <x-ts-radio wire:model="action" value="delete" invalidate>
+        <x-ts-radio wire:model="action" id="no" value="delete" invalidate>
             <x-slot:label start>
                 Não. Apague todo o histórico do(a) coralista neste grupo.
             </x-slot:label>

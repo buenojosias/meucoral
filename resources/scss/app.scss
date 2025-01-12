@@ -91,10 +91,10 @@ main {
         @apply flex justify-between items-center;
     }
     dt {
-        @apply text-sm font-semibold text-copy-light;
+        @apply font-semibold text-copy-default;
     }
     dd {
-        @apply font-semibold text-copy-default;
+        @apply text-sm font-semibold text-copy-light;
     }
 }
 
@@ -119,7 +119,7 @@ table {
             @apply border-b;
         }
         th {
-            @apply text-left font-medium uppercase;
+            @apply text-left text-sm text-copy-default font-medium uppercase;
         }
     }
 
@@ -130,6 +130,9 @@ table {
             &:hover {
                 @apply bg-gray-100;
             }
+        }
+        td > a {
+            @apply font-semibold text-copy-default;
         }
     }
 

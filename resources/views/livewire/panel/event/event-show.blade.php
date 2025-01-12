@@ -57,7 +57,7 @@
                         </div>
                         <x-detail label="Complemento" :value="$address->complement" />
                         <x-detail label="Bairro" :value="$address->district" />
-                        <x-detail label="Cidade" :value="$address->city_name.'/'.$address->state_abbr" />
+                        <x-detail label="Cidade" :value="$address->city_name . '/' . $address->state_abbr" />
                         <x-detail label="Ponto de referência" :value="$address->reference" />
                     </div>
                 @endif
@@ -68,20 +68,26 @@
             </x-ts-card>
 
             <div class="grid md:grid-cols-2 gap-4">
-                @if ($groupable && $event->groups->count())
+                @if ($groupable)
                     <x-ts-card header="Grupos atribuídos" class="space-y-4">
-                        @foreach ($event->groups as $group)
-                            <x-ts-checkbox checked color="teal" disabled>
-                                <x-slot:label start>
-                                    {{ $group->name }}<br>
-                                    {{ $group->description }}
-                                </x-slot:label>
-                            </x-ts-checkbox>
-                        @endforeach
-                    </x-ts-card>
+                        @if ($event->groups->count())
+                            @foreach ($event->groups as $group)
+                                <x-ts-checkbox checked color="teal" disabled>
+                                    <x-slot:label start>
+                                        {{ $group->name }}<br>
+                                        {{ $group->description }}
+                                    </x-slot:label>
+                                </x-ts-checkbox>
+                            @endforeach
+                        @else
+                            <div class="py-6 text-center text-sm font-semibold">
+                                <p>Nenhum grupo atribuído.<br>
+                                Clique em editar para atribuir um ou mais grupos.</p>
+                            </div>
+                        @endif
                 @endif
+                </x-ts-card>
             </div>
-
         </div>
         <div class="col-span-3 lg:col-span-1 space-y-4">
             @if ($confirmable)
@@ -94,7 +100,7 @@
             @endif
         </div>
     </div>
-    @livewire('panel.comment.comment-slide', ['model' => $event, 'chorister' => null])
+    {{-- @livewire('panel.comment.comment-slide', ['model' => $event, 'chorister' => null]) --}}
     {{-- <div class="p-2 bg-primary-400 my-2">Músicas</div>
     <div class="p-2 bg-primary-400 my-2">Comentários</div> --}}
 </div>

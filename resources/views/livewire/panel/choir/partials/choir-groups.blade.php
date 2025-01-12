@@ -17,9 +17,13 @@
                 @foreach ($groups as $group)
                     <tr>
                         <td>
+                            @if ($choir->id === auth()->user()->selected_choir_id)
                             <a href="{{ route('panel.groups.show', $group) }}" wire:navigate>
                                 {{ $group->name }}
                             </a>
+                            @else
+                            {{ $group->name }}
+                            @endif
                         </td>
                         <td>{{ $group->description }}</td>
                         <td>{{ $group->status }}</td>

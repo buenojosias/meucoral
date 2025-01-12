@@ -18,7 +18,7 @@ new class extends Component {
         x-show="open" x-transition>
         <!-- heading -->
         <div class="flex items-center justify-between gap-2 p-4 pb-2">
-            <h3 class="font-bold text-xl">Meus projetos</h3>
+            <h3 class="font-bold text-xl">Meus corais</h3>
             <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name">
             </div>
             <div class="relative gap-2.5" x-data="{ actions: false }" @click.outside="actions = false">

@@ -25,7 +25,7 @@
             <x-ts-button text="Adicionar" wire:click="$toggle('modal')" flat />
         </div>
     </div>
-    <x-ts-modal wire header="Adicionar comentário" x-on:close="$wire.clear" size="sm" persistent>
+    <x-ts-modal wire title="Adicionar comentário" x-on:close="$wire.clear" size="sm" persistent>
         <x-ts-textarea wire:model="content" placeholder="Digite o comentário" rows="2" />
         <x-slot:footer>
             <x-ts-button text="Cancelar" wire:click="$toggle('modal')" flat />

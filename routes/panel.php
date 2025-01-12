@@ -21,6 +21,7 @@ use App\Livewire\Panel\Group\GroupCreate;
 use App\Livewire\Panel\Group\GroupEdit;
 use App\Livewire\Panel\Group\GroupIndex;
 use App\Livewire\Panel\Group\GroupShow;
+use App\Livewire\Panel\Song\SongIndex;
 use Illuminate\Support\Facades\Route;
 
 Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(function () {
@@ -49,6 +50,8 @@ Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(functio
     Route::get('eventos/agendar', EventCreate::class)->name('events.create');
     Route::get('eventos/{event}', EventShow::class)->name('events.show');
     Route::get('eventos/{event}/editar', EventEdit::class)->name('events.edit');
+
+    Route::get('musicas', SongIndex::class)->name('songs.index');
 
     Route::view('perfil', 'profile')->middleware(['auth'])->name('profile');
 });

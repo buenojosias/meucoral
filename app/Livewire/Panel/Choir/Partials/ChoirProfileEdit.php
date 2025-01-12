@@ -44,6 +44,9 @@ class ChoirProfileEdit extends Component
     public function save()
     {
         $this->validate();
+        if ($this->form->description == '') {
+            $this->form->description = null;
+        }
         $this->profile->update(
             $this->form->all()
         );

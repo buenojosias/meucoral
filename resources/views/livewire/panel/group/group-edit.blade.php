@@ -16,7 +16,7 @@
             <form id="form-create" wire:submit="save">
                 <div class="two-columns">
                     <div>
-                        <h1>Identificação do grupo</h1>
+                        <h2>Identificação do grupo</h2>
                         <p class="description">Defina um nome para distinguir este grupo dos demais</p>
                     </div>
                     <div>
@@ -26,7 +26,7 @@
                 <hr class="my-4">
                 <div class="two-columns">
                     <div>
-                        <h1>Idade dos membros</h1>
+                        <h2>Idade dos membros</h2>
                         <p class="description">Se houver idade mínima e máxima para os membros do grupo, informe ao lado
                         </p>
                     </div>
@@ -38,7 +38,7 @@
                 <hr class="my-4">
                 <div class="two-columns">
                     <div>
-                        <h1>Ensaios</h1>
+                        <h2>Ensaios</h2>
                         <p class="description">Informe o dia e horário dos ensaios do grupo</p>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-4">

@@ -20,7 +20,7 @@
                         <td>
                             @if ($chorister->choir_id === auth()->user()->selected_choir_id)
                                 <x-ts-dropdown icon="dots-three-vertical" static>
-                                    <x-ts-dropdown.items text="Detalhes" />
+                                    {{-- <x-ts-dropdown.items text="Detalhes" /> --}}
                                     <a href="{{ route('panel.groups.show', $group) }}" wire:navigate>
                                         <x-ts-dropdown.items text="Ver grupo" />
                                     </a>
