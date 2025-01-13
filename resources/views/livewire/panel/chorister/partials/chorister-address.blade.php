@@ -23,7 +23,7 @@
         @endif
     </x-ts-card>
 
-    <x-ts-modal title="Adicionar endereço" wire size="md" persistent>
+    <x-ts-modal title="Adicionar endereço" wire size="md" x-on:open="$wire.dispatchSelf('load-cities')" persistent>
         <form wire:submit="submit" id="address-form">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="col-span-2">

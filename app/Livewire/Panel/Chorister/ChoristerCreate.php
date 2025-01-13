@@ -13,8 +13,6 @@ class ChoristerCreate extends Component
 
     public ?int $selectedChoirId = null;
 
-    public bool $canAddChorister = false;
-
     public ChoristerForm $chorister;
 
     public function mount()
@@ -22,11 +20,6 @@ class ChoristerCreate extends Component
         $user = auth()->user();
 
         if (!$this->selectedChoirId = $user->selected_choir_id)
-            return;
-
-        $this->canAddChorister = $this->checkCanAddChorister($user);
-
-        if ($this->canAddChorister === false)
             return;
 
         $this->chorister->choir_id = $this->selectedChoirId;
@@ -52,17 +45,17 @@ class ChoristerCreate extends Component
         }
     }
 
-    public function checkCanAddChorister($user)
-    {
-        if ($user->plan_id >= 3)
-            return true;
+    // public function checkCanAddChorister($user)
+    // {
+    //     if ($user->plan_id >= 3)
+    //         return true;
 
-        $limit = $user->plan_id === 1 ? 30 : 100;
-        $choristers_count = $user->choristers()->withTrashed()->count();
+    //     $limit = $user->plan_id === 1 ? 30 : 100;
+    //     $choristers_count = $user->choristers()->withTrashed()->count();
 
-        if ($choristers_count < $limit)
-            return true;
+    //     if ($choristers_count < $limit)
+    //         return true;
 
-        return false;
-    }
+    //     return false;
+    // }
 }

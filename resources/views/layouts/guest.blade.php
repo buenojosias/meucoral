@@ -14,7 +14,7 @@
 
     {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-Wy_VGuh_.css') }}">
     <script src="{{ asset('build/assets/app-CifqVuM1.js') }}" defer></script> --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans text-gray-900 antialiased">

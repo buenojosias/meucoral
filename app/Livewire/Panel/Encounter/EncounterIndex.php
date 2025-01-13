@@ -4,6 +4,7 @@ namespace App\Livewire\Panel\Encounter;
 
 use App\Models\Encounter;
 use App\Models\Group;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,9 +13,8 @@ class EncounterIndex extends Component
 {
     use WithPagination;
 
-    public bool $encountrable = false;
-    public bool $groupable = false;
-    public $choirId;
+    public $choir;
+    public $groupable = false;
 
     #[Url(as: 'grupo')]
     public $groupId = '';
@@ -37,24 +37,22 @@ class EncounterIndex extends Component
 
     public function mount()
     {
-        $this->encountrable = auth()->user()->plan_id >= 2;
-        if (!$this->encountrable)
-            abort(403, 'Seu plano não tem suporte a essa funcionalidade.');
+        $this->choir = auth()->user()->selectedChoir()->first();
 
-        $this->choirId = auth()->user()->selected_choir_id;
-        $this->groupable = auth()->user()->plan_id >= 3;
-
-        $this->loadGroups();
+        if ($this->choir) {
+            $this->groupable = $this->choir->multigroup;
+        }
     }
 
+    #[On('load-groups')]
     public function loadGroups()
     {
-        if (!$this->groupable)
+        if ($this->groups || $this->groupable === false)
             return;
 
         $this->groups = Group::query()
-            ->when($this->choirId, fn($query) => $query->where('choir_id', $this->choirId))
-            ->when(!$this->choirId, function ($query) {
+            ->when($this->choir->id, fn($query) => $query->where('choir_id', $this->choir->id))
+            ->when(!$this->choir->id, function ($query) {
                 $query->whereHas('choir', function ($query) {
                     $query->where('user_id', auth()->user()->id);
                 });
@@ -64,22 +62,21 @@ class EncounterIndex extends Component
 
     public function render()
     {
-        $encounters = Encounter::query()
-            ->when($this->choirId, fn($query) => $query->where('choir_id', $this->choirId))
-            ->when(!$this->choirId, function ($query) {
-                $query->with('choir')->whereHas('choir', function ($query) {
-                    $query->where('user_id', auth()->user()->id);
-                });
-            })
-            ->when($this->groupable, fn($query) => $query->with('group'))
-            ->when($this->groupId, fn($query) => $query->where('group_id', $this->groupId))
-            ->when($this->minDate, fn($query) => $query->whereDate('date', '>=', $this->minDate))
-            ->when($this->maxDate, fn($query) => $query->whereDate('date', '<=', $this->maxDate))
-            ->when($this->period === 'proximos', fn($query) => $query->where('date', '>=', now()))
-            ->when($this->period === 'realizados', fn($query) => $query->where('date', '<', now()))
-            ->when($this->attendance !== null, fn($query) => $query->where('has_attendance', $this->attendance))
-            ->orderByDesc('date')
-            ->paginate();
+        $encounters = [];
+
+        if ($this->choir) {
+            $encounters = Encounter::query()
+                ->where('choir_id', $this->choir->id)
+                ->when($this->groupable, fn($query) => $query->with('group'))
+                ->when($this->groupId, fn($query) => $query->where('group_id', $this->groupId))
+                ->when($this->minDate, fn($query) => $query->whereDate('date', '>=', $this->minDate))
+                ->when($this->maxDate, fn($query) => $query->whereDate('date', '<=', $this->maxDate))
+                ->when($this->period === 'proximos', fn($query) => $query->where('date', '>=', now()))
+                ->when($this->period === 'realizados', fn($query) => $query->where('date', '<', now()))
+                ->when($this->attendance, fn($query) => $query->where('has_attendance', $this->attendance))
+                ->orderByDesc('date')
+                ->paginate();
+        }
 
         return view('livewire.panel.encounter.encounter-index', compact('encounters'))
             ->title('Ensaios');

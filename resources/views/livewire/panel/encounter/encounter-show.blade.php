@@ -33,7 +33,7 @@
                 @if (!$choirId || $encounter->choir_id != $choirId)
                     <x-detail label="Coral" :value="$encounter->choir->name" />
                 @endif
-                @if ($groupable && $encounter->group)
+                @if ($encounter->group)
                     <x-detail label="Grupo" :value="$encounter->group->name" />
                 @endif
                 @if ($encounter->choir_id == $choirId)

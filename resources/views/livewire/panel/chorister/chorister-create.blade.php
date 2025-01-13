@@ -9,11 +9,6 @@
             Nenhum coral selecionado.<br>
             Selecione um coral para cadastrar coralistas.
         </x-ts-card>
-    @elseif (!$canAddChorister)
-        <x-ts-card>
-            O número de coralistas cadastrados atingiu o limite que seu plano atual permite.<br>
-            Você pode alterar o plano ou excluir permanentemente alguns coralistas.
-        </x-ts-card>
     @else
         <x-ts-card>
             <form id="form-create" wire:submit="save">

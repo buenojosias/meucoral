@@ -53,7 +53,7 @@
                     @livewire('partials.header_choir')
                 </div>
                 <div class="relative">
-                    @livewire('layout.header-dropdown')
+                    {{-- @livewire('layout.header-dropdown') --}}
                     {{-- <x-ts-avatar sm :model="auth()->user()" color="fff" /> --}}
                     {{-- <small class="text-gray-800">v. 0.4.2-beta</small> --}}
                 </div>

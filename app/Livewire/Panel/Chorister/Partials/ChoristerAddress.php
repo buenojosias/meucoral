@@ -5,6 +5,7 @@ namespace App\Livewire\Panel\Chorister\Partials;
 use App\Livewire\Forms\AddressForm;
 use App\Models\ChoirProfile;
 use App\Models\City;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -32,7 +33,7 @@ class ChoristerAddress extends Component
         if($this->address)
             $this->form->setAddress($this->address);
 
-            $this->loadCities();
+            // $this->loadCities();
     }
 
     public function render()
@@ -40,13 +41,13 @@ class ChoristerAddress extends Component
         return view('livewire.panel.chorister.partials.chorister-address');
     }
 
-
     public function updatedModal()
     {
         if($this->address)
             $this->form->setAddress($this->address);
     }
 
+    #[On('load-cities')]
     public function loadCities()
     {
         if ($this->address) {

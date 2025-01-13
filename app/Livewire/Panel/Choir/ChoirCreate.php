@@ -17,7 +17,7 @@ class ChoirCreate extends Component
     public ChoirForm $form;
     public ChoirProfileForm $profile;
 
-    public $canCreate;
+    // public $canCreate;
 
     public $states = [];
     public $cities = [];
@@ -29,7 +29,7 @@ class ChoirCreate extends Component
 
     public function mount()
     {
-        $this->canCreate = $this->canCreateChoir();
+        // $this->canCreate = $this->canCreateChoir();
         $this->states = State::all();
     }
 
@@ -39,24 +39,24 @@ class ChoirCreate extends Component
             ->title('Cadastrar coral');
     }
 
-    public function canCreateChoir()
-    {
-        $user = auth()->user();
+    // public function canCreateChoir()
+    // {
+    //     $user = auth()->user();
 
-        if ($user->plan_id >= 3)
-            return true;
+    //     if ($user->plan_id >= 3)
+    //         return true;
 
-        $choirs_count = $user->choirs()->withTrashed()->count();
-        $this->form->multigroup = false;
+    //     $choirs_count = $user->choirs()->withTrashed()->count();
+    //     $this->form->multigroup = false;
 
-        if ($user->plan_id === 2 && $choirs_count < 3)
-            return true;
+    //     if ($user->plan_id === 2 && $choirs_count < 3)
+    //         return true;
 
-        if ($user->plan_id === 1 && $choirs_count < 1)
-            return true;
+    //     if ($user->plan_id === 1 && $choirs_count < 1)
+    //         return true;
 
-        return false;
-    }
+    //     return false;
+    // }
 
     public function updatedStateId()
     {

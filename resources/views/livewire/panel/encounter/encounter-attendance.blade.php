@@ -19,7 +19,7 @@
             </table>
         </div>
     @endif
-    @if ($choristers && $choristers->count())
+    @if (@$choristers && $choristers->count() && $encounter->choir_id == auth()->user()->selected_choir_id)
         <x-ts-errors />
         <div class="table-wrapper">
             <div class="table-header">

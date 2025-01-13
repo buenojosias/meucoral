@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'plan_id' => 3,
+            'plan_id' => null,
             'name' => 'Josias Bueno',
             'email' => 'josias.jpb@gmail.com',
             'password' => bcrypt('JPB@2019'),

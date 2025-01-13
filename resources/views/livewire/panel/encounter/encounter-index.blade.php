@@ -11,47 +11,54 @@
         </div>
     </div>
 
-    <div class="table-wrapper">
-        <div class="table-header justify-end">
-            <x-ts-button icon="funnel" wire:click="$toggle('filterModal')" flat />
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Tema</th>
-                    @if ($this->groupable)
-                        <th>Grupo</th>
-                    @endif
-                    @if (!$choirId)
-                        <th>Coral</th>
-                    @endif
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($encounters as $encounter)
+    @if (!$choir)
+        <x-ts-card>
+            Nenhum coral selecionado.<br>
+            Selecione um coral para listar e adicionar ensaios.
+        </x-ts-card>
+    @else
+        <div class="table-wrapper">
+            <div class="table-header justify-end">
+                <x-ts-button icon="funnel" wire:click="$toggle('filterModal')" flat />
+            </div>
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $encounter->date->format('d/m/Y') }}</td>
-                        <td>
-                            <a href="{{ route('panel.encounters.show', $encounter) }}">{{ $encounter->theme }}</a>
-                        </td>
-                        @if ($this->groupable)
-                            <td>{{ $encounter->group->name ?? '' }}</td>
+                        <th>Data</th>
+                        <th>Tema</th>
+                        @if ($groupable)
+                            <th>Grupo</th>
                         @endif
-                        @if (!$choirId)
-                            <td>{{ $encounter->choir->name }}</td>
-                        @endif
-                        <td></td>
+                        {{-- @if (!$choirId)
+                        <th>Coral</th>
+                    @endif --}}
+                        <th></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="table-footer">
-            {{ $encounters->links() }}
+                </thead>
+                <tbody>
+                    @foreach ($encounters as $encounter)
+                        <tr>
+                            <td>{{ $encounter->date->format('d/m/Y') }}</td>
+                            <td>
+                                <a href="{{ route('panel.encounters.show', $encounter) }}">{{ $encounter->theme }}</a>
+                            </td>
+                            @if ($groupable)
+                                <td>{{ $encounter->group->name ?? '' }}</td>
+                            @endif
+                            {{-- @if (!$choirId)
+                            <td>{{ $encounter->choir->name }}</td>
+                        @endif --}}
+                            <td></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="table-footer">
+                {{ $encounters->links() }}
+            </div>
         </div>
-    </div>
-    <x-ts-modal title="Filtrar ensaios" wire="filterModal" size="sm">
+    @endif
+    <x-ts-modal title="Filtrar ensaios" x-on:open="$wire.dispatchSelf('load-groups')" wire="filterModal" size="sm">
         <div class="space-y-4">
             <x-ts-select.native label="Período" wire:model="period" :options="[
                 ['label' => 'Todos', 'value' => ''],
