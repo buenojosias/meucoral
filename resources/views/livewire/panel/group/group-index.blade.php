@@ -22,10 +22,7 @@
             Seu plano atual não permite a criação de grupos.
         </x-ts-card>
     @elseif (!$selectedChoirId)
-        <x-ts-card>
-            Nenhum coral selecionado.<br>
-            Selecione um coral para listar e criar grupos.
-        </x-ts-card>
+        <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e criar grupos." btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @elseif (!$isMultigroup)
         <x-ts-card>
             O coral selecionado não está definido como multigrupo.<br>

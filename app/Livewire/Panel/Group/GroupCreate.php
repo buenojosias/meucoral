@@ -11,7 +11,7 @@ class GroupCreate extends Component
 {
     public GroupForm $form;
 
-    public $canGroup;
+    public $canGroup = true;
 
     public $selectedChoirId;
 
@@ -23,9 +23,6 @@ class GroupCreate extends Component
     public function mount()
     {
         $user = auth()->user();
-
-        if (!$this->canGroup($user))
-            return;
 
         if (!$this->selectedChoirId = $user->selected_choir_id)
             return;

@@ -35,9 +35,6 @@ class EventCreate extends Component
         $this->groupable = auth()->user()->plan_id >= 3;
         $this->addressable = auth()->user()->plan_id >= 2;
 
-        if (!$this->choirId)
-            return abort(403, 'Selecione um coral para continuar');
-
         $this->event->choir_id = $this->choirId;
 
         if ($this->groupable)

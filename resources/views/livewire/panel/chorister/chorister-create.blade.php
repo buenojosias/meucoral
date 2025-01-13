@@ -5,10 +5,8 @@
         </div>
     </div>
     @if (!$selectedChoirId)
-        <x-ts-card>
-            Nenhum coral selecionado.<br>
-            Selecione um coral para cadastrar coralistas.
-        </x-ts-card>
+        <x-empty title="Nenhum coral selecionado" description="Selecione um coral para cadastrar coralistas."
+            btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @else
         <x-ts-card>
             <form id="form-create" wire:submit="save">

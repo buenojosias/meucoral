@@ -24,6 +24,8 @@ new #[Layout('layouts.guest')] class extends Component {
 }; ?>
 
 <div>
+    <h2 class="mt-2 mb-6 font-semibold text-2xl text-gray-700">Login</h2>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

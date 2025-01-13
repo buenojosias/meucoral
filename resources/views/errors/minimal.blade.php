@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </body>
-</html> --}}
+</html>
 
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('title', __('Not Found'))
 @section('slot')
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -49,4 +49,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

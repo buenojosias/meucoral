@@ -9,17 +9,15 @@
             <h1>Coralistas</h1>
             <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" />
         </div>
-        {{-- @if ($choirs) --}}
-        <div>
-            <x-ts-button text="Cadastrar coralista" :href="route('panel.choristers.create')" wire:navigate />
-        </div>
-        {{-- @endif --}}
+        @if ($choirId)
+            <div>
+                <x-ts-button text="Cadastrar coralista" :href="route('panel.choristers.create')" wire:navigate />
+            </div>
+        @endif
     </div>
     @if (!$choirId)
-        <x-ts-card>
-            Nenhum coral selecionado.<br>
-            Selecione um coral para listar e cadastrar coralistas.
-        </x-ts-card>
+        <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e cadastrar coralistas."
+            btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @else
         <div class="table-wrapper">
             <div class="table-header justify-between">

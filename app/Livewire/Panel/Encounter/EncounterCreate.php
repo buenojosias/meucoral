@@ -14,22 +14,16 @@ class EncounterCreate extends Component
 
     public EncounterForm $form;
 
-    public bool $encountrable = false;
+    public bool $encountrable = true;
     public $choirId;
-    public bool $groupable = false;
+    public bool $groupable = true;
     public $groups = [];
 
     public function mount()
     {
-        $this->encountrable = auth()->user()->plan_id >= 2;
-        if (!$this->encountrable)
-            abort(403, 'Seu plano não tem suporte a essa funcionalidade.');
-
         $this->choirId = auth()->user()->selected_choir_id;
 
         $this->form->choir_id = $this->choirId;
-
-        $this->groupable = auth()->user()->plan_id >= 3;
 
         $this->loadGroups();
     }

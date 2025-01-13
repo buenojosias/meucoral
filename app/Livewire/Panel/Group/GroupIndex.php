@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class GroupIndex extends Component
 {
-    public $canGroup;
+    public $canGroup = true;
 
     public $isMultigroup;
 
@@ -19,8 +19,8 @@ class GroupIndex extends Component
     {
         $user = auth()->user();
 
-        if (!$this->canGroup($user))
-            return;
+        // if (!$this->canGroup($user))
+        //     return;
 
         if (!$this->selectedChoirId = $user->selected_choir_id)
             return;
@@ -44,11 +44,11 @@ class GroupIndex extends Component
             ->title('Grupos do coral');
     }
 
-    public function canGroup($user)
-    {
-        $this->canGroup = $user->plan_id >= 3;
-        return $user->plan_id >= 3;
-    }
+    // public function canGroup($user)
+    // {
+    //     $this->canGroup = $user->plan_id >= 3;
+    //     return $user->plan_id >= 3;
+    // }
 
     public function isMultigroup($user)
     {

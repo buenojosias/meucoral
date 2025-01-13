@@ -3,14 +3,8 @@
         <h1>Cadastrar ensaio</h1>
     </div>
     @if (!$choirId)
-        <x-ts-alert title="Nenhum coral selecionado" text="É necessário selecionar um coral para cadastrar ensaios."
-            color="amber" light>
-            <x-slot:footer>
-                <div class="flex justify-end">
-                    <x-ts-button text="Listar corais" sm color="amber" />
-                </div>
-            </x-slot:footer>
-        </x-ts-alert>
+        <x-empty title="Nenhum coral selecionado" description="É necessário selecionar um coral para cadastrar ensaios."
+            btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @else
         <x-ts-card>
             <form id="form-create" wire:submit="save">

@@ -6,16 +6,16 @@
     @endif
     <div class="header">
         <h1>Ensaios</h1>
-        <div class="actions">
-            <x-ts-button text="Adicionar" :href="route('panel.encounters.create')" wire:navigate />
-        </div>
+        @if ($choir)
+            <div class="actions">
+                <x-ts-button text="Adicionar" :href="route('panel.encounters.create')" wire:navigate />
+            </div>
+        @endif
     </div>
 
     @if (!$choir)
-        <x-ts-card>
-            Nenhum coral selecionado.<br>
-            Selecione um coral para listar e adicionar ensaios.
-        </x-ts-card>
+        <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e adicionar ensaios."
+            btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @else
         <div class="table-wrapper">
             <div class="table-header justify-end">

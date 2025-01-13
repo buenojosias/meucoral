@@ -36,6 +36,10 @@ new #[Layout('layouts.guest')] class extends Component
 
         event(new Registered($user = User::create($validated)));
 
+        Cache::put($user->id, [
+            'first_login' => true,
+        ], now()->addMinutes(5));
+
         Auth::login($user);
 
         $this->redirect(route('home', absolute: false), navigate: true);
@@ -43,6 +47,7 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
+    <h2 class="mt-2 mb-6 font-semibold text-2xl text-gray-700">Criar conta</h2>
 
     {{-- <!-- Login com redes sociais -->
     <div class="mb-6 grid grid-cols-2 text-center gap-4">

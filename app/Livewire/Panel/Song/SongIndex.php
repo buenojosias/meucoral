@@ -12,7 +12,7 @@ class SongIndex extends Component
 {
     use WithPagination;
 
-    public $songable = false;
+    public $songable = true;
     public $choirId;
 
     public $categories = [];
@@ -31,9 +31,9 @@ class SongIndex extends Component
 
     public function mount()
     {
-        $this->songable = auth()->user()->plan_id >= 3;
-        if (!$this->songable)
-            abort(403, 'Seu plano não permite acessar essa funcionalidade.');
+        // $this->songable = auth()->user()->plan_id >= 3;
+        // if (!$this->songable)
+        //     abort(403, 'Seu plano não permite acessar essa funcionalidade.');
 
         $this->choirId = auth()->user()->selected_choir_id;
         if (!$this->choirId)

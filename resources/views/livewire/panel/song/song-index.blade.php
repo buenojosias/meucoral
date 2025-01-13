@@ -2,15 +2,19 @@
     <div class="header">
         <div>
             <h1>Músicas</h1>
-            <p><x-ts-link text="Gerenciar categorias" href="#" /></p>
+            @if ($choirId)
+                <p><x-ts-link text="Gerenciar categorias" href="#" /></p>
+            @endif
         </div>
-        <div>
-            <x-ts-button text="Adicionar" />
-        </div>
+        @if ($choirId)
+            <div>
+                <x-ts-button text="Adicionar" />
+            </div>
+        @endif
     </div>
     @if (!$choirId)
-        Nenhum coral selecionado.<br>
-        Selecione um coral para listar e adicionar músicas.
+        <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e adicionar músicas."
+            btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />
     @else
         <div>
             <div class="table-wrapper">

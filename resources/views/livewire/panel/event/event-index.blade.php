@@ -11,9 +11,11 @@
                 <x-ts-toggle label="Exibir de todos os corais" wire:model.live="showAllChoirs" sm />
             @endif
         </div>
-        <div>
-            <x-ts-button text="Agendar" href="{{ route('panel.events.create') }}" />
-        </div>
+        @if ($choirId)
+            <div>
+                <x-ts-button text="Agendar" href="{{ route('panel.events.create') }}" />
+            </div>
+        @endif
     </div>
     <div class="grid lg:grid-cols-5 gap-6">
         <div class="col-span-5 lg:col-span-3 space-y-4">
@@ -85,7 +87,9 @@
             @empty
                 <x-ts-card>
                     <div class="text-center text-gray-500 text-sm font-semibold">
-                        <p>Nenhum evento agendado {{ $changed ? 'para o mês selecionado.' : 'para as próximas datas.' }} Clique no botão acima para agendar um evento.</p>
+                        <p>Nenhum evento agendado
+                            {{ $changed ? 'para o mês selecionado.' : 'para as próximas datas.' }} Clique no botão
+                            acima para agendar um evento.</p>
                     </div>
                 </x-ts-card>
             @endforelse
