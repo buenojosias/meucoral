@@ -8,7 +8,7 @@
         <div class="title">
             <h1>Grupos do coral</h1>
             @if ($canGroup && $isMultigroup)
-                <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" />
+                {{-- <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" /> --}}
             @endif
         </div>
         @if ($groups)
@@ -29,7 +29,7 @@
             <x-ts-link :href="route('panel.choirs.edit', $selectedChoirId)" text="Editar coral" />
         </x-ts-card>
     @else
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid md:grid-cols-2 gap-4">
             @forelse ($groups as $group)
                 <x-ts-card>
                     <x-ts-link :text="$group->name" :href="route('panel.groups.show', $group)" wire:navigate :color="$group->trashed() ? 'neutral' : 'primary'" />

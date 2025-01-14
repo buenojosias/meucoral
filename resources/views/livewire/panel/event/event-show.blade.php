@@ -13,7 +13,7 @@
         <div class="mb-6">
             <x-ts-alert light close>
                 Este evento não pertence ao coral selecionado e por isso algumas funções podem ficar restritas.<br>
-                Deseja selecionar o coral deste evento para interação?
+                Selecione o respectivo coral na lista de corais para interação.
                 <x-slot:footer>
                     <div class="flex justify-end">
                         {{-- <x-ts-button text="Selecionar" wire:click="selectChoir" outline sm /> --}}
@@ -81,8 +81,11 @@
                             @endforeach
                         @else
                             <div class="py-6 text-center text-sm font-semibold">
-                                <p>Nenhum grupo atribuído.<br>
-                                Clique em editar para atribuir um ou mais grupos.</p>
+                                <p>Nenhum grupo atribuído.
+                                    @if ($event->choir_id == $choirId)
+                                        <br>Clique em Editar para atribuir um ou mais grupos.
+                                    @endif
+                                </p>
                             </div>
                         @endif
                 @endif

@@ -58,7 +58,8 @@ class SongIndex extends Component
                 ->paginate();
         }
 
-        return view('livewire.panel.song.song-index', compact('songs'));
+        return view('livewire.panel.song.song-index', compact('songs'))
+            ->title('Músicas');
     }
 
     public function resetCategory()

@@ -35,7 +35,7 @@ class EventIndex extends Component
     public function mount()
     {
         $this->choirId = auth()->user()->selected_choir_id;
-        $this->confirmable = auth()->user()->plan_id >= 2;
+        $this->confirmable = true;
 
         $this->months = MonthEnum::cases();
         $this->weekDays = WeekDayEnum::cases();

@@ -10,7 +10,7 @@ class SongFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'composer' => $this->faker->randomElement([null, $this->faker->name]),
+            'author' => $this->faker->randomElement([null, $this->faker->name]),
             'highlighted' => $this->faker->boolean,
             'shared' => $this->faker->boolean,
         ];

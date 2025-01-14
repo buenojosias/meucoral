@@ -15,8 +15,8 @@ class EventShow extends Component
 
     public function mount($event)
     {
-        $this->groupable = auth()->user()->plan_id >= 3;
-        $this->confirmable = auth()->user()->plan_id >= 2;
+        $this->groupable = true;
+        $this->confirmable = true;
         $this->choirId = auth()->user()->selected_choir_id;
 
         $this->event = Event::query()

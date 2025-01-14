@@ -21,7 +21,7 @@ class GroupEdit extends Component
 
     public function mount($group)
     {
-        $this->canGroup = auth()->user()->plan_id >= 3;
+        $this->canGroup = true;
         if(!$this->canGroup)
             return;
 

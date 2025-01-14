@@ -42,7 +42,7 @@
                                         <x-ts-icon name="bookmark-simple" class="w-4 h-4 text-amber-500" color="amber"
                                             solid />
                                     @endif
-                                    {{ $song->title }}
+                                    <a href="{{ route('panel.songs.show', $song->number) }}">{{ $song->title }}</a>
                                 </td>
                                 <td>
                                     @foreach ($song->categories as $category)

@@ -7,7 +7,7 @@
     <div class="header">
         <div class="title">
             <h1>Meus corais</h1>
-            <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" />
+            {{-- <x-ts-toggle label="Exibir excluídos" wire:model.live="withTrashed" /> --}}
         </div>
         @if ($choirs)
             <div>

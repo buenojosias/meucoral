@@ -11,13 +11,14 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('choir_id')->constrained()->onDelete('cascade');
-            $table->integer('number');
+            $table->integer('number')->index();
             $table->string('title');
-            $table->string('composer')->nullable();
+            $table->string('author')->nullable();
             $table->boolean('highlighted')->default(false);
             $table->boolean('shared')->default(false);
             $table->timestamps();
             $table->softDeletes();
+            $table->fullText('title');
         });
     }
 

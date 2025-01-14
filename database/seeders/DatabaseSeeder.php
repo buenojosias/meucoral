@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ThemeSeeder::class,
             SongSeeder::class,
+            LyricsSeeder::class,
         ]);
     }
 }

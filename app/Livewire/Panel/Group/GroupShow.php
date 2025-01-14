@@ -15,7 +15,7 @@ class GroupShow extends Component
 
     public function mount($group)
     {
-        $this->canGroup = auth()->user()->plan_id >= 3;
+        $this->canGroup = true;
         $this->groupId = $group;
     }
 
