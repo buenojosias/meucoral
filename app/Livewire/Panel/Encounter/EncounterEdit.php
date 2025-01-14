@@ -19,8 +19,8 @@ class EncounterEdit extends Component
 
     public function mount($encounter)
     {
-        $this->encountrable = auth()->user()->plan_id >= 2;
-        $this->groupable = auth()->user()->plan_id >= 3;
+        $this->encountrable = true;
+        $this->groupable = true;
 
         if (!$this->encountrable)
             abort(403, 'Seu plano não tem suporte a essa funcionalidade.');
