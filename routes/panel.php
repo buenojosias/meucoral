@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\ManagerAccess;
+use App\Livewire\Panel\Category\CategoryIndex;
 use App\Livewire\Panel\Chorister\ChoristerEdit;
 use App\Livewire\Panel\Choir\ChoirCreate;
 use App\Livewire\Panel\Choir\ChoirEdit;
@@ -56,6 +57,7 @@ Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(functio
 
     Route::get('musicas', SongIndex::class)->name('songs.index');
     Route::get('musicas/cadastrar', SongCreate::class)->name('songs.create');
+    Route::get('musicas/categorias', CategoryIndex::class)->name('songs.categories');
     Route::get('musicas/{song}', SongShow::class)->name('songs.show');
     Route::get('musicas/{song}/editar', SongEdit::class)->name('songs.edit');
 

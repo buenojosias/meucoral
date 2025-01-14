@@ -11,7 +11,8 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('choir_id')->constrained()->onDelete('cascade');
-            $table->string('name');
+            $table->integer('order')->default(1);
+            $table->string('name', 100);
             $table->string('slug');
             $table->timestamps();
         });

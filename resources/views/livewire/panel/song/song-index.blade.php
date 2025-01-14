@@ -3,7 +3,7 @@
         <div>
             <h1>Músicas</h1>
             @if ($choirId)
-                <p><x-ts-link text="Gerenciar categorias" href="#" /></p>
+                <p><x-ts-link text="Gerenciar categorias" :href="route('panel.songs.categories')" /></p>
             @endif
         </div>
         @if ($choirId)

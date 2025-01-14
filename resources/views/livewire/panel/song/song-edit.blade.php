@@ -26,8 +26,21 @@
                         <x-ts-input label="Autor/compositor" wire:model="form.author" />
                     </div>
                 </div>
+                <hr class="my-4">
+                <div class="two-columns">
+                    <div>
+                        <h2>Categorias</h2>
+                    </div>
+                    <div class="space-y-1">
+                        @foreach ($categories as $category)
+                            <x-ts-checkbox id="category-{{ $category->id }}" value="{{ $category->id }}"
+                                wire:model="selectedCategories" :label="$category->name" />
+                        @endforeach
+                    </div>
+                </div>
             </form>
             <x-slot:footer>
+                <x-ts-button :href="route('panel.songs.categories')" text="Gerenciar categorias" outline />
                 <x-ts-button type="submit" text="Salvar" form="form-create" loading="submit" />
             </x-slot>
         </x-ts-card>

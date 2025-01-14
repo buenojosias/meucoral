@@ -5,7 +5,7 @@
             @if ($song->lyrics)
                 {!! $song->lyrics->content !!}
             @else
-                <p>Nenhuma letra adicionada</p>
+                <p class="text-sm font-semibold text-center text-gray-800">Nenhuma letra adicionada.</p>
             @endif
         </div>
         <div x-show="show_textarea">

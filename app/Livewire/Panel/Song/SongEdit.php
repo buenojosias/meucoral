@@ -3,6 +3,7 @@
 namespace App\Livewire\Panel\Song;
 
 use App\Livewire\Forms\SongForm;
+use App\Models\Category;
 use App\Models\Song;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -13,6 +14,8 @@ class SongEdit extends Component
 
     public $choirId;
     public $song;
+    public $categories = [];
+    public $selectedCategories = [];
 
     public SongForm $form;
 
@@ -24,6 +27,9 @@ class SongEdit extends Component
             ->where('choir_id', $this->choirId)
             ->where('number', $song)
             ->firstOrFail();
+
+        $this->categories = Category::where('choir_id', $this->choirId)->get();
+        $this->selectedCategories = $this->song->categories()->pluck('categories.id')->toArray();
 
         $this->form->setSong($this->song);
     }
@@ -47,6 +53,7 @@ class SongEdit extends Component
         $this->song->update(
             $this->form->all()
         );
+        $this->song->categories()->sync($this->selectedCategories);
         $this->toast()->success('Alterações salvas com sucesso.')->send();
     }
 }

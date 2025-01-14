@@ -26,12 +26,7 @@
     @endif
 
     <x-ts-alert icon="lightbulb" color="amber" light close>
-        Ao longo das páginas, você receberá dicas de uso como esta.
-        <x-slot:footer>
-            <div class="flex justify-end pt-3">
-                <x-ts-button text="Não quero receber as dicas" color="amber" outline sm />
-            </div>
-        </x-slot:footer>
+        Em algumas páginas você receberá dicas de uso como esta.
     </x-ts-alert>
 
     <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

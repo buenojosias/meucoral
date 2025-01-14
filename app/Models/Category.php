@@ -13,6 +13,7 @@ class Category extends Model
 
     protected $fillable = [
         'choir_id',
+        'order',
         'name',
         'slug',
     ];
