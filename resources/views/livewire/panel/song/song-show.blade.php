@@ -5,9 +5,15 @@
             <h2>{{ $song->title }}</h2>
         </div>
         <div>
-            <x-ts-button text="Editar" />
+            <x-ts-button text="Editar" :href="route('panel.songs.edit', $song->number)" wire:navigate />
         </div>
     </div>
+
+    @if (session('status'))
+        <div class="mb-4">
+            <x-ts-alert :text="session('status')" color="green" light close />
+        </div>
+    @endif
 
     <div class="grid md:grid-cols-3 gap-6">
         <div class="space-y-4">

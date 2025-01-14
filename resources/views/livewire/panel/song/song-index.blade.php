@@ -8,7 +8,7 @@
         </div>
         @if ($choirId)
             <div>
-                <x-ts-button text="Adicionar" />
+                <x-ts-button text="Adicionar" :href="route('panel.songs.create')" />
             </div>
         @endif
     </div>
