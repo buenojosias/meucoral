@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('choristers', function (Blueprint $table) {
-            $table->id()->from(101);
+            $table->id();
             $table->foreignId('choir_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->date('birthdate');

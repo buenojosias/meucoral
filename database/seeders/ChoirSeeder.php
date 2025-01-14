@@ -11,15 +11,18 @@ class ChoirSeeder extends Seeder
 {
     public function run(): void
     {
-        $users = User::where('id', '>', 1)->get();
+        // $users = User::where('id', '>', 1)->get();
+        $users = User::where('id', 2)->get();
 
         $users->each(
             function ($user) {
-                Choir::factory(rand(0, $user->plan === 1 ? 1 : 3))
+                // Choir::factory(rand(0, $user->plan === 1 ? 1 : 3))
+                Choir::factory(3)
                     ->hasProfile(1)
                     ->create([
                         'user_id' => $user->id,
-                        'multigroup' => $user->plan === 1 ? 0 : rand(0, 1)
+                        // 'multigroup' => $user->plan === 1 ? 0 : rand(0, 1)
+                        'multigroup' => rand(0, 1)
                     ]);
             }
         );

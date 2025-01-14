@@ -93,14 +93,20 @@
             </div>
         </div>
         <div class="col-span-3 lg:col-span-1 space-y-4">
-            @if ($confirmable)
+            <x-ts-card header="Confirmações de participação">
+                <p class="text-sm text-center font-semibold text-gray-700 py-2">Recurso disponível em breve</p>
+            </x-ts-card>
+            <x-ts-card header="Músicas do evento">
+                <p class="text-sm text-center font-semibold text-gray-700 py-2">Recurso disponível em breve</p>
+            </x-ts-card>
+            {{-- @if ($confirmable)
                 @livewire('panel.event.event-choristers', ['event' => $event])
             @else
                 <x-ts-card header="Confirmações de participação" class="text-center text-sm font-semibold">
                     Seu plano atual não permite a confirmação presença nos eventos.
                     Fazer upgrade.
                 </x-ts-card>
-            @endif
+            @endif --}}
         </div>
     </div>
     {{-- @livewire('panel.comment.comment-slide', ['model' => $event, 'chorister' => null]) --}}

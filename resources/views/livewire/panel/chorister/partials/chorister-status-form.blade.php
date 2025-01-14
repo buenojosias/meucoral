@@ -4,7 +4,7 @@
             <h2>Status</h2>
         </div>
         <div class="flex justify-between items-center">
-            {{ $chorister->status }}
+            <p class="font-semibold text-gray-700">{{ $chorister->status }}</p>
             <x-ts-button text="Alterar" wire:click="$toggle('modal')" flat />
         </div>
     </x-ts-card>

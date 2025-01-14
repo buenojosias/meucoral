@@ -32,17 +32,17 @@
                 </div>
             </div>
             <div class="md:w-3/5 ml-4 mt-4 md:mt-12 pl-8 py-8 md:pl-0 md:py-0 overflow-hidden md:overflow-visible">
-                <div class="rounded-lg shadow-lg bg-white px-6 py-2 rotate-2">
-                    <img src="/images/suggest-landing-screenshot-1.png">
+                <div class="rounded-lg shadow-lg bg-white px-4 py-2 rotate-2">
+                    <img src="/img/coralize-landing-screenshot-1.png" class="sm:h-14">
                 </div>
-                <div class="rounded-lg shadow-lg bg-white px-6 py-2 rotate-3 mt-4 translate-x-4">
-                    <img src="/images/suggest-landing-screenshot-2.png">
+                <div class="rounded-lg shadow-lg bg-white px-4 py-2 rotate-3 mt-4 translate-x-4">
+                    <img src="/img/coralize-landing-screenshot-2.png" class="sm:h-14">
                 </div>
-                <div class="rounded-lg shadow-lg bg-white px-6 py-2 rotate-2 mt-4 -translate-x-2">
-                    <img src="/images/suggest-landing-screenshot-3.png">
+                <div class="rounded-lg shadow-lg bg-white px-4 py-2 rotate-2 mt-4 -translate-x-2">
+                    <img src="/img/coralize-landing-screenshot-3.png" class="sm:h-14">
                 </div>
-                <div class="rounded-lg shadow-lg bg-white px-6 py-2 rotate-3 mt-4 translate-x-2">
-                    <img src="/images/suggest-landing-screenshot-4.png">
+                <div class="rounded-lg shadow-lg bg-white px-4 py-2 rotate-3 mt-4 translate-x-2">
+                    <img src="/img/coralize-landing-screenshot-4.png" class="sm:h-14">
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                             </dl>
                         </div>
                     </div>
-                    <img src="/images/suggest-landing-dashboard.png" alt="Product screenshot"
+                    <img src="{{ asset('img/coralize-landing-dashboard.png') }}" alt="Screenshot Coralize"
                         class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 z-10"
                         width="2648" height="1469">
                 </div>
@@ -160,7 +160,7 @@
                             </dl>
                         </div>
                     </div>
-                    <img src="/images/suggest-landing-profile.png" alt="Product screenshot"
+                    <img src="{{ asset('img/coralize-landing-choristers.png') }}" alt="Screenshot Coralize"
                         class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 z-10"
                         width="2488" height="1464">
                 </div>

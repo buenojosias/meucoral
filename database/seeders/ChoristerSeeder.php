@@ -15,7 +15,7 @@ class ChoristerSeeder extends Seeder
 
         $choirs->each(
             function ($choir) {
-                $choristers = Chorister::factory(rand(5, 20))->create(['choir_id' => $choir->id]);
+                $choristers = Chorister::factory(rand(15, 30))->create(['choir_id' => $choir->id]);
 
                 if($choir->multigroup && $choir->groups->count() > 0) {
                     $groups = $choir->groups->pluck('id');

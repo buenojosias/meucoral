@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('encounters', function (Blueprint $table) {
-            $table->id()->from(101);
+            $table->id();
             $table->foreignId('choir_id')->constrained()->cascadeOnDelete();
             $table->foreignId('group_id')->nullable()->constrained()->cascadeOnDelete();
             $table->date('date');

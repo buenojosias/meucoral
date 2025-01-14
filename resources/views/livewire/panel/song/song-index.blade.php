@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-4">
     <div class="header">
         <div>
             <h1>Músicas</h1>
@@ -12,6 +12,11 @@
             </div>
         @endif
     </div>
+
+    <x-ts-alert icon="lightbulb" color="amber" light close>
+        Organize o repertório do seu coral nesta seção. Adicione músicas, categorias, letras e destaque as principais.
+    </x-ts-alert>
+
     @if (!$choirId)
         <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e adicionar músicas."
             btnLabel="Listar corais" :btnLink="route('panel.choirs.index')" />

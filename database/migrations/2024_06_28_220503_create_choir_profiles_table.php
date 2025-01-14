@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('choir_profiles', function (Blueprint $table) {
-            $table->id()->from(101);
+            $table->id();
             $table->foreignId('choir_id')->constrained()->cascadeOnDelete();
             $table->foreignId('city_id')->constrained();
             $table->string('logo')->nullable();

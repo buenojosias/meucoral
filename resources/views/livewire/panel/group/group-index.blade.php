@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-4">
     @if (session('status'))
         <div class="mb-4">
             <x-ts-alert :text="session('status')" color="green" light close />
@@ -17,6 +17,10 @@
             </div>
         @endif
     </div>
+    <x-ts-alert icon="lightbulb" color="amber" light close>
+        Se seu coral possui várias turmas, com dias e horários de ensaio distintos, é possível adicionar os grupos nesta seção.
+        Cada coralista pode ser inserido em mais de um grupo.
+    </x-ts-alert>
     @if (!$canGroup)
         <x-ts-card>
             Seu plano atual não permite a criação de grupos.

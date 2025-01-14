@@ -38,8 +38,8 @@
     @if (auth()->user()->selected_choir_id)
         <x-ts-card class="flex items-center">
             <div class="flex-1">
-                <small>Coral selecionado:</small><br>
-                {{ auth()->user()->selected_choir_name }}
+                <p class="text-sm">Coral selecionado:</p>
+                <p class="font-semibold text-gray-800">{{ auth()->user()->selected_choir_name }}</p>
             </div>
             <x-ts-tooltip
                 text="Apenas grupos, músicas, eventos e demais registros deste coral serão exibidos nas páginas internas."

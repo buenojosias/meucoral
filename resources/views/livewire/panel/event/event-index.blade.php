@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-4">
     @if (session('status'))
         <div class="mb-4">
             <x-ts-alert :text="session('status')" color="green" light close />
@@ -17,6 +17,11 @@
             </div>
         @endif
     </div>
+
+    <x-ts-alert icon="lightbulb" color="amber" light close>
+        Espaço destinado para o agendamento de eventos do coral. Para cada evento podem ser atribuídos vários grupos.
+    </x-ts-alert>
+
     <div class="grid lg:grid-cols-5 gap-6">
         <div class="col-span-5 lg:col-span-3 space-y-4">
             <x-ts-card>

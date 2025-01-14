@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-4">
     @if (session('status'))
         <div class="mb-4">
             <x-ts-alert :text="session('status')" color="green" light close />
@@ -12,6 +12,10 @@
             </div>
         @endif
     </div>
+
+    <x-ts-alert icon="lightbulb" color="amber" light close>
+        Este espaço é destinado a registrar e planejar os ensaios do coral, inclusive de forma retroativa.
+    </x-ts-alert>
 
     @if (!$choir)
         <x-empty title="Nenhum coral selecionado" description="Selecione um coral para listar e adicionar ensaios."
