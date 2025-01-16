@@ -10,7 +10,6 @@ use Livewire\Volt\Component;
 
 new #[Layout('layouts.guest')] class extends Component
 {
-    public ?int $indicated_by = null;
     public string $name = '';
     public string $email = '';
     public string $password = '';
@@ -22,10 +21,7 @@ new #[Layout('layouts.guest')] class extends Component
      */
     public function register(): void
     {
-        $this->indicated_by = fake()->randomElement([null, rand(2, 6)]);
-
         $validated = $this->validate([
-            'indicated_by' => ['nullable', 'integer'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
@@ -36,9 +32,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         event(new Registered($user = User::create($validated)));
 
-        Cache::put($user->id, [
-            'first_login' => true,
-        ], now()->addMinutes(5));
+        session()->flash('firstAccess', 'Conta criada com sucesso!');
 
         Auth::login($user);
 

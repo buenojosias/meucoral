@@ -296,7 +296,7 @@
                     </div>
                     <div class="w-full md:w-3/5 text-base leading-7 text-gray-600">
                         <div class="mb-8">
-                            <h4 class="font-semibold text-gray-900">O que é o SaaS de gestão de corais e como ele
+                            <h4 class="font-semibold text-gray-900">O que é Coralize e como ele
                                 funciona?</h4>
                             <p>Nosso SaaS é uma plataforma online que ajuda regentes e gestores a organizarem todos
                                 os aspectos do coral: cadastro de coralistas, ensaios, eventos, músicas, avaliações
