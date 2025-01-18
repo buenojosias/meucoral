@@ -2,6 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5G2V6L4MHP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-5G2V6L4MHP');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Coralize') }} {{ @$title ? ' - ' . @$title : '' }}</title>
@@ -15,7 +25,8 @@
 
 <body class="bg-gray-100 antialiased">
     {{-- <div> --}}
-    <header class=" sticky top-0 z-50 border-b border-gray-900 border-opacity-10 bg-white bg-opacity-60 backdrop-blur-lg">
+    <header
+        class=" sticky top-0 z-50 border-b border-gray-900 border-opacity-10 bg-white bg-opacity-60 backdrop-blur-lg">
         <nav class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 md:py-6"
             aria-label="Global">
             <div class="flex lg:flex-1">
@@ -28,8 +39,7 @@
             <div class="flex mt-2 md:mt-0 gap-x-6 md:gap-x-12">
                 <a href="/#recursos" class="text-sm font-semibold leading-6 text-gray-900">Recursos</a>
                 {{-- <a href="/creators" class="md:hidden text-sm font-semibold leading-6 text-gray-900">Creators</a> --}}
-                <a href="/#preco"
-                    class="hidden md:inline-block text-sm font-semibold leading-6 text-gray-900">Preço</a>
+                <a href="/#preco" class="hidden md:inline-block text-sm font-semibold leading-6 text-gray-900">Preço</a>
                 <a href="/#faq" class="text-sm font-semibold leading-6 text-gray-900">FAQ</a>
                 <a href="{{ route('auth.register') }}"
                     class="hidden md:inline-block text-sm font-semibold leading-6 text-gray-900">Criar conta</a>

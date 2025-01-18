@@ -15,8 +15,8 @@ class UserSeeder extends Seeder
         User::create([
             'plan_id' => null,
             'name' => 'Administrador',
-            'email' => 'admin@coralize.com.br',
-            'password' => bcrypt('aJPB@2019'),
+            'email' => '***',
+            'password' => bcrypt('***'),
             'role' => 'admin',
             'active' => true,
         ]);
@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
         User::create([
             'plan_id' => null,
             'name' => 'Conta Demo',
-            'email' => 'demo@coralize.com.br',
-            'password' => bcrypt('c22446688'),
+            'email' => '***',
+            'password' => bcrypt('***'),
             'role' => 'manager',
             'active' => true,
         ]);
@@ -33,8 +33,8 @@ class UserSeeder extends Seeder
         User::create([
             'plan_id' => null,
             'name' => 'Josias Bueno',
-            'email' => 'josias.jpb@gmail.com',
-            'password' => bcrypt('JPB@2019'),
+            'email' => '***',
+            'password' => bcrypt('***'),
             'role' => 'manager',
             'active' => true,
         ]);
