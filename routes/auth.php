@@ -8,15 +8,15 @@ use Livewire\Volt\Volt;
 
 Route::redirect('/login', '/auth/login')->name('login');
 
-Route::middleware('guest')->name('auth.')->group(function () {
+Route::middleware('guest')->group(function () {
     Volt::route('/auth/cadastro', 'pages.auth.register')
-        ->name('register');
+        ->name('auth.register');
 
     Volt::route('/auth/login', 'pages.auth.login')
-        ->name('login');
+        ->name('auth.login');
 
     Volt::route('/auth/esqueci-senha', 'pages.auth.forgot-password')
-        ->name('password.request');
+        ->name('auth.password.request');
 
     Volt::route('/auth/resetar-senha/{token}', 'pages.auth.reset-password')
         ->name('password.reset');
