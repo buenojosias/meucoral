@@ -17,6 +17,7 @@ class Logout extends Component
     {
         return <<<'HTML'
         <div>
+            <x-side-link label="Perfil" icon="user" :href="route('panel.profile')" :active="request()->routeIs('*profile*')" wire:navigate />
             <li class="nav-item">
                 <button wire:click="logout" type="button" class="text-gray-50 hover:bg-primary-800 hover:text-gray-100 flex items-center w-full">
                     <x-ts-icon name="sign-out" class="mr-2 h-5 w-5" />
