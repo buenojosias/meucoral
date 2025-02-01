@@ -43,10 +43,7 @@
                 @endif
             </x-ts-card>
             @if (!$encounter->date->isFuture())
-                <x-ts-card header="Chamada">
-                    <p class="text-sm text-center font-semibold text-gray-700 py-2">Recurso disponível em breve</p>
-                </x-ts-card>
-                {{-- @livewire('panel.encounter.partials.encounter-stats', ['encounter' => $encounter]) --}}
+                @livewire('panel.encounter.partials.encounter-stats', ['encounter' => $encounter])
             @endif
         </div>
         <div class="col-span-3 lg:col-span-2">
