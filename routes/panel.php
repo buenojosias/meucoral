@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\ResourceAttemptController;
 use App\Http\Middleware\ManagerAccess;
 use App\Livewire\Panel\Category\CategoryIndex;
 use App\Livewire\Panel\Chorister\ChoristerEdit;
@@ -26,6 +27,7 @@ use App\Livewire\Panel\Song\SongCreate;
 use App\Livewire\Panel\Song\SongEdit;
 use App\Livewire\Panel\Song\SongIndex;
 use App\Livewire\Panel\Song\SongShow;
+use App\Models\ResourceAttempt;
 use Illuminate\Support\Facades\Route;
 
 Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(function () {
@@ -62,4 +64,6 @@ Route::name('panel.')->middleware(['auth', ManagerAccess::class])->group(functio
     Route::get('musicas/{song}/editar', SongEdit::class)->name('songs.edit');
 
     Route::view('perfil', 'profile')->middleware(['auth'])->name('profile');
+
+    Route::get('attempt', ResourceAttemptController::class)->name('resource-attempt');
 });

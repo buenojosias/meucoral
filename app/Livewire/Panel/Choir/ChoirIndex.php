@@ -3,7 +3,10 @@
 namespace App\Livewire\Panel\Choir;
 
 use App\Models\Choir;
+use App\Services\LimitService;
+use App\Services\ResourceService;
 use Livewire\Component;
+use Redirect;
 use TallStackUi\Traits\Interactions;
 
 class ChoirIndex extends Component
@@ -13,6 +16,18 @@ class ChoirIndex extends Component
     public ?string $status = null;
 
     public $withTrashed = false;
+
+    public function mount()
+    {
+        $checkResource = ResourceService::checkResource('choirs');
+        if (isset($checkResource['error'])) {
+            return Redirect::route('panel.resource-attempt', ['resource' => $checkResource['resourceId'], 'error' => 'unavailable']);
+        }
+        $checkLimit = LimitService::checkLimit($checkResource);
+        if (isset($checkLimit['error'])) {
+            return Redirect::route('panel.resource-attempt', ['resource' => $checkLimit['resourceId'], 'error' => 'limit']);
+        }
+    }
 
     public function render()
     {

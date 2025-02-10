@@ -29,8 +29,7 @@ class ChoirCreate extends Component
 
     public function mount()
     {
-        // $this->canCreate = $this->canCreateChoir();
-        $this->states = State::all();
+        //
     }
 
     public function render()
